@@ -60,4 +60,10 @@
     <Folder Include="dbo\StoredProcedures" />
     <Folder Include="dbo\Tables" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Users.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataBaseWorkshopMyM.publish.xml" />
+  </ItemGroup>
 </Project>

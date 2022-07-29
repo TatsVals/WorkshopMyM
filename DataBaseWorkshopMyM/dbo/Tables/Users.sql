@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[Users]
+(
+	[CEDULA] INT NOT NULL PRIMARY KEY
+)
