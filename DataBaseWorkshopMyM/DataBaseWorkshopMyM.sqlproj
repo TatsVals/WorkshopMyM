@@ -61,9 +61,10 @@
     <Folder Include="dbo\Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Users.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="DataBaseWorkshopMyM.publish.xml" />
+    <Build Include="dbo\Tables\PRODUCTS.sql" />
+    <Build Include="dbo\StoredProcedures\ProductsUpdate.sql" />
+    <Build Include="dbo\StoredProcedures\ProductsCreate.sql" />
+    <Build Include="dbo\StoredProcedures\ProductsDelete.sql" />
+    <Build Include="dbo\StoredProcedures\ProductsRead.sql" />
   </ItemGroup>
 </Project>

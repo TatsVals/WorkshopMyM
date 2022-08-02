@@ -22,7 +22,7 @@ namespace BD
         }
 
         public SqlConnection DbConnection => new SqlConnection(
-            new SqlConnectionStringBuilder(config.GetConnectionString("34.135.82.3")).ConnectionString
+            new SqlConnectionStringBuilder(config.GetConnectionString("Conn")).ConnectionString
            );
 
         public async Task<IEnumerable<T>> QueryAsync<T>(string sp, object Param = null, int? Timeout = null)
