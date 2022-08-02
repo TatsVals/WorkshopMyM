@@ -22,9 +22,11 @@ namespace BD
         }
 
         public SqlConnection DbConnection => new SqlConnection(
-            new SqlConnectionStringBuilder(config.GetConnectionString("34.135.82.3")).ConnectionString
+            new SqlConnectionStringBuilder(config.GetConnectionString("Conn")).ConnectionString
            );
 
+
+        //Representación de retorno de una lista
         public async Task<IEnumerable<T>> QueryAsync<T>(string sp, object Param = null, int? Timeout = null)
         {
             try
@@ -224,7 +226,7 @@ namespace BD
 
 
 
-
+        //Metodo de acceso a datos para obtener el detalle de un registro
         public async Task<T> QueryFirstAsync<T>(string sp, object Param = null, int? Timeout = null)
         {
             try

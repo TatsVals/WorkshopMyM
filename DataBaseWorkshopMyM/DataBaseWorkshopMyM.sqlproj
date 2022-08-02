@@ -62,6 +62,10 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\StoredProcedures\UsersObtener.sql" />
+    <Build Include="dbo\StoredProcedures\UsersInsertar.sql" />
+    <Build Include="dbo\StoredProcedures\UsersActualizar.sql" />
+    <Build Include="dbo\StoredProcedures\UsersEliminar.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataBaseWorkshopMyM.publish.xml" />
