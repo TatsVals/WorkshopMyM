@@ -1,0 +1,159 @@
+﻿@page
+@model WebApp.Pages.Products.ProductsModel
+@{
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/fonts/icomoon/style.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="~/css/style.css">
+
+    <link rel="stylesheet" href="~/css/grid.css">
+
+    <title>Contact Form #7</title>
+</head>
+
+<body>
+
+
+    <div class="content">
+
+        <div class="container">
+            <div class="row align-items-stretch no-gutters contact-wrap">
+                <div class="col-md-8">
+                    <div class="form h-100">
+                        <h3>Productos</h3>
+                        <form class="mb-5" method="post" id="contactForm" name="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 form-group mb-5">
+                                    <label for="" class="col-form-label">Codigo</label>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="">
+                                </div>
+                                <div class="col-md-6 form-group mb-5">
+                                    <label for="" class="col-form-label">Descripcion</label>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="">
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-6 form-group mb-5">
+                                    <label for="" class="col-form-label">Unidad</label>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="">
+                                </div>
+                                <div class="col-md-6 form-group mb-5">
+                                    <label for="" class="col-form-label">Cantidad Disponible</label>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="">
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-6 form-group mb-5">
+                                    <label for="" class="col-form-label">Precio Compra</label>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="">
+                                </div>
+                                <div class="col-md-6 form-group mb-5">
+                                    <label for="" class="col-form-label">Precio Venta</label>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="">
+                                </div>
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-md-6 form-group mb-5">
+                                    <label for="" class="col-form-label">Costo Total</label>
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <input type="submit" value="Ingresar/Modificar" class="btn btn-primary rounded-0 py-2 px-4">
+                                    <span class="submitting"></span>
+                                </div>
+                            </div>
+
+
+
+
+                        </form>
+
+                        <div id="form-message-warning mt-4"></div>
+                        <div id="form-message-success">
+                            Your message was sent, thank you!
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-info  ">
+                        <div class="row">
+
+                            <div class="col-12"></div>
+                            <table id="GridView" class="table table-bordered table-striped table-over">
+                                <thead>
+                                    <tr>
+                                        <th>Codigo</th>
+                                        <th>Descripcion</th>
+                                        <th>Cantidad Disponible</th>
+                                        <th>Precio Compra</th>
+                                        <th>Precio Venta</th>
+                                        <th>Costo Total</th>
+                                        <th>Accion</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+                                    <tr>
+
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <a class="btn btn-outline-primary">
+                                                <i class='bx bx-edit-alt'></i>
+                                            </a>
+                                            <button type="button" class="btn btn-outline-danger">
+                                                <i class='bx bx-trash'></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
