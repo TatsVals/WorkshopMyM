@@ -33,7 +33,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<ProductsEntity>("dbo.ProveedorObtener");
+                var result = sql.QueryAsync<ProductsEntity>("dbo.ProductsRead");
                 return await result;
             }
             catch (Exception)
@@ -50,7 +50,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryFirstAsync<ProductsEntity>("dbo.ProveedorObtener", new { entity.Codigo });
+                var result = sql.QueryFirstAsync<ProductsEntity>("dbo.ProductsRead", new { entity.Codigo });
                 return await result;
             }
             catch (Exception)

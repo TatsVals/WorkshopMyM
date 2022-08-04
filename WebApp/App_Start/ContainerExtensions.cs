@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using WBL;
+using WBL;
 
 namespace WebApp
 {
@@ -14,8 +14,8 @@ namespace WebApp
         public static IServiceCollection AddDIContainer(this IServiceCollection services)
         {
             services.AddSingleton<IDataAccess, DataAccess>();
-            //services.AddScoped<IProveedorService, ProveedorService>();
-            //services.AddScoped<IContactoService, ContactoService>();
+            services.AddScoped<IProductsService, ProductsService>();
+            
 
 
             return services;

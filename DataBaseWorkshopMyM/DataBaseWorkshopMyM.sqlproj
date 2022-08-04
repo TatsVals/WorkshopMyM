@@ -66,5 +66,6 @@
     <Build Include="dbo\StoredProcedures\ProductsCreate.sql" />
     <Build Include="dbo\StoredProcedures\ProductsDelete.sql" />
     <Build Include="dbo\StoredProcedures\ProductsRead.sql" />
+    <Build Include="dbo\StoredProcedures\ProductsList.sql" />
   </ItemGroup>
 </Project>
