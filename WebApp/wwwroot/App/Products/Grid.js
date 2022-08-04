@@ -1,6 +1,6 @@
 "use strict";
-var GridProveedor;
-(function (GridProveedor) {
+var ProductsGrid;
+(function (ProductsGrid) {
     /*Muestra modal de mensaje*/
     if (MensajeApp != "") {
         Toast.fire({ icon: "success", title: MensajeApp });
@@ -14,8 +14,8 @@ var GridProveedor;
             }
         });
     }
-    GridProveedor.OnclickEliminar = OnclickEliminar;
+    ProductsGrid.OnclickEliminar = OnclickEliminar;
     /*Datable*/
     $("#GridView").DataTable();
-})(GridProveedor || (GridProveedor = {}));
+})(ProductsGrid || (ProductsGrid = {}));
 //# sourceMappingURL=Grid.js.map

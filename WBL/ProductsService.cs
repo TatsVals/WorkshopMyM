@@ -44,13 +44,28 @@ namespace WBL
 
 
         }
+        //GET LISTA
+        public async Task<IEnumerable<ProductsEntity>> GETLISTA()
+        {
+            try
+            {
+                var result = sql.QueryAsync<ProductsEntity>("dbo.ProductsLista");
+                return await result;
+            }
+            catch (Exception)
+            {
 
+                throw;
+            }
+
+
+        }
         //MetodoGetById
         public async Task<ProductsEntity> GETBYID(ProductsEntity entity)
         {
             try
             {
-                var result = sql.QueryFirstAsync<ProductsEntity>("dbo.ProductsRead", new { entity.Codigo });
+                var result = sql.QueryFirstAsync<ProductsEntity>("dbo.ProductsRead", new { entity.IdProduct });
                 return await result;
             }
             catch (Exception)
