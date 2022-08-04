@@ -21,3 +21,5 @@
 
     /*Datable*/
     $("#GridView").DataTable();
+
+}
