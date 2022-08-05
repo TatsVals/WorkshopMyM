@@ -11,11 +11,11 @@ namespace WebApp.Pages.Products
 {
     public class EditModel : PageModel
     {
-        private readonly IProductsService proveedor;
+        private readonly IProductsService producto;
 
-        public EditModel(IProductsService proveedor)
+        public EditModel(IProductsService producto)
         {
-            this.proveedor = proveedor;
+            this.producto = producto;
         }
 
         [BindProperty(SupportsGet = true)]
@@ -32,9 +32,9 @@ namespace WebApp.Pages.Products
                 if (id.HasValue)
                 {
 
-                    Entity = await proveedor.GETBYID(new()
+                    Entity = await producto.GETBYID(new()
                     {
-                        IdProduct = id
+                        IdProducto = id
                     });
                 }
 
@@ -53,16 +53,16 @@ namespace WebApp.Pages.Products
         {
             try
             {
-                if (Entity.IdProduct.HasValue)
+                if (Entity.IdProducto.HasValue)
                 {
-                    var result = await proveedor.UPDATE(Entity);
+                    var result = await producto.UPDATE(Entity);
 
                     if (result.CodeError != 0) throw new Exception(result.MsgError);
                     TempData["Msg"] = "El registro se actualizó correctamente";
                 }
                 else //Insertar
                 {
-                    var result = await proveedor.CREATE(Entity);
+                    var result = await producto.CREATE(Entity);
 
                     if (result.CodeError != 0) throw new Exception(result.MsgError);
                     TempData["Msg"] = "El registro se agregó correctamente";

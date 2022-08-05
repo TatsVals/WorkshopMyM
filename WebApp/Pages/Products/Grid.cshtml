@@ -17,7 +17,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <table id="GridView" class="table table-striped table table-hover table table-bordered ">
+                    <table id="GridView" class="table-striped table table-hover table table-bordered">
                         <thead>
                             <tr>
                                 <th>IdProduct</th>
@@ -35,7 +35,7 @@
                             @foreach (var item in Model.GridList)
                             {
                             <tr>
-                                <td>@item.IdProduct</td>
+                                <td>@item.IdProducto</td>
                                 <td>@item.Codigo</td>
                                 <td>@item.Descripcion</td>
                                 <td>@item.Unidad</td>
@@ -44,10 +44,10 @@
                                 <td>@item.PrecioVenta</td>
                                 <td>@item.CostoTotal</td>
                                 <td>
-                                    <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdProduct">
+                                    <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdProducto">
                                         <i class='bx bx-edit-alt'></i>
                                     </a>
-                                    <button type="button" class="btn btn-danger" onclick="ProductsGrid.OnclickEliminar(@item.IdProduct)">
+                                    <button type="button" class="btn btn-danger" onclick="ProductsGrid.OnclickEliminar(@item.IdProducto)">
                                         <i class='bx bxs-trash'></i>
                                     </button>
                                 </td>

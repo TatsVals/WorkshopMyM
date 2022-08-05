@@ -1,12 +1,12 @@
 ﻿CREATE PROCEDURE [dbo].[ProductsUpdate]
-	@IDPRODUCTO INT,
-	@CODIGO VARCHAR(10),
-	@DESCRIPCION VARCHAR(300),
-	@UNIDAD VARCHAR(20),
-	@CANTIDADDISPONIBLE FLOAT,
-	@PRECIOCOMPRA FLOAT,
-	@PRECIOVENTA FLOAT,
-	@COSTOTOTAL FLOAT
+	@IdProducto INT,
+	@Codigo VARCHAR(10),
+	@Descripcion VARCHAR(300),
+	@Unidad VARCHAR(20),
+	@CantidadDisponible FLOAT,
+	@PrecioCompra FLOAT,
+	@PrecioVenta FLOAT,
+	@CostoTotal FLOAT
 
 AS
  BEGIN
@@ -16,16 +16,16 @@ AS
 
   BEGIN TRY
 
-  UPDATE dbo.PRODUCTS SET
-      CODIGO = @CODIGO
-	, DESCRIPCION = @DESCRIPCION
-	, UNIDAD = @UNIDAD
-	, CANTIDADDISPONIBLE = @CANTIDADDISPONIBLE
-	, PRECIOCOMPRA = @PRECIOCOMPRA
-	, PRECIOVENTA = @PRECIOVENTA 
-	, COSTOTOTAL = @COSTOTOTAL 
+  UPDATE dbo.Productos SET
+      Codigo = @Codigo
+	, Descripcion = @Descripcion
+	, Unidad = @Unidad
+	, CantidadDisponible = @CantidadDisponible
+	, PrecioCompra = @PrecioCompra
+	, PrecioVenta = @PrecioVenta 
+	, CostoTotal = @CostoTotal 
   WHERE
-     @IDPRODUCTO = @IDPRODUCTO
+     IdProducto = @IdProducto
 
   COMMIT TRANSACTION TRASA
   SELECT 0 AS CodeError, '' AS MsgError

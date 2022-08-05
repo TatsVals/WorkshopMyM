@@ -8,7 +8,7 @@ namespace Entity
 {
     public class ProductsEntity : DBEntity
     {
-        public int? IdProduct { get; set; }
+        public int? IdProducto { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
         public string Unidad { get; set; }

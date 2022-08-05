@@ -30,7 +30,7 @@ namespace WebApp.Pages.Products
 
             try
             {
-                GridList = await products.GETLISTA();
+                GridList = await products.GET();
 
                 if (TempData.ContainsKey("Msg"))
                 {
@@ -55,7 +55,7 @@ namespace WebApp.Pages.Products
             try
             {
                 var result = await products.DELETE(new()
-                { IdProduct = id });
+                { IdProducto = id });
 
                 if (result.CodeError != 0)
                 {

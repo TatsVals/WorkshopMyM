@@ -1,11 +1,11 @@
-﻿CREATE TABLE [dbo].[PRODUCTS]
+﻿CREATE TABLE [dbo].[Productos]
 (
-	[IDPRODUCTO] INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_Proveedor PRIMARY KEY CLUSTERED(IDPRODUCTO),
-	[CODIGO] [varchar](10) NOT NULL ,
-	[DESCRIPCION] [varchar](300) NOT NULL,
-	[UNIDAD] [varchar](20) NOT NULL,
-	[CANTIDADDISPONIBLE] [float] NOT NULL,
-	[PRECIOCOMPRA] [float] NOT NULL,
-	[PRECIOVENTA] [float] NOT NULL,
-	[COSTOTOTAL] [float] NOT NULL 
+	[IdProducto] INT NOT NULL IDENTITY(1,1) CONSTRAINT PK_Proveedor PRIMARY KEY CLUSTERED(IDPRODUCTO),
+	[Codigo] [varchar](10) NOT NULL ,
+	[Descripcion] [varchar](300) NOT NULL,
+	[Unidad] [varchar](20) NOT NULL,
+	[CantidadDisponible] [float] NOT NULL,
+	[PrecioCompra] [float] NOT NULL,
+	[PrecioVenta] [float] NOT NULL,
+	[CostoTotal] [float] NOT NULL 
 )

@@ -14,7 +14,6 @@ namespace WBL
         Task<DBEntity> DELETE(ProductsEntity entity);
         Task<IEnumerable<ProductsEntity>> GET();
         Task<ProductsEntity> GETBYID(ProductsEntity entity);
-        Task<IEnumerable<ProductsEntity>> GETLISTA();
         Task<DBEntity> UPDATE(ProductsEntity entity);
     }
 
@@ -45,28 +44,13 @@ namespace WBL
 
 
         }
-        //GET LISTA
-        public async Task<IEnumerable<ProductsEntity>> GETLISTA()
-        {
-            try
-            {
-                var result = sql.QueryAsync<ProductsEntity>("dbo.ProductsList");
-                return await result;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-
-        }
+        
         //MetodoGetById
         public async Task<ProductsEntity> GETBYID(ProductsEntity entity)
         {
             try
             {
-                var result = sql.QueryFirstAsync<ProductsEntity>("dbo.ProductsRead", new { entity.IdProduct });
+                var result = sql.QueryFirstAsync<ProductsEntity>("dbo.ProductsRead", new { entity.IdProducto });
                 return await result;
             }
             catch (Exception)
@@ -113,6 +97,7 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.ProductsUpdate", new
                 {
+                    entity.IdProducto,
                     entity.Codigo,
                     entity.Descripcion,
                     entity.Unidad,

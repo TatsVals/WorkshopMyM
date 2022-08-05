@@ -1,11 +1,11 @@
 ﻿CREATE PROCEDURE [dbo].[ProductsCreate]
-	@CODIGO VARCHAR(10),
-	@DESCRIPCION VARCHAR(300),
-	@UNIDAD VARCHAR(20),
-	@CANTIDADDISPONIBLE FLOAT,
-	@PRECIOCOMPRA FLOAT,
-	@PRECIOVENTA FLOAT,
-	@COSTOTOTAL FLOAT 
+	@Codigo VARCHAR(10),
+	@Descripcion VARCHAR(300),
+	@Unidad VARCHAR(20),
+	@CantidadDisponible FLOAT,
+	@PrecioCompra FLOAT,
+	@PrecioVenta FLOAT,
+	@CostoTotal FLOAT 
 
 AS
  BEGIN
@@ -16,25 +16,25 @@ AS
   BEGIN TRY
 
 
-  INSERT INTO dbo.PRODUCTS
+  INSERT INTO dbo.Productos
   (
-     CODIGO
-  	, DESCRIPCION		  
-	, UNIDAD
-	, CANTIDADDISPONIBLE
-	, PRECIOCOMPRA
-	, PRECIOVENTA
-	, COSTOTOTAL  
+     Codigo
+  	, Descripcion		  
+	, Unidad
+	, CantidadDisponible
+	, PrecioCompra
+	, PrecioVenta
+	, CostoTotal  
   )
   VALUES
   (
-      @CODIGO		  
-	, @DESCRIPCION
-	, @UNIDAD
-	, @CANTIDADDISPONIBLE
-	, @PRECIOCOMPRA
-	, @PRECIOVENTA
-	, @COSTOTOTAL
+      @Codigo		  
+	, @Descripcion
+	, @Unidad
+	, @CantidadDisponible
+	, @PrecioCompra
+	, @PrecioVenta
+	, @CostoTotal
   )
 
   COMMIT TRANSACTION TRASA
