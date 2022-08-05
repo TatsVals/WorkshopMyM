@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\App\Products\Edit.ts" />
-    <Content Remove="wwwroot\App\Products\Products.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -126,7 +125,6 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="wwwroot\App\Products\Edit.ts" />
-    <TypeScriptCompile Include="wwwroot\App\Products\Products.ts" />
   </ItemGroup>
 
 </Project>
