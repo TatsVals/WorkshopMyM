@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[ProductsDelete]
-  @CODIGO VARCHAR(10)
+  @IdProducto INT
 
 AS
  BEGIN
@@ -9,8 +9,8 @@ AS
 
   BEGIN TRY
 
-   DELETE FROM dbo.PRODUCTS
-   WHERE CODIGO = @CODIGO
+   DELETE FROM dbo.Productos
+   WHERE IdProducto = @IdProducto
 
   COMMIT TRANSACTION TRASA
   SELECT 0 AS CodeError, '' AS MsgError

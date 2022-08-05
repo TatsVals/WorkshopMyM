@@ -1,22 +1,22 @@
 ﻿CREATE PROCEDURE [dbo].[ProductsRead]
-	@CODIGO VARCHAR(10)
-
+	@IdProducto INT = NULL
 AS
 BEGIN 
 	SET NOCOUNT ON
 
 	SELECT 
-	      CODIGO
-  	, DESCRIPCION		  
-	, UNIDAD
-	, CANTIDAD_DISPONIBLE
-	, PRECIO_COMPRA
-	, PRECIO_VENTA
-	, COSTO_TOTAL  
+	  IdProducto
+	, Codigo
+  	, Descripcion		  
+	, Unidad
+	, CantidadDisponible
+	, PrecioCompra
+	, PrecioVenta
+	, CostoTotal  
 	FROM
-	    dbo.PRODUCTS
+	    dbo.Productos
 	WHERE
-	    (@CODIGO IS NULL OR CODIGO = @CODIGO)
+	    (@IdProducto IS NULL OR IdProducto = @IdProducto)
 	      
 
 END

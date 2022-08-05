@@ -4,14 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    @await Html.PartialAsync("_HeaderPartial")
+    
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">           
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">WebApp</a>
+                <div class="logo">
+                    <img src="~/Images/LogoMyM.jpg" alt="Logo de Empresa">
+                </div>
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,10 +23,34 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark">Taller</a>
+                            <ul>
+                                <li><a class="nav-link text-dark" asp-area="" asp-page="/Products/Grid">Inventario</a>
+                                <li><a class="nav-link text-dark" asp-area="" asp-page="">Ordenes de Trabajo</a>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark">Empleados</a>
+                            <ul>
+                                <li><a class="nav-link text-dark" asp-area="" asp-page="">Roles</a>
+                                <li><a class="nav-link text-dark" asp-area="" asp-page="">Permisos</a>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark">Bitacoras</a>
+                            <ul>
+                                <li><a class="nav-link text-dark" asp-area="" asp-page="">Ingresos y Salidas al Sistema</a>
+                                <li><a class="nav-link text-dark" asp-area="" asp-page="">Movimientos de Usuarios</a>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Acerca</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="">Ayuda</a>
                         </li>
                     </ul>
                 </div>
@@ -37,7 +65,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - WebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2022 - Workshop - <a asp-area="" asp-page="/Privacy">Acerca De</a>
         </div>
     </footer>
 
@@ -45,6 +73,8 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
+    @await Html.PartialAsync("_ScriptsPartial")
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

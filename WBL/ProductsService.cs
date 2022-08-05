@@ -33,7 +33,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<ProductsEntity>("dbo.ProveedorObtener");
+                var result = sql.QueryAsync<ProductsEntity>("dbo.ProductsRead");
                 return await result;
             }
             catch (Exception)
@@ -44,13 +44,13 @@ namespace WBL
 
 
         }
-
+        
         //MetodoGetById
         public async Task<ProductsEntity> GETBYID(ProductsEntity entity)
         {
             try
             {
-                var result = sql.QueryFirstAsync<ProductsEntity>("dbo.ProveedorObtener", new { entity.Codigo });
+                var result = sql.QueryFirstAsync<ProductsEntity>("dbo.ProductsRead", new { entity.IdProducto });
                 return await result;
             }
             catch (Exception)
@@ -97,6 +97,7 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.ProductsUpdate", new
                 {
+                    entity.IdProducto,
                     entity.Codigo,
                     entity.Descripcion,
                     entity.Unidad,
@@ -124,7 +125,7 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.ProductsDelete", new
                 {
-                    entity.Codigo
+                    entity.IdProducto
 
                 });
 

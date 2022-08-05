@@ -8,10 +8,11 @@ namespace Entity
 {
     public class ProductsEntity : DBEntity
     {
+        public int? IdProducto { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
         public string Unidad { get; set; }
-        public string CantidadDisponible { get; set; }
+        public float CantidadDisponible { get; set; }
         public float PrecioCompra { get; set; }
         public float PrecioVenta { get; set; }
         public float CostoTotal { get; set; }
