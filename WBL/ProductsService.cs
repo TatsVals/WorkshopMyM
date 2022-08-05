@@ -14,6 +14,7 @@ namespace WBL
         Task<DBEntity> DELETE(ProductsEntity entity);
         Task<IEnumerable<ProductsEntity>> GET();
         Task<ProductsEntity> GETBYID(ProductsEntity entity);
+        Task<IEnumerable<ProductsEntity>> GETLISTA();
         Task<DBEntity> UPDATE(ProductsEntity entity);
     }
 
@@ -49,7 +50,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<ProductsEntity>("dbo.ProductsLista");
+                var result = sql.QueryAsync<ProductsEntity>("dbo.ProductsList");
                 return await result;
             }
             catch (Exception)

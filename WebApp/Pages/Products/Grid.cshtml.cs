@@ -30,7 +30,7 @@ namespace WebApp.Pages.Products
 
             try
             {
-                GridList = await products.GET();
+                GridList = await products.GETLISTA();
 
                 if (TempData.ContainsKey("Msg"))
                 {

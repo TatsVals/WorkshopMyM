@@ -1,18 +1,29 @@
 ﻿namespace ProductsGrid {
 
-    declare var MensajeApp;
-
-    /*Muestra modal de mensaje*/
-    if (MensajeApp != "") {
-        Toast.fire({ icon: "success", title: MensajeApp });
-    }
 
     /*Mostrar el modal de confirmación*/
     export function OnclickEliminar(id) {
         ComfirmAlert("¿Desea eliminar el registro?", "Eliminar", "warning", '#3085d6', '#d33')
             .then(result => {
                 if (result.isConfirmed) {
-                    window.location.href = "Proveedor/Grid?handler=Eliminar&id=" + id;
+                    Loading.fire("Borrando");
+
+
+                    App.AxiosProvider.DeleteProducts(id).then(data => {
+                        Loading.close();
+
+                        if (data.CodeError == 0) {
+                            Toast.fire({ title: "El registro se elimino correctamente", icon: "success" }).
+                                then(() => window.location.reload());
+                        }
+                        else {
+                            Toast.fire({ title: data.MsgError, icon: "error" })
+                        }
+
+
+
+                    })
+
                 }
 
             });
