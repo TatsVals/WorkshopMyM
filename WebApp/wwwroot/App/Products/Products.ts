@@ -1,21 +1,25 @@
 ﻿namespace Products {
 
-    var Formulario = new Vue(
-        {
-            data:
-            {
-                Formulario: "#FormEdit"
+    declare var MensajeApp;
 
-            },
-            mounted() {
-                CreateValidator(this.Formulario);
+    /*Muestra modal de mensaje*/
+    if (MensajeApp != "") {
+        Toast.fire({ icon: "success", title: MensajeApp });
+    }
 
-            }
+    /*Mostrar el modal de confirmación*/
+    export function OnclickEliminar2(id) {
+        ComfirmAlert("¿Desea eliminar el registro?", "Eliminar", "warning", '#3085d6', '#d33')
+            .then(result => {
+                if (result.isConfirmed) {
+                    window.location.href = "Proveedor/Grid?handler=Eliminar&id=" + id;
+                }
 
-        });
+            });
 
-    Formulario.$mount("#AppEdit");
+    }
 
-
+    /*Datable*/
+    $("#GridView").DataTable();
 
 }
