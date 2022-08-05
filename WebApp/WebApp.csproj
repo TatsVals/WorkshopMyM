@@ -6,7 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\App\Products\Edit.ts" />
     <Content Remove="wwwroot\App\Products\Products.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\.DS_Store" />
+    <None Include="wwwroot\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\fonts\.DS_Store" />
+    <None Include="wwwroot\fonts\icomoon\demo-files\demo.js" />
+    <None Include="wwwroot\fonts\icomoon\fonts\icomoon.svg" />
+    <None Include="wwwroot\Images\.DS_Store" />
+    <None Include="wwwroot\Images\undraw-contact.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\App\Products\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Products\Products.ts" />
   </ItemGroup>
 

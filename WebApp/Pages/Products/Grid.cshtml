@@ -6,7 +6,7 @@
 
     <div class="card">
         <div class="card-header">
-            Proveedores
+            Inventario
         </div>
         <div class="card-body">
 
@@ -22,6 +22,7 @@
                             <tr>
                                 <th>Codigo</th>
                                 <th>Descripcion</th>
+                                <th>Unidad</th>
                                 <th>Cantidad Disponible</th>
                                 <th>Precio Compra</th>
                                 <th>Precio Venta</th>
@@ -32,22 +33,23 @@
                         <tbody>
                             @foreach (var item in Model.GridList)
                             {
-                                <tr>
-                                    <td>@item.Codigo</td>
-                                    <td>@item.Descripcion</td>
-                                    <td>@item.CantidadDisponible</td>
-                                    <td>@item.PrecioCompra</td>
-                                    <td>@item.PrecioVenta</td>
-                                    <td>@item.CostoTotal</td>
-                                    <td>
-                                        <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdProduct">
-                                            <i class='bx bx-edit-alt'></i>
-                                        </a>
-                                        <button type="button" class="btn btn-danger" onclick="GridProveedor.OnclickEliminar(@item.IdProduct)">
-                                            <i class='bx bxs-trash'></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>@item.Codigo</td>
+                                <td>@item.Descripcion</td>
+                                <td>@item.Unidad</td>
+                                <td>@item.CantidadDisponible</td>
+                                <td>@item.PrecioCompra</td>
+                                <td>@item.PrecioVenta</td>
+                                <td>@item.CostoTotal</td>
+                                <td>
+                                    <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdProduct">
+                                        <i class='bx bx-edit-alt'></i>
+                                    </a>
+                                    <button type="button" class="btn btn-danger" onclick="ProductsGrid.OnclickEliminar(@item.IdProduct)">
+                                        <i class='bx bxs-trash'></i>
+                                    </button>
+                                </td>
+                            </tr>
 
                             }
                         </tbody>
