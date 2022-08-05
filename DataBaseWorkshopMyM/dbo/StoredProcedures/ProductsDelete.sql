@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[ProductsDelete]
-  @IdProducto VARCHAR(10)
+  @IdProducto INT
 
 AS
  BEGIN

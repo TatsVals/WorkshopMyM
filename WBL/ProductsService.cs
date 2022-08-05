@@ -125,7 +125,7 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.ProductsDelete", new
                 {
-                    entity.Codigo
+                    entity.IdProducto
 
                 });
 
