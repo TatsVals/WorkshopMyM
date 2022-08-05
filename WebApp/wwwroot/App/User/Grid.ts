@@ -16,5 +16,5 @@
             })
     }
 
-    $("GridView").DataTable();
+    $("#GridView").DataTable();
 }

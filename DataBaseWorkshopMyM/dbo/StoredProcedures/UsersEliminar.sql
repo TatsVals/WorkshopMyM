@@ -10,7 +10,7 @@ BEGIN
 
 	BEGIN TRY
 
-		DELETE FROM dbo.Users WHERE IdUsuario=IdUsuario
+		DELETE FROM dbo.Users WHERE IdUsuario=@IdUsuario
 
 		COMMIT TRANSACTION TRASA
 		SELECT 0 AS CodeError, '' as MsgError

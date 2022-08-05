@@ -51,7 +51,7 @@ namespace WebApp.Pages.Users
             {
                 var result = await usersService.Delete( new()                
                 {
-                    IdUsuarios= id
+                    IdUsuario = id
                 }               
                 );
 

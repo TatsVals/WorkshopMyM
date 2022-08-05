@@ -50,7 +50,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryFirstAsync<UsersEntity>("dbo.UsersObtener", new { entity.IdUsuarios });
+                var result = sql.QueryFirstAsync<UsersEntity>("dbo.UsersObtener", new { entity.IdUsuario });
                 return await result;
             }
             catch (Exception)
@@ -69,17 +69,12 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.UsersInsertar", new
                 {
-                    entity.Cedula
-                    ,
-                    entity.Nombre
-                    ,
-                    entity.Primer_Apellido
-                    ,
-                    entity.Segundo_Apellido
-                    ,
-                    entity.Nombre_Usuario
-                    ,
-                    entity.Clave
+                     entity.Cedula
+                    ,entity.Nombre
+                    ,entity.Primer_Apellido
+                    ,entity.Segundo_Apellido
+                    ,entity.Nombre_Usuario
+                    ,entity.Clave
 
                 }
                     );
@@ -101,19 +96,13 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.UsersActualizar", new
                 {
-                    entity.IdUsuarios
-                    ,
-                    entity.Cedula
-                    ,
-                    entity.Nombre
-                    ,
-                    entity.Primer_Apellido
-                    ,
-                    entity.Segundo_Apellido
-                    ,
-                    entity.Nombre_Usuario
-                    ,
-                    entity.Clave
+                     entity.IdUsuario
+                    ,entity.Cedula
+                    ,entity.Nombre
+                    ,entity.Primer_Apellido
+                    ,entity.Segundo_Apellido
+                    ,entity.Nombre_Usuario
+                    ,entity.Clave
 
                 }
                     );
@@ -135,7 +124,7 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.UsersEliminar", new
                 {
-                    entity.IdUsuarios
+                    entity.IdUsuario
 
                 }
                     );

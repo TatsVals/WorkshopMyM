@@ -36,7 +36,7 @@
                             @foreach (var item in Model.GridList)
                             {
                             <tr>
-                                <td>@item.IdUsuarios</td>
+                                <td>@item.IdUsuario</td>
                                 <td>@item.Cedula</td>
                                 <td>@item.Nombre</td>
                                 <td>@item.Primer_Apellido</td>
@@ -46,9 +46,9 @@
 
                                 <td>
 
-                                    <a class="btn btn-outline-primary" asp-page="Edit" asp-route-id="@item.IdUsuarios"><i class='bx bxs-edit-alt'></i></a>
+                                    <a class="btn btn-outline-primary" asp-page="Edit" asp-route-id="@item.IdUsuario"><i class='bx bxs-edit-alt'></i></a>
 
-                                    <button type="button" class="btn btn-outline-primary" onclick="OnClickEliminar(@item.IdUsuarios)"><i class='bx bxs-trash-alt'></i></button>
+                                    <button type="button" class="btn btn-outline-primary" onclick="UserGrid.OnClickEliminar(@item.IdUsuario)"><i class='bx bxs-trash-alt'></i></button>
 
                                 </td>
 

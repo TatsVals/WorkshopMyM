@@ -8,7 +8,8 @@ namespace Entity
 {
     public class UsersEntity:DBEntity 
     {
-        public int? IdUsuarios { get; set; }
+        public int? IdUsuario { get; set; }
+
         public string Cedula { get; set; }
 
         public string Nombre { get; set; }
