@@ -20,21 +20,7 @@ namespace WebApp
         //    var value = session.GetString(key);
 
         //    return value == null ? default(T) :
-        //        JsonSerializer.Deserialize<T>(value);
-        //}
-
-
-        //public static bool SessionOnline(this PageModel ct)
-        //{
-        //    var Session = ct.HttpContext.Session.Get<UsuariosEntity>(IApp.UsuarioSession);
-        //    if (Session == null)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        return true;
-        //    }
+        //        JsonSerializer.DeserializeAsync<T>(value);
         //}
 
     }

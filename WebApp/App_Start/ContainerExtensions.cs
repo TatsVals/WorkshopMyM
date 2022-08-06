@@ -17,6 +17,8 @@ namespace WebApp
             services.AddScoped<IProductsService, ProductsService>();
             
 
+            services.AddTransient<IUsersService, UsersService>();
+
 
             return services;
         }

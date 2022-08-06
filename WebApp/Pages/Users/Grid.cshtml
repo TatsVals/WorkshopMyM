@@ -1,0 +1,73 @@
+﻿@page
+@model WebApp.Pages.Users.GridModel
+@{
+}
+
+<div class="container-fluid">
+
+
+    <div class="card">
+        <div class="card-header">
+            Usuarios
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Usuarios</h5>
+
+            <a class="btn btn-outline-primary" asp-page="Edit"><i class='bx bxs-user-plus'></i></a>
+
+            <div class="row">
+                <div class="col-12">
+                    <table id="GridView" class="table table-hover table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Cedula</th>
+                                <th>Nombre</th>
+                                <th>Primer Apellido</th>
+                                <th>Segundo Apellido</th>
+                                <th>Usuario</th>
+                                <th>Contraseña</th>
+                                <th>Acción</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model.GridList)
+                            {
+                            <tr>
+                                <td>@item.IdUsuario</td>
+                                <td>@item.Cedula</td>
+                                <td>@item.Nombre</td>
+                                <td>@item.Primer_Apellido</td>
+                                <td>@item.Segundo_Apellido</td>
+                                <td>@item.Nombre_Usuario</td>
+                                <td>@item.Clave</td>
+
+                                <td>
+
+                                    <a class="btn btn-outline-primary" asp-page="Edit" asp-route-id="@item.IdUsuario"><i class='bx bxs-edit-alt'></i></a>
+
+                                    <button type="button" class="btn btn-outline-primary" onclick="UserGrid.OnClickEliminar(@item.IdUsuario)"><i class='bx bxs-trash-alt'></i></button>
+
+                                </td>
+
+                            </tr>   
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{ 
+    
+    <script>
+        var MensajeApp="@Html.Raw(Model.Mensaje)";
+    </script>
+    <script defer src="~/App/User/Grid.js"></script>
+}
