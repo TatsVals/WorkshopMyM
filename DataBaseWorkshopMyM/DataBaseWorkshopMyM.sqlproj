@@ -66,5 +66,15 @@
     <Build Include="dbo\StoredProcedures\ProductsCreate.sql" />
     <Build Include="dbo\StoredProcedures\ProductsDelete.sql" />
     <Build Include="dbo\StoredProcedures\ProductsRead.sql" />
+    <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\StoredProcedures\UsersObtener.sql" />
+    <Build Include="dbo\StoredProcedures\UsersInsertar.sql" />
+    <Build Include="dbo\StoredProcedures\UsersActualizar.sql" />
+    <Build Include="dbo\StoredProcedures\UsersEliminar.sql" />
+    <Build Include="dbo\Tables\Roles.sql" />
+    <Build Include="dbo\Tables\Permisos.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataBaseWorkshopMyM.publish.xml" />
   </ItemGroup>
 </Project>

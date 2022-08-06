@@ -116,6 +116,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.14" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <Content Remove="wwwroot\App\User\Edit.ts" />
+    <Content Remove="wwwroot\App\User\Grid.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.6" />
   </ItemGroup>
 
   <ItemGroup>
@@ -125,6 +131,8 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="wwwroot\App\Products\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\User\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\User\Grid.ts" />
   </ItemGroup>
 
 </Project>
