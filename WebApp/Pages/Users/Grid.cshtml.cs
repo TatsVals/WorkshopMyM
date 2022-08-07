@@ -45,32 +45,24 @@ namespace WebApp.Pages.Users
         }
 
 
-        public async Task<IActionResult> OnGetEliminar(int id)
+        public async Task<JsonResult> OnDeleteEliminar(int id)
         {
+
             try
             {
-                var result = await usersService.Delete( new()                
-                {
-                    IdUsuario = id
-                }               
-                );
+                var result = await usersService.Delete(new()
+                { IdUsuario = id });
 
-                if (result.CodeError!=0)
-                {
-                    throw new Exception(result.MsgError);
-                }
 
-                TempData["Msg"] = "El usuario se eliminó correctamente";
-
-                return Redirect("Grid");
+                return new JsonResult(result);
             }
             catch (Exception ex)
             {
 
-                return Content(ex.Message);
+                return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
             }
-        }
 
+        }
 
 
     }

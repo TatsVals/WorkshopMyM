@@ -6,7 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\App\Permisos\Edit.ts" />
+    <Content Remove="wwwroot\App\Permisos\Grid.ts" />
     <Content Remove="wwwroot\App\Products\Edit.ts" />
+    <Content Remove="wwwroot\App\Roles\Edit.ts" />
+    <Content Remove="wwwroot\App\Roles\Grid.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -130,9 +134,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\App\Permisos\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Permisos\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Products\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Roles\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Roles\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\User\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\User\Grid.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Pages\Bitacoras\" />
   </ItemGroup>
 
 </Project>

@@ -7,19 +7,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WBL;
 
-namespace WebApp.Pages.Products
+namespace WebApp.Pages.Roles
 {
     public class GridModel : PageModel
     {
+        private readonly IRolesService roles;
 
-        private readonly IProductsService products;
-
-        public GridModel(IProductsService products)
+        public GridModel(IRolesService roles)
         {
-            this.products = products;
+            this.roles = roles;
         }
 
-        public IEnumerable<ProductsEntity> GridList { get; set; } = new List<ProductsEntity>();
+        public IEnumerable<RolesEntity> GridList { get; set; } = new List<RolesEntity>();
 
 
         public string Mensaje { get; set; } = "";
@@ -30,7 +29,7 @@ namespace WebApp.Pages.Products
 
             try
             {
-                GridList = await products.GET();
+                GridList = await roles.GET();
 
                 if (TempData.ContainsKey("Msg"))
                 {
@@ -54,8 +53,8 @@ namespace WebApp.Pages.Products
 
             try
             {
-                var result = await products.DELETE(new()
-                { IdProducto = id });
+                var result = await roles.DELETE(new()
+                { IdRol = id });
 
 
                 return new JsonResult(result);

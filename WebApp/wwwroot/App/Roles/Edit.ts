@@ -1,4 +1,4 @@
-﻿namespace ProductsEdit {
+﻿namespace RolesEdit {
 
     var Entity = $("#AppEdit").data("entity")
 
@@ -16,14 +16,14 @@
                     if (BValidateData(this.Formulario)) {
                         Loading.fire("Guardando..");
 
-                        App.AxiosProvider.SaveProducts(this.Entity).then(data => {
+                        App.AxiosProvider.SaveRoles(this.Entity).then(data => {
                             Loading.close();
                             Toast.fire({ title: "El registro se inserto correctamente", icon: "success" }).then
-                                (() => window.location.href = "Products/Grid")
+                                (() => window.location.href = "Roles/Grid")
                             if (data.CodeError == 0) {
 
                                 Toast.fire({ title: "El registro se inserto correctamente", icon: "success" }).then
-                                    (() => window.location.href = "Products/Grid")
+                                    (() => window.location.href = "Roles/Grid")
                             } else {
                                 Toast.fire({ title: data.MsgError, icon: "error" })
 

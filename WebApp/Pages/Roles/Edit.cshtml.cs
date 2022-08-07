@@ -7,22 +7,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WBL;
 
-namespace WebApp.Pages.Products
+namespace WebApp.Pages.Roles
 {
     public class EditModel : PageModel
     {
-        private readonly IProductsService producto;
+        private readonly IRolesService roles;
 
-        public EditModel(IProductsService producto)
+        public EditModel(IRolesService roles)
         {
-            this.producto = producto;
+            this.roles = roles;
         }
 
         [BindProperty(SupportsGet = true)]
         public int? id { get; set; }
 
         [BindProperty]
-        public ProductsEntity Entity { get; set; } = new ProductsEntity();
+        public RolesEntity Entity { get; set; } = new RolesEntity();
 
         public async Task<IActionResult> OnGet()
         {
@@ -32,9 +32,9 @@ namespace WebApp.Pages.Products
                 if (id.HasValue)
                 {
 
-                    Entity = await producto.GETBYID(new()
+                    Entity = await roles.GETBYID(new()
                     {
-                        IdProducto = id
+                        IdRol = id
                     });
                 }
 
@@ -56,16 +56,16 @@ namespace WebApp.Pages.Products
             {
                 var result = new DBEntity();
                 //update
-                if (Entity.IdProducto.HasValue) //si el idContacto tiene un valor (true) el metodo actuliza
+                if (Entity.IdRol.HasValue) //si el idContacto tiene un valor (true) el metodo actuliza
                 {
-                    result = await producto.UPDATE(Entity);
+                    result = await roles.UPDATE(Entity);
 
 
 
                 }
                 else //Si el idContacto no tiene valor (false) el metodo inserta
                 {
-                    result = await producto.CREATE(Entity);
+                    result = await roles.CREATE(Entity);
 
 
                 }
@@ -77,8 +77,5 @@ namespace WebApp.Pages.Products
                 return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
             }
         }
-
-
-
     }
 }

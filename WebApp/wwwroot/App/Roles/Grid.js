@@ -1,13 +1,13 @@
 "use strict";
-var ProductsGrid;
-(function (ProductsGrid) {
+var RolesGrid;
+(function (RolesGrid) {
     /*Mostrar el modal de confirmación*/
     function OnclickEliminar(id) {
         ComfirmAlert("¿Desea eliminar el registro?", "Eliminar", "warning", '#3085d6', '#d33')
             .then(function (result) {
             if (result.isConfirmed) {
                 Loading.fire("Borrando");
-                App.AxiosProvider.DeleteProducts(id).then(function (data) {
+                App.AxiosProvider.DeleteRoles(id).then(function (data) {
                     Loading.close();
                     if (data.CodeError == 0) {
                         Toast.fire({ title: "El registro se elimino correctamente", icon: "success" }).
@@ -20,8 +20,8 @@ var ProductsGrid;
             }
         });
     }
-    ProductsGrid.OnclickEliminar = OnclickEliminar;
+    RolesGrid.OnclickEliminar = OnclickEliminar;
     /*Datable*/
     $("#GridView").DataTable();
-})(ProductsGrid || (ProductsGrid = {}));
+})(RolesGrid || (RolesGrid = {}));
 //# sourceMappingURL=Grid.js.map
