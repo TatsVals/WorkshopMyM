@@ -1,5 +1,5 @@
 ﻿@page
-@model WebApp.Pages.Products.GridModel
+@model WebApp.Pages.Permisos.GridModel
 @{
 }
 <div class="container-fluid">
@@ -34,24 +34,24 @@
                         <tbody>
                             @foreach (var item in Model.GridList)
                             {
-                            <tr>
-                                <td>@item.IdProducto</td>
-                                <td>@item.Codigo</td>
-                                <td>@item.Descripcion</td>
-                                <td>@item.Unidad</td>
-                                <td>@item.CantidadDisponible</td>
-                                <td>@item.PrecioCompra</td>
-                                <td>@item.PrecioVenta</td>
-                                <td>@item.CostoTotal</td>
-                                <td>
-                                    <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdProducto">
-                                        <i class='bx bx-edit-alt'></i>
-                                    </a>
-                                    <button type="button" class="btn btn-danger" onclick="ProductsGrid.OnclickEliminar(@item.IdProducto)">
-                                        <i class='bx bxs-trash'></i>
-                                    </button>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>@item.IdProducto</td>
+                                    <td>@item.Codigo</td>
+                                    <td>@item.Descripcion</td>
+                                    <td>@item.Unidad</td>
+                                    <td>@item.CantidadDisponible</td>
+                                    <td>@item.PrecioCompra</td>
+                                    <td>@item.PrecioVenta</td>
+                                    <td>@item.CostoTotal</td>
+                                    <td>
+                                        <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdProducto">
+                                            <i class='bx bx-edit-alt'></i>
+                                        </a>
+                                        <button type="button" class="btn btn-danger" onclick="ProductsGrid.OnclickEliminar(@item.IdProducto)">
+                                            <i class='bx bxs-trash'></i>
+                                        </button>
+                                    </td>
+                                </tr>
 
                             }
                         </tbody>
@@ -63,8 +63,7 @@
         </div>
     </div>
 </div>
-
 <script>
         var MensajeApp = "@Html.Raw(Model.Mensaje)";
 </script>
-<script defer src="~/App/Products/Grid.js"></script>
+<script defer src="~/App/Permisos/Grid.js"></script>

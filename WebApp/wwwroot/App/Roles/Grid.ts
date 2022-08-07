@@ -1,4 +1,4 @@
-﻿namespace ProductsGrid {
+﻿namespace RolesGrid {
 
     /*Mostrar el modal de confirmación*/
     export function OnclickEliminar(id) {
@@ -8,7 +8,7 @@
                     Loading.fire("Borrando");
 
 
-                    App.AxiosProvider.DeleteProducts(id).then(data => {
+                    App.AxiosProvider.DeleteRoles(id).then(data => {
                         Loading.close();
 
                         if (data.CodeError == 0) {

@@ -1,0 +1,60 @@
+﻿@page
+@model WebApp.Pages.Roles.GridModel
+@{
+}
+<div class="container-fluid">
+
+    <div class="card">
+        <div class="card-header">
+            Roles
+        </div>
+        <div class="card-body">
+
+            <a class="btn btn-primary" asp-page="Edit">
+                <i class='bx bx-add-to-queue'></i>
+            </a>
+
+
+            <div class="row">
+                <div class="col-12 table-responsive">
+                    <table id="GridView" class="table-striped table table-hover table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>IdRol</th>
+                                <th>Rol</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.GridList)
+                            {
+                                <tr>
+                                    <td>@item.IdRol</td>
+                                    <td>@item.Rol</td>
+
+                                    <td>
+                                        <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdRol">
+                                            <i class='bx bx-edit-alt'></i>
+                                        </a>
+                                        <button type="button" class="btn btn-danger" onclick="RolesGrid.OnclickEliminar(@item.IdRol)">
+                                            <i class='bx bxs-trash'></i>
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        var MensajeApp = "@Html.Raw(Model.Mensaje)";
+</script>
+
+<script defer src="~/App/Roles/Grid.js"></script>

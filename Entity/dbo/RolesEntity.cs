@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.dbo
+namespace Entity
 {
     public class RolesEntity : DBEntity
     {
-        public int IdRol { get; set; }
+        public int? IdRol { get; set; }
         public string Rol { get; set; }
     }
 }
