@@ -15,9 +15,9 @@ namespace WebApp
         {
             services.AddSingleton<IDataAccess, DataAccess>();
             services.AddScoped<IProductsService, ProductsService>();
-            
-
-            services.AddTransient<IUsersService, UsersService>();
+            services.AddScoped<IUsersService, UsersService>();
+            services.AddScoped<IRolesService, RolesService>();
+           
 
 
             return services;

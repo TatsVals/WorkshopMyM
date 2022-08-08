@@ -13,9 +13,8 @@ var UsersEdit;
                     Loading.fire("Guardando..");
                     App.AxiosProvider.SaveUsers(this.Entity).then(function (data) {
                         Loading.close();
-                        Toast.fire({ title: "El registro se inserto correctamente", icon: "success" }).then(function () { return window.location.href = "Users/Grid"; });
                         if (data.CodeError == 0) {
-                            Toast.fire({ title: "El registro se inserto correctamente", icon: "success" }).then(function () { return window.location.href = "Users/Grid"; });
+                            Toast.fire({ title: "El registro se inserto correctamente", icon: "success" }).then(function () { return window.location.href = "Contacto/Grid"; });
                         }
                         else {
                             Toast.fire({ title: data.MsgError, icon: "error" });

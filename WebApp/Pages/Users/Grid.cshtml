@@ -27,6 +27,7 @@
                                 <th>Segundo Apellido</th>
                                 <th>Usuario</th>
                                 <th>Contraseña</th>
+
                                 <th>Acción</th>
                             </tr>
 
@@ -43,7 +44,7 @@
                                 <td>@item.Segundo_Apellido</td>
                                 <td>@item.Nombre_Usuario</td>
                                 <td>@item.Clave</td>
-
+                                <td>@item.Roles.Rol</td>
                                 <td>
 
                                     <a class="btn btn-outline-primary" asp-page="Edit" asp-route-id="@item.IdUsuario"><i class='bx bxs-edit-alt'></i></a>

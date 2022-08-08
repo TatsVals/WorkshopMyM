@@ -75,6 +75,7 @@ namespace WBL
                     ,entity.Segundo_Apellido
                     ,entity.Nombre_Usuario
                     ,entity.Clave
+                    ,entity.IdRol
 
                 }
                     );
@@ -103,7 +104,8 @@ namespace WBL
                     ,entity.Segundo_Apellido
                     ,entity.Nombre_Usuario
                     ,entity.Clave
-
+                    ,entity.IdRol
+                    
                 }
                     );
 

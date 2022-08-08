@@ -12,7 +12,7 @@ namespace WebApp.Pages.Products
     public class EditModel : PageModel
     {
         private readonly IProductsService producto;
-
+        
         public EditModel(IProductsService producto)
         {
             this.producto = producto;
@@ -22,6 +22,7 @@ namespace WebApp.Pages.Products
         public int? id { get; set; }
 
         [BindProperty]
+        
         public ProductsEntity Entity { get; set; } = new ProductsEntity();
 
         public async Task<IActionResult> OnGet()
@@ -50,32 +51,36 @@ namespace WebApp.Pages.Products
         }
 
         //metodo update insert
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             try
             {
-                var result = new DBEntity();
-                //update
-                if (Entity.IdProducto.HasValue) //si el idContacto tiene un valor (true) el metodo actuliza
+                if (Entity.IdProducto.HasValue)
                 {
-                    result = await producto.UPDATE(Entity);
+                    var result = await producto.UPDATE(Entity);
 
+                    if (result.CodeError != 0) throw new Exception(result.MsgError);
+                    TempData["Msg"] = "El registro se actualizó correctamente";
+                }
+                else //Insertar
+                {
+                    var result = await producto.CREATE(Entity);
 
+                    if (result.CodeError != 0) throw new Exception(result.MsgError);
+                    TempData["Msg"] = "El registro se agregó correctamente";
 
                 }
-                else //Si el idContacto no tiene valor (false) el metodo inserta
-                {
-                    result = await producto.CREATE(Entity);
 
 
-                }
+                return RedirectToPage("Grid");
 
-                return new JsonResult(result);
             }
             catch (Exception ex)
             {
-                return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
+
+                return Content(ex.Message);
             }
+
         }
 
 

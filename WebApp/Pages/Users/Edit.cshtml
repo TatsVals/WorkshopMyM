@@ -2,19 +2,15 @@
 @model WebApp.Pages.Users.EditModel
 @{
 }
-<div id="AppEdit" class="container">
+@using System.Text.Json;
+<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
     <div class="card">
         <div class="card-header">
             @(Model.id.HasValue?"Actualizar":"Nuevo")
         </div>
         <div class="card-body">
             <form id="FormEdit" method="post">
-                <input type="hidden" asp-for="Entity.IdUsuario" />
-
-                <div class="form-group mb-3">
-                    <label for="Entity.IdUsuario" class="form-label">IdUsuario</label>
-                    <input type="number" class="form-control" asp-for="Entity.IdUsuario" maxlength="250" required>
-                </div>
+                <input type="hidden" asp-for="Entity.IdUsuario" v-model="Entity.IdContacto" />
 
                 <div class="form-group mb-3">
                     <label for="Entity.Cedula" class="form-label">Cedula</label>
@@ -48,6 +44,14 @@
                     <input type="text" class="form-control" asp-for="Entity.Clave" required>
                 </div>
 
+                <div class="form-group mb-3">
+                    <label for="Entity.IdRol" class="form-label">Rol</label>
+
+                    <select asp-for="Entity.IdRol" class="form-select" v-model="Entity.IdRol"
+                            asp-items="@(new SelectList(Model.RolesLista,"IdRol","Rol"))" required>
+                    </select>
+                </div>
+
 
 
                 <div class="row">
@@ -67,6 +71,7 @@
 
 @section Scripts{
 
-    <script defer src="~/App/User/"></script>
+
+    <script defer src="~/App/User/Edit.js"></script>
 }
 

@@ -18,12 +18,11 @@
 
                         App.AxiosProvider.SaveUsers(this.Entity).then(data => {
                             Loading.close();
-                            Toast.fire({ title: "El registro se inserto correctamente", icon: "success" }).then
-                                (() => window.location.href = "Users/Grid")
+
                             if (data.CodeError == 0) {
 
                                 Toast.fire({ title: "El registro se inserto correctamente", icon: "success" }).then
-                                    (() => window.location.href = "Users/Grid")
+                                    (() => window.location.href = "Contacto/Grid")
                             } else {
                                 Toast.fire({ title: data.MsgError, icon: "error" })
 
@@ -49,6 +48,7 @@
         });
 
     Formulario.$mount("#AppEdit");
+
 
 
 

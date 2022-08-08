@@ -12,6 +12,7 @@ BEGIN
 		,Segundo_Apellido 
 		,Nombre_Usuario 
 		,Clave
+		,IdRol
 
 		FROM 
 			dbo.Users

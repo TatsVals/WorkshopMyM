@@ -14,6 +14,7 @@ namespace WBL
         Task<DBEntity> DELETE(RolesEntity entity);
         Task<IEnumerable<RolesEntity>> GET();
         Task<RolesEntity> GETBYID(RolesEntity entity);
+        Task<IEnumerable<RolesEntity>> GETLISTA();
         Task<DBEntity> UPDATE(RolesEntity entity);
     }
 
@@ -127,6 +128,22 @@ namespace WBL
 
                 throw;
             }
+
+        }
+
+        public async Task<IEnumerable<RolesEntity>> GETLISTA()
+        {
+            try
+            {
+                var result = sql.QueryAsync<RolesEntity>("dbo.RolesList");
+                return await result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
 
         }
         #endregion
