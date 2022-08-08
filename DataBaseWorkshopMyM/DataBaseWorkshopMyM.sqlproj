@@ -78,6 +78,11 @@
     <Build Include="dbo\StoredProcedures\RolesDelete.sql" />
     <Build Include="dbo\StoredProcedures\RolesRead.sql" />
     <Build Include="dbo\StoredProcedures\RolesList.sql" />
+    <Build Include="dbo\StoredProcedures\PermisosCreate.sql" />
+    <Build Include="dbo\StoredProcedures\PermisosRead.sql" />
+    <Build Include="dbo\StoredProcedures\PermisosDelete.sql" />
+    <Build Include="dbo\StoredProcedures\PermisosUpdate.sql" />
+    <Build Include="dbo\StoredProcedures\PermisosList.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataBaseWorkshopMyM.publish.xml" />

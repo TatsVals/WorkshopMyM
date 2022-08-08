@@ -1,27 +1,20 @@
-﻿using BD;
-using Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BD;
+using Entity;
 
 namespace WBL
 {
-    public interface IUsersService
-    {
-        Task<DBEntity> Create(UsersEntity entity);
-        Task<DBEntity> Delete(UsersEntity entity);
-        Task<IEnumerable<UsersEntity>> Get();
-        Task<UsersEntity> GetById(UsersEntity entity);
-        Task<DBEntity> Update(UsersEntity entity);
-    }
+   
 
-    public class UsersService : IUsersService
+    public class PermisosService 
     {
         private readonly IDataAccess sql;
 
-        public UsersService(IDataAccess _sql)
+        public PermisosService(IDataAccess _sql)
         {
             sql = _sql;
         }
@@ -30,7 +23,7 @@ namespace WBL
         #region MetodosCRUD
 
         // Metodo GET
-        public async Task<IEnumerable<UsersEntity>> Get()
+        public async Task<IEnumerable<PermisosEntity>> Get()
         {
             try
             {
@@ -69,13 +62,19 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.UsersInsertar", new
                 {
-                     entity.Cedula
-                    ,entity.Nombre
-                    ,entity.Primer_Apellido
-                    ,entity.Segundo_Apellido
-                    ,entity.Nombre_Usuario
-                    ,entity.Clave
-                    ,entity.IdRol
+                    entity.Cedula
+                    ,
+                    entity.Nombre
+                    ,
+                    entity.Primer_Apellido
+                    ,
+                    entity.Segundo_Apellido
+                    ,
+                    entity.Nombre_Usuario
+                    ,
+                    entity.Clave
+                    ,
+                    entity.IdRol
 
                 }
                     );
@@ -97,15 +96,22 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.UsersActualizar", new
                 {
-                     entity.IdUsuario
-                    ,entity.Cedula
-                    ,entity.Nombre
-                    ,entity.Primer_Apellido
-                    ,entity.Segundo_Apellido
-                    ,entity.Nombre_Usuario
-                    ,entity.Clave
-                    ,entity.IdRol
-                    
+                    entity.IdUsuario
+                    ,
+                    entity.Cedula
+                    ,
+                    entity.Nombre
+                    ,
+                    entity.Primer_Apellido
+                    ,
+                    entity.Segundo_Apellido
+                    ,
+                    entity.Nombre_Usuario
+                    ,
+                    entity.Clave
+                    ,
+                    entity.IdRol
+
                 }
                     );
 

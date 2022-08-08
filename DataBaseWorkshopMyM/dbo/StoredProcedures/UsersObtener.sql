@@ -5,17 +5,20 @@ BEGIN
 	SET NOCOUNT ON
 
 	SELECT
-		 IdUsuario
-		,Cedula 
-		,Nombre 
-		,Primer_Apellido 
-		,Segundo_Apellido 
-		,Nombre_Usuario 
-		,Clave
-		,IdRol
+		 U.IdUsuario
+		,U.Cedula 
+		,U.Nombre 
+		,U.Primer_Apellido 
+		,U.Segundo_Apellido 
+		,U.Nombre_Usuario 
+		,U.Clave
+		,R.IdRol
+		,R.Rol
 
 		FROM 
-			dbo.Users
+			 dbo.Users U
+		INNER JOIN dbo.Roles R
+		ON U.IdRol = R.IdRol
 		WHERE
-			(@IdUsuario IS NULL OR IdUsuario = @IdUsuario)
+			(@IdUsuario IS NULL OR U.IdUsuario = @IdUsuario)
 END

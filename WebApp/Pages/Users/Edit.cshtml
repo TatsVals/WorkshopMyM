@@ -2,8 +2,8 @@
 @model WebApp.Pages.Users.EditModel
 @{
 }
-@using System.Text.Json;
-<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
+
+<div id="AppEdit" class="container">
     <div class="card">
         <div class="card-header">
             @(Model.id.HasValue?"Actualizar":"Nuevo")
@@ -71,7 +71,7 @@
 
 @section Scripts{
 
-
     <script defer src="~/App/User/Edit.js"></script>
+
 }
 
