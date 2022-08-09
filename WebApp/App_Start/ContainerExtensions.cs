@@ -17,7 +17,8 @@ namespace WebApp
             services.AddScoped<IProductsService, ProductsService>();
             services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IRolesService, RolesService>();
-           
+            services.AddScoped<IPermisosService, PermisosService>();
+
 
 
             return services;

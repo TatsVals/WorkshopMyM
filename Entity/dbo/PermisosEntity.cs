@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.dbo
+namespace Entity
 {
-    class PermisosEntity : DBEntity
+    public class PermisosEntity : DBEntity
     {
         public PermisosEntity()
         {

@@ -8,7 +8,8 @@ BEGIN
 		 P.IdPermiso
 		,R.IdRol
 		,P.Mantenimiento 
-		,P.Acceso 				
+		,P.Acceso
+		,R.IdRol
 		,R.Rol
 
 		FROM 
