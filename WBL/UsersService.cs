@@ -34,7 +34,7 @@ namespace WBL
         {
             try
             {
-                var result = sql.QueryAsync<UsersEntity>("dbo.UsersObtener");
+                var result = sql.QueryAsync<UsersEntity, RolesEntity>("dbo.UsersObtener", "IdUsuario, IdRol");
                 return await result;
             }
             catch (Exception)
@@ -75,6 +75,7 @@ namespace WBL
                     ,entity.Segundo_Apellido
                     ,entity.Nombre_Usuario
                     ,entity.Clave
+                    ,entity.IdRol
 
                 }
                     );
@@ -103,7 +104,8 @@ namespace WBL
                     ,entity.Segundo_Apellido
                     ,entity.Nombre_Usuario
                     ,entity.Clave
-
+                    ,entity.IdRol
+                    
                 }
                     );
 

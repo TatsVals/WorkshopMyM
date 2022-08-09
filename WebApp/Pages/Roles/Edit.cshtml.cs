@@ -50,32 +50,36 @@ namespace WebApp.Pages.Roles
         }
 
         //metodo update insert
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             try
             {
-                var result = new DBEntity();
-                //update
-                if (Entity.IdRol.HasValue) //si el idContacto tiene un valor (true) el metodo actuliza
+                if (Entity.IdRol.HasValue)
                 {
-                    result = await roles.UPDATE(Entity);
+                    var result = await roles.UPDATE(Entity);
 
+                    if (result.CodeError != 0) throw new Exception(result.MsgError);
+                    TempData["Msg"] = "El registro se actualizó correctamente";
+                }
+                else //Insertar
+                {
+                    var result = await roles.CREATE(Entity);
 
+                    if (result.CodeError != 0) throw new Exception(result.MsgError);
+                    TempData["Msg"] = "El registro se agregó correctamente";
 
                 }
-                else //Si el idContacto no tiene valor (false) el metodo inserta
-                {
-                    result = await roles.CREATE(Entity);
 
 
-                }
+                return RedirectToPage("Grid");
 
-                return new JsonResult(result);
             }
             catch (Exception ex)
             {
-                return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
+
+                return Content(ex.Message);
             }
+
         }
     }
 }

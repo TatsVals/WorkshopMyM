@@ -5,7 +5,8 @@
 		@Primer_Apellido VARCHAR(250),
 		@Segundo_Apellido VARCHAR(250), 
 		@Nombre_Usuario VARCHAR(30), 
-		@Clave VARCHAR(30)
+		@Clave VARCHAR(30),
+		@IdRol INT
 AS
 
 BEGIN
@@ -22,7 +23,7 @@ BEGIN
 			,Segundo_Apellido = @Segundo_Apellido 
 			,Nombre_Usuario = @Nombre_Usuario
 			,Clave	= @Clave
-
+			,IdRol = @IdRol
 		WHERE
 			IdUsuario = @IdUsuario	
 		

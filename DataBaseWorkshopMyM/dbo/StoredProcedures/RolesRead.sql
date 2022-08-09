@@ -5,7 +5,8 @@ BEGIN
 	SET NOCOUNT ON
 
 	SELECT 
-	  Rol
+	  IdRol
+	 ,Rol
 	  
 	FROM
 	    dbo.Roles

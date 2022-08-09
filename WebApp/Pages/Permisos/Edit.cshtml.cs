@@ -2,22 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Entity;
 using WBL;
 
-
-namespace WebApp.Pages.Users
+namespace WebApp.Pages.Permisos
 {
     public class EditModel : PageModel
     {
-        
-        private readonly IUsersService users;
+
+        private readonly IPermisosService permisos;
         private readonly IRolesService roles;
-        public EditModel(IUsersService users, IRolesService roles)
+        public EditModel(IPermisosService permisos, IRolesService roles)
         {
-            this.users = users;
+            this.permisos = permisos;
             this.roles = roles;
         }
 
@@ -25,8 +24,8 @@ namespace WebApp.Pages.Users
         public int? id { get; set; }
 
         [BindProperty]
-       
-        public UsersEntity Entity { get; set; } = new UsersEntity();
+
+        public PermisosEntity Entity { get; set; } = new PermisosEntity();
         public IEnumerable<RolesEntity> RolesLista { get; set; } = new List<RolesEntity>();
         public async Task<IActionResult> OnGet()
         {
@@ -36,9 +35,9 @@ namespace WebApp.Pages.Users
                 if (id.HasValue)
                 {
 
-                    Entity = await users.GetById(new()
+                    Entity = await permisos.GetById(new()
                     {
-                        IdUsuario = id
+                        IdPermiso = id
                     });
                 }
 
@@ -58,16 +57,16 @@ namespace WebApp.Pages.Users
         {
             try
             {
-                if (Entity.IdUsuario.HasValue)
+                if (Entity.IdPermiso.HasValue)
                 {
-                    var result = await users.Update(Entity);
+                    var result = await permisos.Update(Entity);
 
                     if (result.CodeError != 0) throw new Exception(result.MsgError);
                     TempData["Msg"] = "El registro se actualizó correctamente";
                 }
                 else //Insertar
                 {
-                    var result = await users.Create(Entity);
+                    var result = await permisos.Create(Entity);
 
                     if (result.CodeError != 0) throw new Exception(result.MsgError);
                     TempData["Msg"] = "El registro se agregó correctamente";
