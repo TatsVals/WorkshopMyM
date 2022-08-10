@@ -4,8 +4,8 @@
 	@Unidad VARCHAR(20),
 	@CantidadDisponible FLOAT,
 	@PrecioCompra FLOAT,
-	@PrecioVenta FLOAT,
-	@CostoTotal FLOAT 
+	@PrecioVenta FLOAT
+	
 
 AS
  BEGIN
@@ -34,7 +34,7 @@ AS
 	, @CantidadDisponible
 	, @PrecioCompra
 	, @PrecioVenta
-	, @CostoTotal
+	, @CantidadDisponible * @PrecioCompra
   )
 
   COMMIT TRANSACTION TRASA
