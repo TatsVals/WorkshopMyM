@@ -22,7 +22,7 @@ namespace WebApp.Pages.Products
         public int? id { get; set; }
 
         [BindProperty]
-        
+        [FromBody]
         public ProductsEntity Entity { get; set; } = new ProductsEntity();
 
         public async Task<IActionResult> OnGet()
@@ -51,36 +51,32 @@ namespace WebApp.Pages.Products
         }
 
         //metodo update insert
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPost()
         {
             try
             {
-                if (Entity.IdProducto.HasValue)
+                var result = new DBEntity();
+                //update
+                if (Entity.IdProducto.HasValue) //si el idContacto tiene un valor (true) el metodo actuliza
                 {
-                    var result = await producto.UPDATE(Entity);
+                    result = await producto.UPDATE(Entity);
 
-                    if (result.CodeError != 0) throw new Exception(result.MsgError);
-                    TempData["Msg"] = "El registro se actualizó correctamente";
-                }
-                else //Insertar
-                {
-                    var result = await producto.CREATE(Entity);
 
-                    if (result.CodeError != 0) throw new Exception(result.MsgError);
-                    TempData["Msg"] = "El registro se agregó correctamente";
 
                 }
+                else //Si el idContacto no tiene valor (false) el metodo inserta
+                {
+                    result = await producto.CREATE(Entity);
 
 
-                return RedirectToPage("Grid");
+                }
 
+                return new JsonResult(result);
             }
             catch (Exception ex)
             {
-
-                return Content(ex.Message);
+                return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
             }
-
         }
 
 

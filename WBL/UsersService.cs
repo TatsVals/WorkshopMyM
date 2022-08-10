@@ -14,6 +14,7 @@ namespace WBL
         Task<DBEntity> Delete(UsersEntity entity);
         Task<IEnumerable<UsersEntity>> Get();
         Task<UsersEntity> GetById(UsersEntity entity);
+        Task<UsersEntity> Login(UsersEntity entity);
         Task<DBEntity> Update(UsersEntity entity);
     }
 
@@ -26,7 +27,30 @@ namespace WBL
             sql = _sql;
         }
 
+        public async Task<UsersEntity> Login(UsersEntity entity)
+        {
+            try
+            {
+                var result = await sql.QueryFirstAsync<UsersEntity>("Login", new
+                {
 
+                    entity.Nombre_Usuario,
+                    entity.Clave
+
+                });
+
+                return result;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+        }
         #region MetodosCRUD
 
         // Metodo GET

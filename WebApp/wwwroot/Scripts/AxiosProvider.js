@@ -35,6 +35,10 @@ var App;
             var data = _a.data;
             return data;
         }); };
+        AxiosProvider.Login = function (entity) { return axios.post("Login", entity).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
     })(AxiosProvider = App.AxiosProvider || (App.AxiosProvider = {}));
 })(App || (App = {}));
 //# sourceMappingURL=AxiosProvider.js.map

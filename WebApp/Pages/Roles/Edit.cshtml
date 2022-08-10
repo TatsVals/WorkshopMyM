@@ -2,24 +2,24 @@
 @model WebApp.Pages.Roles.EditModel
 @{
 }
-<div id="AppEdit" class="container">
+<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
     <div class="card">
         <div class="card-header">
             @(Model.id.HasValue?"Actualizar":"Nuevo")
         </div>
         <div class="card-body">
             <form id="FormEdit" method="post">
-                <input type="hidden" asp-for="Entity.IdRol" />
+                <input type="hidden" asp-for="Entity.IdRol" v-model="Entity.IdContacto"/>
 
                 <div class="form-group mb-3">
-                    <label for="Entity.Codigo" class="form-label">Codigo</label>
-                    <input type="text" class="form-control" asp-for="Entity.Rol" maxlength="250" required>
+                    <label for="Entity.Codigo" class="form-label">Rol</label>
+                    <input type="text" class="form-control" asp-for="Entity.Rol" v-model="Entity.Rol" maxlength="250" required>
                 </div>
 
                 <div class="row">
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary">
-                            @(Model.id.HasValue?"Actualizar":"Agregar")
+                        <button type="button" @@click="Save" class="btn btn-primary">
+                            @(Model.id.HasValue?"Actualizar":"Agregar") <!-- validacion por si es agregar o actualizar -->
                         </button>
                     </div>
                 </div>
