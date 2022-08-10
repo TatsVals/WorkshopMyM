@@ -1,5 +1,5 @@
 ﻿@page
-@model WebApp.Pages.Login.LoginModel
+@model WebApp.Pages.LoginModel
 @{
     Layout = "";
 }
@@ -52,12 +52,12 @@
                             <form class="form-horizontal mt-3 form-material" id="LoginForm">
                                 <div class="form-group mb-3">
                                     <div class="">
-                                        <input asp-for="Entity.Usuario" v-model="Entity.Usuario" class="form-control" type="text" required placeholder="Usuario">
+                                        <input asp-for="Entity.Nombre_Usuario" v-model="Entity.Nombre_Usuario" class="form-control" type="text" required placeholder="Usuario">
                                     </div>
                                 </div>
                                 <div class="form-group mb-4">
                                     <div class="">
-                                        <input asp-for="Entity.Contrasena" v-model="Entity.Contrasena" class="form-control" type="password" required placeholder="Contraseña">
+                                        <input asp-for="Entity.Clave" v-model="Entity.Clave" class="form-control" type="password" required placeholder="Contraseña">
                                     </div>
                                 </div>
 
@@ -67,11 +67,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group mb-0 mt-4">
-                                    <div class="col-sm-12 justify-content-center d-flex">
-                                        <p>No tienes Cuenta? <a asp-page="Registrarse" class="text-info font-weight-medium ms-1">Registrarse</a></p>
-                                    </div>
-                                </div>
+                               
                             </form>
                         </div>
                     </div>

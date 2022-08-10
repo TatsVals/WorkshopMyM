@@ -24,7 +24,9 @@ namespace WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             services.AddDIContainer();
+            services.AddConfigHttpClient(Configuration);
 
             services.AddRazorPages().AddJsonOptions(option =>
             {
@@ -35,7 +37,12 @@ namespace WebApp
                 options.Conventions
                        .ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
             });
-
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +61,7 @@ namespace WebApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -63,6 +70,7 @@ namespace WebApp
             {
                 endpoints.MapRazorPages();
             });
+            app.UseSession();
         }
     }
 }

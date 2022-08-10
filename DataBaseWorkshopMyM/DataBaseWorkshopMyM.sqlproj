@@ -83,6 +83,7 @@
     <Build Include="dbo\StoredProcedures\PermisosDelete.sql" />
     <Build Include="dbo\StoredProcedures\PermisosUpdate.sql" />
     <Build Include="dbo\StoredProcedures\PermisosList.sql" />
+    <Build Include="dbo\StoredProcedures\Login.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataBaseWorkshopMyM.publish.xml" />
