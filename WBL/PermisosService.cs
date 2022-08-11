@@ -72,8 +72,8 @@ namespace WBL
                     entity.IdRol
                     ,
                     entity.Mantenimiento
-                    ,
-                    entity.Acceso
+                    
+                    
 
 
                 }
@@ -101,8 +101,7 @@ namespace WBL
                     entity.IdRol
                     ,
                     entity.Mantenimiento
-                    ,
-                    entity.Acceso
+                    
 
 
                 }

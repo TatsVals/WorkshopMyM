@@ -11,7 +11,11 @@ namespace Entity
         public UsersEntity()
         {
             Roles = Roles ?? new RolesEntity();
+            Permisos = Permisos ?? new PermisosEntity();
         }
+
+      
+     
 
         public int? IdUsuario { get; set; }
 
@@ -28,5 +32,6 @@ namespace Entity
         public string Clave { get; set; }
         public string IdRol { get; set; }
         public virtual RolesEntity Roles { get; set; }
+        public virtual PermisosEntity Permisos { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[PermisosCreate]
  
 		@IdRol INT,
-		@Mantenimiento VARCHAR(50), 
-		@Acceso VARCHAR(50)
+		@Mantenimiento VARCHAR(50)
+		
 		
 AS
 BEGIN
@@ -16,14 +16,14 @@ BEGIN
 		(
 			 IdRol 
 			,Mantenimiento 
-			,Acceso 
+			 
 			
 		)
 		VALUES
 		(
 			 @IdRol 
 			,@Mantenimiento 
-			,@Acceso 
+			 
 			
 		)
 

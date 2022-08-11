@@ -23,8 +23,8 @@ ELSE BEGIN
 	0 AS CodeError,
 	IdUsuario,
 	Nombre_Usuario,
-	Nombre
-
+	Nombre,
+	IdRol
 	FROM Users 
 		WHERE Nombre_Usuario=@Nombre_Usuario and Clave=@Clave 
 
