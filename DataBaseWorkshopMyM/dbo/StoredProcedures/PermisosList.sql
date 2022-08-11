@@ -7,7 +7,7 @@ BEGIN
 	       IdPermiso
 		 , IdRol
 		 , Mantenimiento
-		 , Acceso
+		 
 		 
 	FROM
 	    dbo.Permisos

@@ -74,8 +74,8 @@ namespace WBL
                     entity.Unidad,
                     entity.CantidadDisponible,
                     entity.PrecioCompra,
-                    entity.PrecioVenta,
-                    entity.CostoTotal
+                    entity.PrecioVenta
+                    
                 });
 
 
@@ -103,8 +103,7 @@ namespace WBL
                     entity.Unidad,
                     entity.CantidadDisponible,
                     entity.PrecioCompra,
-                    entity.PrecioVenta,
-                    entity.CostoTotal
+                    entity.PrecioVenta
                 });
 
 

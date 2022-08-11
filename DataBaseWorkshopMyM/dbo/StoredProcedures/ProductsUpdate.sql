@@ -5,8 +5,8 @@
 	@Unidad VARCHAR(20),
 	@CantidadDisponible FLOAT,
 	@PrecioCompra FLOAT,
-	@PrecioVenta FLOAT,
-	@CostoTotal FLOAT
+	@PrecioVenta FLOAT
+	
 
 AS
  BEGIN
@@ -23,7 +23,7 @@ AS
 	, CantidadDisponible = @CantidadDisponible
 	, PrecioCompra = @PrecioCompra
 	, PrecioVenta = @PrecioVenta 
-	, CostoTotal = @CostoTotal 
+	, CostoTotal = @CantidadDisponible * @PrecioCompra
   WHERE
      IdProducto = @IdProducto
 

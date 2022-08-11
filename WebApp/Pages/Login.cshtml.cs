@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Entity;
 using WBL;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace WebApp.Pages
 {
@@ -18,6 +21,7 @@ namespace WebApp.Pages
 
             this.usuarioService = usuarioService;
         }
+        
 
         [FromBody]
         [BindProperty]
@@ -32,7 +36,22 @@ namespace WebApp.Pages
 
                 if (result.CodeError == 0)
                 {
+                    #region AUTENTICACTION
+                    var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, result.Nombre),
+                    new Claim("Nombre_Usuario", result.Nombre_Usuario),
+                    new Claim(ClaimTypes.Role, result.IdRol) //agrega solo un rol o acceso
+                };
+                    /*foreach (string rol in result.Permisos.)
+                    {
+                        claims.Add(new Claim(ClaimTypes.Role, rol));
+                    }*/
 
+                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+                    #endregion
                     HttpContext.Session.Set<UsersEntity>(IApp.UsuarioSession, result);
                     return new JsonResult(result);
                 }
@@ -55,14 +74,7 @@ namespace WebApp.Pages
 
         }
 
-        public IActionResult OnGetLogout()
-        {
-            HttpContext.Session.Clear();
-
-            return Redirect("../Login");
-        }
-        public void OnGet()
-        {
-        }
+        
+        
     }
 }
