@@ -1,0 +1,2 @@
+﻿/*Datable*/
+$("#GridView").DataTable();
