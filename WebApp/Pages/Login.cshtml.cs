@@ -21,7 +21,7 @@ namespace WebApp.Pages
 
             this.usuarioService = usuarioService;
         }
-        
+       
 
         [FromBody]
         [BindProperty]
@@ -43,7 +43,7 @@ namespace WebApp.Pages
                     new Claim("Nombre_Usuario", result.Nombre_Usuario),
                     new Claim(ClaimTypes.Role, result.IdRol) //agrega solo un rol o acceso
                 };
-                    /*foreach (string rol in result.Permisos.)
+                    /*foreach (string rol in result.Permisos.) //para trabajar con varios permisos a un mismo user
                     {
                         claims.Add(new Claim(ClaimTypes.Role, rol));
                     }*/
@@ -73,8 +73,15 @@ namespace WebApp.Pages
 
 
         }
+        public  IActionResult OnGetLogout()
+        {
+            HttpContext.Session.Clear();
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-        
-        
+            
+
+            return Redirect("Login");
+        }
+
     }
 }

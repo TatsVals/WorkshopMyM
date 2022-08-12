@@ -3,32 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Entity;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WBL;
 
-namespace WebApp.Pages.Permisos
+namespace WebApp.Pages.Ordenes
 {
     public class GridModel : PageModel
     {
-        private readonly IPermisosService permisos;
+        private readonly IOrdenesService ordenes;
 
-        public GridModel(IPermisosService permisos)
+        public GridModel(IOrdenesService ordenes)
         {
-            this.permisos = permisos;
+            this.ordenes = ordenes;
         }
 
-        public IEnumerable<PermisosEntity> GridList { get; set; } = new List<PermisosEntity>();
+        public IEnumerable<OrdenesEntity> GridList { get; set; } = new List<OrdenesEntity>();
+
 
         public string Mensaje { get; set; } = "";
 
+
         public async Task<IActionResult> OnGet()
         {
+
             try
             {
-                GridList = await permisos.Get();
+                GridList = await ordenes.GET();
 
                 if (TempData.ContainsKey("Msg"))
                 {
@@ -44,16 +45,16 @@ namespace WebApp.Pages.Permisos
 
                 return Content(ex.Message);
             }
-        }
 
+        }
 
         public async Task<JsonResult> OnDeleteEliminar(int id)
         {
 
             try
             {
-                var result = await permisos.Delete(new()
-                { IdPermiso = id });
+                var result = await ordenes.DELETE(new()
+                { IdOrden = id });
 
 
                 return new JsonResult(result);
@@ -65,8 +66,5 @@ namespace WebApp.Pages.Permisos
             }
 
         }
-
-        
-
     }
 }

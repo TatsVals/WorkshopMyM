@@ -8,11 +8,10 @@ var Logout;
         ComfirmAlert("¿Desea Cerrar Sesion?", "Salir", "warning", '#3085d6', '#d33')
             .then(function (result) {
             if (result.isConfirmed) {
-                window.location.href = "Index?handler=Logout=";
+                window.location.href = "Login?handler=Logout=";
             }
         });
     }
     Logout.OnClickLogout = OnClickLogout;
-    $("#GridView").DataTable();
 })(Logout || (Logout = {}));
 //# sourceMappingURL=Logout.js.map
