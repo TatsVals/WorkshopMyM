@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace WebApp
 {
@@ -24,7 +25,9 @@ namespace WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             services.AddDIContainer();
+            services.AddConfigHttpClient(Configuration);
 
             services.AddRazorPages().AddJsonOptions(option =>
             {
@@ -35,6 +38,19 @@ namespace WebApp
                 options.Conventions
                        .ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
             });
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
+           {
+               option.LoginPath = "/Index";
+               option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+               option.AccessDeniedPath = "/Home/Privacy";
+                
+           });
 
         }
 
@@ -54,15 +70,16 @@ namespace WebApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
             });
+            app.UseSession();
         }
     }
 }

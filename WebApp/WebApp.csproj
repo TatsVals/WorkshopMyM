@@ -5,41 +5,7 @@
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Pages\Bitacoras\**" />
-    <Compile Remove="wwwroot\App\NewFolder1\**" />
-    <Compile Remove="wwwroot\App\NewFolder2\**" />
-    <Compile Remove="wwwroot\App\NewFolder3\**" />
-    <Compile Remove="wwwroot\App\NewFolder\**" />
-    <Compile Remove="wwwroot\App\Permisos - Copy\**" />
-    <Content Remove="Pages\Bitacoras\**" />
-    <Content Remove="wwwroot\App\NewFolder1\**" />
-    <Content Remove="wwwroot\App\NewFolder2\**" />
-    <Content Remove="wwwroot\App\NewFolder3\**" />
-    <Content Remove="wwwroot\App\NewFolder\**" />
-    <Content Remove="wwwroot\App\Permisos - Copy\**" />
-    <EmbeddedResource Remove="Pages\Bitacoras\**" />
-    <EmbeddedResource Remove="wwwroot\App\NewFolder1\**" />
-    <EmbeddedResource Remove="wwwroot\App\NewFolder2\**" />
-    <EmbeddedResource Remove="wwwroot\App\NewFolder3\**" />
-    <EmbeddedResource Remove="wwwroot\App\NewFolder\**" />
-    <EmbeddedResource Remove="wwwroot\App\Permisos - Copy\**" />
-    <None Remove="Pages\Bitacoras\**" />
-    <None Remove="wwwroot\App\NewFolder1\**" />
-    <None Remove="wwwroot\App\NewFolder2\**" />
-    <None Remove="wwwroot\App\NewFolder3\**" />
-    <None Remove="wwwroot\App\NewFolder\**" />
-    <None Remove="wwwroot\App\Permisos - Copy\**" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <Content Remove="wwwroot\App\Bitacora_Movimientos\Grid.ts" />
-    <Content Remove="wwwroot\App\Permisos\Edit.ts" />
-    <Content Remove="wwwroot\App\Permisos\Grid.ts" />
-    <Content Remove="wwwroot\App\Products\Edit.ts" />
-    <Content Remove="wwwroot\App\Roles\Edit.ts" />
-    <Content Remove="wwwroot\App\Roles\Grid.ts" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\css\.DS_Store" />
@@ -162,7 +128,13 @@
   </ItemGroup>
 
   <ItemGroup>
+
     <TypeScriptCompile Include="wwwroot\App\Bitacora_Movimientos\Grid.ts" />
+
+    <TypeScriptCompile Include="wwwroot\App\Logout.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Ordenes\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Ordenes\Grid.ts" />
+
     <TypeScriptCompile Include="wwwroot\App\Permisos\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Permisos\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Products\Edit.ts" />

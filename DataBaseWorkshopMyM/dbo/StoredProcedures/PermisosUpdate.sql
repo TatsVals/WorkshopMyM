@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[PermisosUpdate]
 		@IdPermiso INT,
 		@IdRol INT,
-		@Mantenimiento VARCHAR(50),
-		@Acceso VARCHAR(50)
+		@Mantenimiento VARCHAR(50)
+		
 		
 AS
 
@@ -16,7 +16,7 @@ BEGIN
 		UPDATE dbo.Permisos SET
 			 IdRol	= @IdRol
 			,Mantenimiento = @Mantenimiento
-			,Acceso = @Acceso 
+			
 			
 		WHERE
 			IdPermiso = @IdPermiso

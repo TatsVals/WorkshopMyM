@@ -25,7 +25,7 @@ namespace WebApp.Pages.Users
         public int? id { get; set; }
 
         [BindProperty]
-       
+        [FromBody]
         public UsersEntity Entity { get; set; } = new UsersEntity();
         public IEnumerable<RolesEntity> RolesLista { get; set; } = new List<RolesEntity>();
         public async Task<IActionResult> OnGet()
@@ -54,36 +54,32 @@ namespace WebApp.Pages.Users
         }
 
         //metodo update insert
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPost()
         {
             try
             {
-                if (Entity.IdUsuario.HasValue)
+                var result = new DBEntity();
+                //update
+                if (Entity.IdUsuario.HasValue) //si el idContacto tiene un valor (true) el metodo actuliza
                 {
-                    var result = await users.Update(Entity);
+                    result = await users.Update(Entity);
 
-                    if (result.CodeError != 0) throw new Exception(result.MsgError);
-                    TempData["Msg"] = "El registro se actualizó correctamente";
-                }
-                else //Insertar
-                {
-                    var result = await users.Create(Entity);
 
-                    if (result.CodeError != 0) throw new Exception(result.MsgError);
-                    TempData["Msg"] = "El registro se agregó correctamente";
 
                 }
+                else //Si el idContacto no tiene valor (false) el metodo inserta
+                {
+                    result = await users.Create(Entity);
 
 
-                return RedirectToPage("Grid");
+                }
 
+                return new JsonResult(result);
             }
             catch (Exception ex)
             {
-
-                return Content(ex.Message);
+                return new JsonResult(new DBEntity { CodeError = ex.HResult, MsgError = ex.Message });
             }
-
         }
     }
 }

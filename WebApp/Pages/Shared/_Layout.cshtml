@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor Context;
+@{
+    var UsuarioSession = Context.HttpContext.Session.Get<Entity.UsersEntity>(IApp.UsuarioSession);
+    if (string.IsNullOrEmpty(UsuarioSession?.Nombre))
+        Context.HttpContext.Response.Redirect("/Login");
+
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,17 +13,17 @@
     <base href="/" />
     <title>@ViewData["Title"] - WebApp</title>
     @await Html.PartialAsync("_HeaderPartial")
-    
+
 </head>
 <body>
     <header>
-        
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">           
+
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
                 <div class="logo">
                     <img src="~/Images/LogoMyM.jpg" alt="Logo de Empresa">
                 </div>
-                
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -48,12 +55,53 @@
                                 <li><a class="nav-link text-dark" asp-area="" asp-page="/Bitacora_Movimientos/Grid">Movimientos de Usuarios</a>
                             </ul>
                         </li>
+
+
+                        @if (User.IsInRole("4"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">Taller</a>
+                                <ul>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Products/Grid">Inventario</a>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Ordenes/Grid">Ordenes de Trabajo</a>
+                                </ul>
+                            </li>
+                        }
+                        @if (User.IsInRole("4"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">Empleados</a>
+                                <ul>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Users/Grid">Usuarios</a>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Roles/Grid">Roles</a>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Permisos/Grid">Permisos</a>
+                                </ul>
+                            </li>
+                        }
+
+                        @if (User.IsInRole("4"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">Bitacoras</a>
+                                <ul>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="">Ingresos y Salidas al Sistema</a>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Bitacora_Movimientos/Grid"">Movimientos de Usuarios</a>
+                                </ul>
+                            </li>
+                        }
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Acerca</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="">Ayuda</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login.cshtml.cs" asp-action="Salir" >Salir</a>
+                            <button type="button" class="btn btn-secondary" onclick="Logout.OnClickLogout()"><i class='bx bx-trash'></i></button>
+
+                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -74,6 +122,11 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <script defer src="~/App/Logout.js"></script>
+
+
+
 
     @await Html.PartialAsync("_ScriptsPartial")
     @await RenderSectionAsync("Scripts", required: false)

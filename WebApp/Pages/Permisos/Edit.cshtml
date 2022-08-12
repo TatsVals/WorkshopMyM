@@ -2,7 +2,7 @@
 @model WebApp.Pages.Permisos.EditModel
 @{
 }
-<div id="AppEdit" class="container">
+<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
     <div class="card">
         <div class="card-header">
             @(Model.id.HasValue?"Actualizar":"Nuevo")
@@ -21,13 +21,13 @@
 
                 <div class="form-group mb-3">
                     <label for="Entity.Mantenimiento" class="form-label">Mantenimiento</label>
-                    <input type="text" class="form-control" asp-for="Entity.Mantenimiento" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.Mantenimiento" v-model="Entity.Mantenimiento" maxlength="250" required>
+
+                    <label><input type="checkbox" id="cbox1" value="Taller"  v-model="Entity.Mantenimiento" required> Taller </label><br>
+
                 </div>
 
-                <div class="form-group  mb-3">
-                    <label for="Entity.Acceso" class="form-label">Acceso</label>
-                    <input type="text" class="form-control" asp-for="Entity.Acceso" maxlength="250" required>
-                </div>
+                
 
 
 
@@ -36,8 +36,8 @@
 
                 <div class="row">
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary">
-                            @(Model.id.HasValue?"Actualizar":"Agregar")
+                        <button type="button" @@click="Save" class="btn btn-primary">
+                            @(Model.id.HasValue?"Actualizar":"Agregar") <!-- validacion por si es agregar o actualizar -->
                         </button>
                     </div>
                 </div>
