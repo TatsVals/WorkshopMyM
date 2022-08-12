@@ -19,7 +19,7 @@ namespace WebApp
             services.AddScoped<IRolesService, RolesService>();
             services.AddScoped<IPermisosService, PermisosService>();
             services.AddScoped<IOrdenesService, OrdenesService>();
-
+            services.AddScoped<IBitacora_MovimientosService, Bitacora_MovimientosService>();
 
 
             return services;

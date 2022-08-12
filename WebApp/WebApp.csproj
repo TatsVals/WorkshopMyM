@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\App\Bitacora_Movimientos\Grid.ts" />
     <Content Remove="wwwroot\App\Logout.ts" />
     <Content Remove="wwwroot\App\Ordenes\Edit.ts" />
     <Content Remove="wwwroot\App\Ordenes\Grid.ts" />
@@ -137,6 +138,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\App\Bitacora_Movimientos\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Logout.ts" />
     <TypeScriptCompile Include="wwwroot\App\Ordenes\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Ordenes\Grid.ts" />
