@@ -1,0 +1,48 @@
+﻿@page
+@model WebApp.Pages.Bitacora_Movimientos.GridModel
+@{
+}
+
+<div class="container-fluid">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Bitacora de movimientos</h5>
+        </div>
+                <div class="col-12 table-responsive">
+                    <table id="GridView" class="table-striped table table-hover table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre de Usuario</th>
+                                <th>Fecha</th>
+                                <th>Movimiento</th>
+                                <th>Detalle</th>                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.GridList)
+                            {
+                                <tr>                                    
+                                    <td>@item.IdMovimiento</td>
+                                    <td>@item.Nombre_Usuario</td>
+                                    <td>@item.Fecha</td>
+                                    <td>@item.Movimiento</td>
+                                    <td>@item.Detalle</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        var MensajeApp = "@Html.Raw(Model.Mensaje)";
+</script>
+@*<script defer src="~/App/Products/Grid.js"></script>*@
