@@ -1,0 +1,68 @@
+﻿@page
+@model WebApp.Pages.Products.EditModel
+@{
+}
+<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
+    <div class="card">
+        <div class="card-header">
+            @(Model.id.HasValue?"Actualizar":"Nuevo")
+        </div>
+        <div class="card-body">
+            <form id="FormEdit" method="post">
+                <input type="hidden" asp-for="Entity.IdProducto" v-model="Entity.IdProducto" />
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Codigo" class="form-label">Codigo</label>
+                    <input type="text" class="form-control" asp-for="Entity.Codigo" v-model="Entity.Codigo" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Descripcion" class="form-label">Descripcion</label>
+                    <input type="text" class="form-control" asp-for="Entity.Descripcion" v-model="Entity.Descripcion" maxlength="250" required>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label for="Entity.Unidad" class="form-label">Unidad</label>
+                    <input type="text" class="form-control" asp-for="Entity.Unidad" v-model="Entity.Unidad" maxlength="250" required>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label for="Entity.CantidadDisponible" class="form-label">Cantidad Disponible</label>
+                    <input type="number" class="form-control" asp-for="Entity.CantidadDisponible" v-model="Entity.CantidadDisponible" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.PrecioCompra" class="form-label">Precio Compra</label>
+                    <input type="number" class="form-control" asp-for="Entity.PrecioCompra" v-model="Entity.PrecioCompra" required>
+                </div>
+
+
+
+                <div class="form-group mb-3">
+                    <label for="Entity.PrecioVenta" class="form-label">Precio Venta</label>
+                    <input type="number" class="form-control" asp-for="Entity.PrecioVenta" v-model="Entity.PrecioVenta" required>
+                </div>
+
+                
+
+
+
+                <div class="row">
+                    <div class="col-4">
+                        <button type="button" @@click="Save" class="btn btn-primary">
+                            @(Model.id.HasValue?"Actualizar":"Agregar") <!-- validacion por si es agregar o actualizar -->
+                        </button>
+                    </div>
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script defer src="~/App/Products/Edit.js"></script>
+}

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace WebApp
 {
@@ -23,13 +25,33 @@ namespace WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
             services.AddDIContainer();
+            services.AddConfigHttpClient(Configuration);
 
             services.AddRazorPages().AddJsonOptions(option =>
             {
                 option.JsonSerializerOptions.DictionaryKeyPolicy = null;
                 option.JsonSerializerOptions.PropertyNamingPolicy = null;
+            }).AddRazorPagesOptions(options =>
+            {
+                options.Conventions
+                       .ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
             });
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(option =>
+           {
+               option.LoginPath = "/Index";
+               option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+               option.AccessDeniedPath = "/Home/Privacy";
+                
+           });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,15 +70,16 @@ namespace WebApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
             });
+            app.UseSession();
         }
     }
 }

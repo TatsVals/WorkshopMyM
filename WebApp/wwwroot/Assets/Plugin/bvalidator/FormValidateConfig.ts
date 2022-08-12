@@ -12,6 +12,9 @@ var CreateValidator = function (Formulario:string) {
 
 }
 
+//function myfunction() {
+
+//}
 
 var BValidateData = function (Formulario:string):boolean {
 

@@ -9,6 +9,8 @@ var CreateValidator = function (Formulario) {
         }
     });
 };
+//function myfunction() {
+//}
 var BValidateData = function (Formulario) {
     CreateValidator(Formulario);
     $(Formulario).bootstrapValidator('validate');

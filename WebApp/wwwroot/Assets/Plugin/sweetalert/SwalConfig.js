@@ -4,7 +4,7 @@ var Loading = Swal.mixin({
     didOpen: function (toast) {
         Swal.showLoading();
         $(".swal2-backdrop-show").css({ 'width': '100%', 'height': '100%' });
-        $(".swal2-loading ").css({ 'width': 'auto' });
+        $(".swal2-popup").css({ 'width': '13%' });
     },
     backdrop: 'rgba(0, 0, 0, 0.03)',
     customClass: {

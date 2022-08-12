@@ -1,0 +1,78 @@
+﻿@page
+@model WebApp.Pages.Ordenes.EditModel
+@{
+}
+<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
+    <div class="card">
+        <div class="card-header">
+            @(Model.id.HasValue?"Actualizar":"Nuevo")
+        </div>
+        <div class="card-body">
+            <form id="FormEdit" method="post">
+                <input type="hidden" asp-for="Entity.IdOrden" v-model="Entity.IdOrden" />
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Codigo" class="form-label">Codigo</label>
+                    <input type="text" class="form-control" asp-for="Entity.NombreCliente" v-model="Entity.NombreCliente" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Descripcion" class="form-label">Descripcion</label>
+                    <input type="text" class="form-control" asp-for="Entity.PlacaVehiculo" v-model="Entity.PlacaVehiculo" maxlength="250" required>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label for="Entity.Unidad" class="form-label">Unidad</label>
+                    <input type="text" class="form-control" asp-for="Entity.MarcaVehiculo" v-model="Entity.MarcaVehiculo" maxlength="250" required>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label for="Entity.CantidadDisponible" class="form-label">Cantidad Disponible</label>
+                    <input type="text" class="form-control" asp-for="Entity.ModeloVehiculo" v-model="Entity.ModeloVehiculo" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.PrecioCompra" class="form-label">Precio Compra</label>
+                    <input type="text" class="form-control" asp-for="Entity.AnoVehiculo" v-model="Entity.AnoVehiculo" required>
+                </div>
+
+
+
+                <div class="form-group mb-3">
+                    <label for="Entity.PrecioVenta" class="form-label">Precio Venta</label>
+                    <input type="text" class="form-control" asp-for="Entity.ManodeObra" v-model="Entity.ManodeObra" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.PrecioVenta" class="form-label">Precio Venta</label>
+                    <input type="text" class="form-control" asp-for="Entity.Productos" v-model="Entity.Productos" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.PrecioVenta" class="form-label">Precio Venta</label>
+                    <input type="checkbox" class="form-control" asp-for="Entity.Estado" v-model="Entity.Estado" required>
+                </div>
+
+
+
+
+
+                <div class="row">
+                    <div class="col-4">
+                        <button type="button" @@click="Save" class="btn btn-primary">
+                            @(Model.id.HasValue?"Actualizar":"Agregar") <!-- validacion por si es agregar o actualizar -->
+                        </button>
+                    </div>
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script defer src="~/App/Ordenes/Edit.js"></script>
+}

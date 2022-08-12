@@ -8,6 +8,15 @@ namespace Entity
 {
     public class UsersEntity:DBEntity 
     {
+        public UsersEntity()
+        {
+            Roles = Roles ?? new RolesEntity();
+            Permisos = Permisos ?? new PermisosEntity();
+        }
+
+      
+     
+
         public int? IdUsuario { get; set; }
 
         public string Cedula { get; set; }
@@ -21,5 +30,8 @@ namespace Entity
         public string Nombre_Usuario { get; set; }
 
         public string Clave { get; set; }
+        public string IdRol { get; set; }
+        public virtual RolesEntity Roles { get; set; }
+        public virtual PermisosEntity Permisos { get; set; }
     }
 }

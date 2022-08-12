@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -297,7 +298,7 @@
                                     Account Setting
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" >
                                     <i data-feather="log-out"
                                        class="feather-sm text-danger me-1 ms-1"></i> Logout
                                 </a>
@@ -331,7 +332,10 @@
                     <div class="profile-img"> <img src="~/Assets/template/img/profile.png" alt="user" class="w-100" /> </div>
                     <!-- User profile text-->
                     <div class="profile-text pt-1 dropdown">
-                        <a href="#" class="dropdown-toggle u-dropdown w-100 text-white d-block position-relative" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Andrey</a>
+                        <a href="#" class="dropdown-toggle u-dropdown w-100 text-white d-block position-relative" id="dropdownMenuLink"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                       Usuario
+                        </a>
                         <div class="dropdown-menu animated flipInY" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" href="#">
                                 <i data-feather="user" class="feather-sm text-info me-1 ms-1"></i> My
@@ -345,7 +349,7 @@
                                 Account Setting
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="authentication-login3.html">
+                            <a class="dropdown-item" >
                                 <i data-feather="log-out"
                                    class="feather-sm text-danger me-1 ms-1"></i> Logout
                             </a>
@@ -372,20 +376,46 @@
                                 <span class="hide-menu">Matenimientos </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
+
                                 <li class="sidebar-item">
-                                    <a href="index.html" class="sidebar-link">
-                                        <i class="mdi mdi-adjust"></i>
-                                        <span class="hide-menu"> Marcar Vehiculo </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="index2.html" class="sidebar-link">
+                                    <a  class="sidebar-link">
                                         <i class="mdi mdi-adjust"></i>
                                         <span class="hide-menu"> Vehiculos </span>
                                     </a>
                                 </li>
 
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link">
+                                        <i class="mdi mdi-adjust"></i>
+                                        <span class="hide-menu"> Marcar Vehiculo </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a  class="sidebar-link">
+                                        <i class="mdi mdi-adjust"></i>
+                                        <span class="hide-menu"> Agencia </span>
+                                    </a>
+                                </li>
+
                             </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link  waves-effect waves-dark" 
+                               aria-expanded="false">
+                                <i class="mdi mdi-face"></i>
+                                <span class="hide-menu">Clientes </span>
+                            </a>
+
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link  waves-effect waves-dark" 
+                               aria-expanded="false">
+                                <i class="mdi mdi-car"></i>
+                                <span class="hide-menu">Alquiler </span>
+                            </a>
+
                         </li>
 
 
@@ -417,9 +447,9 @@
 
             <!-- footer -->
             <!-- -------------------------------------------------------------- -->
-            <footer class="footer text-center">
-                All Rights Reserved by Curso Programacion 6s
-            </footer>
+            @*<footer class="footer text-center">
+                    All Rights Reserved by Curso Programacion 6s
+                </footer>*@
             <!-- -------------------------------------------------------------- -->
             <!-- End footer -->
             <!-- -------------------------------------------------------------- -->
@@ -591,7 +621,6 @@
             </div>
         </div>
     </aside>
-
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

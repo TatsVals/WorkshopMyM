@@ -31,6 +31,7 @@ interface ISwal {
     showLoading();
     stopTimer?: any;
     resumeTimer?: any;
+    close():void;
 }
 
 declare var Swal: ISwal;

@@ -3,4 +3,75 @@
 @{
 }
 
+<div id="AppEdit" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
+    <div class="card">
+        <div class="card-header">
+            @(Model.id.HasValue?"Actualizar":"Nuevo")
+        </div>
+        <div class="card-body">
+            <form id="FormEdit" method="post">
+                <input type="hidden" asp-for="Entity.IdUsuario" v-model="Entity.IdUsuario" />
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Cedula" class="form-label">Cedula</label>
+                    <input type="text" class="form-control" asp-for="Entity.Cedula" v-model="Entity.Cedula" maxlength="250" required>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label for="Entity.Nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" asp-for="Entity.Nombre" v-model="Entity.Nombre" maxlength="250" required>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label for="Entity.Primer_Apellido" class="form-label">Primer Apelledido</label>
+                    <input type="text" class="form-control" asp-for="Entity.Primer_Apellido" v-model="Entity.Primer_Apellido" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Segundo_Apellido" class="form-label">Segundo Apellido</label>
+                    <input type="text" class="form-control" asp-for="Entity.Segundo_Apellido" v-model="Entity.Segundo_Apellido" maxlength="250" required>
+                </div>
+
+
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Nombre_Usuario" class="form-label">Nombre Usuario</label>
+                    <input type="text" class="form-control" asp-for="Entity.Nombre_Usuario" v-model="Entity.Nombre_Usuario" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Clave" class="form-label">Clave</label>
+                    <input type="text" class="form-control" asp-for="Entity.Clave" v-model="Entity.Clave" maxlength="250" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.IdRol" class="form-label">Rol</label>
+
+                    <select asp-for="Entity.IdRol" class="form-select" v-model="Entity.IdRol"
+                            asp-items="@(new SelectList(Model.RolesLista,"IdRol","Rol"))" required>
+                    </select>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-4">
+                        <button type="button" @@click="Save" class="btn btn-primary">
+                            @(Model.id.HasValue?"Actualizar":"Agregar") <!-- validacion por si es agregar o actualizar -->
+                        </button>
+                    </div>
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script defer src="~/App/User/Edit.js"></script>
+
+}
 
