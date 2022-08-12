@@ -1,0 +1,74 @@
+﻿@page
+@model WebApp.Pages.Ordenes.GridModel
+@{
+}
+<div class="container-fluid">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Inventario</h5>
+        </div>
+        <div class="card-body">
+
+            <a class="btn btn-primary" asp-page="Edit">
+                <i class='bx bx-add-to-queue'></i>
+            </a>
+
+
+            <div class="row">
+                <div class="col-12 table-responsive">
+                    <table id="GridView" class="table-striped table table-hover table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Acción</th>
+
+                                <th>Nombre Cliente</th>
+                                <th>Placa Vehiculo</th>
+                                <th>Marca Vehiculo</th>
+                                <th>Modelo Vehiculo</th>
+                                <th>Ano Vehiculo</th>
+                                <th>Manode Obra</th>
+                                <th>Productos</th>
+                                <th>Estado</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.GridList)
+                            {
+                            <tr>
+                                <td>
+                                    <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdOrden">
+                                        <i class='bx bx-edit-alt'></i>
+                                    </a>
+                                    <button type="button" class="btn btn-danger" onclick="OrdenesGrid.OnclickEliminar(@item.IdOrden)">
+                                        <i class='bx bxs-trash'></i>
+                                    </button>
+                                </td>
+
+                                <td>@item.NombreCliente</td>
+                                <td>@item.PlacaVehiculo</td>
+                                <td>@item.MarcaVehiculo</td>
+                                <td>@item.ModeloVehiculo</td>
+                                <td>@item.AnoVehiculo</td>
+                                <td>@item.ManodeObra</td>
+                                <td>@item.Productos</td>
+                                <td>@item.Estado</td>
+
+                            </tr>
+
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        var MensajeApp = "@Html.Raw(Model.Mensaje)";
+</script>
+<script defer src="~/App/Ordenes/Grid.js"></script>

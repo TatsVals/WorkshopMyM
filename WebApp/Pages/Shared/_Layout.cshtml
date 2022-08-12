@@ -40,7 +40,7 @@
                                 <a class="nav-link text-dark">Taller</a>
                                 <ul>
                                     <li><a class="nav-link text-dark" asp-area="" asp-page="/Products/Grid">Inventario</a>
-                                    <li><a class="nav-link text-dark" asp-area="" asp-page="">Ordenes de Trabajo</a>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Ordenes/Grid">Ordenes de Trabajo</a>
                                 </ul>
                             </li>
                         }
@@ -74,6 +74,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="">Ayuda</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login.cshtml.cs" asp-action="Salir" >Salir</a>
                             <button type="button" class="btn btn-secondary" onclick="Logout.OnClickLogout()"><i class='bx bx-trash'></i></button>
 
                         </li>
@@ -98,9 +99,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script>
-        var MensajeApp = "@Html.Raw(Model.Mensaje)";
-    </script>
+    
     <script defer src="~/App/Logout.js"></script>
 
 

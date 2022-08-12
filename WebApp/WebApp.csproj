@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\App\Logout.ts" />
+    <Content Remove="wwwroot\App\Ordenes\Edit.ts" />
+    <Content Remove="wwwroot\App\Ordenes\Grid.ts" />
     <Content Remove="wwwroot\App\Permisos\Edit.ts" />
     <Content Remove="wwwroot\App\Permisos\Grid.ts" />
     <Content Remove="wwwroot\App\Products\Edit.ts" />
@@ -136,6 +138,8 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="wwwroot\App\Logout.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Ordenes\Edit.ts" />
+    <TypeScriptCompile Include="wwwroot\App\Ordenes\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Permisos\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Permisos\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Products\Edit.ts" />

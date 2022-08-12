@@ -11,7 +11,7 @@
         ComfirmAlert("¿Desea Cerrar Sesion?", "Salir", "warning", '#3085d6', '#d33')
             .then(result => {
                 if (result.isConfirmed) {
-                    window.location.href = "Index?handler=Logout=";
+                    window.location.href = "Login?handler=Logout=";
 
                 }
 
@@ -19,6 +19,6 @@
             });
     }
 
-    $("#GridView").DataTable();
+    
 
 }
