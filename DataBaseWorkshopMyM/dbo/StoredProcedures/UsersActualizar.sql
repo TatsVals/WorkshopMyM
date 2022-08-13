@@ -22,7 +22,7 @@ BEGIN
 			,Primer_Apellido = @Primer_Apellido 
 			,Segundo_Apellido = @Segundo_Apellido 
 			,Nombre_Usuario = @Nombre_Usuario
-			,Clave	= @Clave
+			,Clave	= ENCRYPTBYPASSPHRASE('password', @Clave)
 			,IdRol = @IdRol
 		WHERE
 			IdUsuario = @IdUsuario	
