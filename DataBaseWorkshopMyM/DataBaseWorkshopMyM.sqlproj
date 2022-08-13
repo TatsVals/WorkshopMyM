@@ -93,8 +93,10 @@
     <Build Include="dbo\StoredProcedures\Bitacora_MovimientosObtener.sql" />
     <Build Include="dbo\Tables\Bitacora_Movimientos.sql" />
     <Build Include="dbo\Tables\Bitacora_Ingresos.sql" />
-    <Build Include="dbo\Triggers\Registro_Movimientos.sql" />
+    <Build Include="dbo\Triggers\Insert.sql" />
     <Build Include="dbo\Triggers\Registro_Ingresos.sql" />
+    <Build Include="dbo\Triggers\Delete.sql" />
+    <Build Include="dbo\Triggers\Update.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataBaseWorkshopMyM.publish.xml" />
