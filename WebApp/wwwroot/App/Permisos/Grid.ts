@@ -30,5 +30,4 @@
 
     /*Datable*/
     $("#GridView").DataTable();
-
 }
