@@ -11,7 +11,7 @@ BEGIN
 		,U.Primer_Apellido 
 		,U.Segundo_Apellido 
 		,U.Nombre_Usuario 
-		,U.Clave
+		,(CONVERT(VARCHAR(MAX), DECRYPTBYPASSPHRASE('password', U.Clave)))
 		,R.IdRol
 		,R.Rol
 

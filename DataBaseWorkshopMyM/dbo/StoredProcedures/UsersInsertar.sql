@@ -31,7 +31,7 @@ BEGIN
 			,@Primer_Apellido 
 			,@Segundo_Apellido 
 			,@Nombre_Usuario 
-			,@Clave	
+			,ENCRYPTBYPASSPHRASE('password', @Clave)
 			,@IdRol
 		)
 
