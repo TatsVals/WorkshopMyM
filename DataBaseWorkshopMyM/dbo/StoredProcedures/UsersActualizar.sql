@@ -15,6 +15,8 @@ BEGIN
 
 	BEGIN TRANSACTION TRASA
 
+	DECLARE @ContrasenaSHA1 VARBINARY(MAX)=(SELECT HASHBYTES('SHA1',@Clave));
+
 	BEGIN TRY
 		UPDATE dbo.Users SET
 			 Cedula	= @Cedula
@@ -22,7 +24,7 @@ BEGIN
 			,Primer_Apellido = @Primer_Apellido 
 			,Segundo_Apellido = @Segundo_Apellido 
 			,Nombre_Usuario = @Nombre_Usuario
-			,Clave	= ENCRYPTBYPASSPHRASE('password', @Clave)
+			,Clave	= @ContrasenaSHA1
 			,IdRol = @IdRol
 		WHERE
 			IdUsuario = @IdUsuario	

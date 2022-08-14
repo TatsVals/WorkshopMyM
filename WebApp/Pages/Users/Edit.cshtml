@@ -14,7 +14,7 @@
 
                 <div class="form-group mb-3">
                     <label for="Entity.Cedula" class="form-label">Cedula</label>
-                    <input type="text" class="form-control" asp-for="Entity.Cedula" v-model="Entity.Cedula" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.Cedula" v-model="Entity.Cedula" maxlength="9" minlength="9" pattern="[0-9]{9}" placeholder="101110111" required>
                 </div>
 
                 <div class="form-group  mb-3">
