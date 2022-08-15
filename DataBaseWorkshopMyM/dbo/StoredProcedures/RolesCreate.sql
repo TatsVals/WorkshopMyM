@@ -9,7 +9,7 @@ AS
 
   BEGIN TRY
 
-
+  	IF NOT EXISTS( SELECT * FROM dbo.Roles WHERE @Rol=Rol) BEGIN
   INSERT INTO dbo.Roles
   (
      Rol
@@ -21,8 +21,18 @@ AS
 	
   )
 
+    SELECT 0 AS CodeError, '' AS MsgError
+	END
+  ELSE BEGIN 
+		
+			SELECT -1 AS CodeError, 'Este Rol se encuentra en uso por favor ingresar otro Rol!' AS MsgError
+
+
+		END
+
   COMMIT TRANSACTION TRASA
-  SELECT 0 AS CodeError, '' AS MsgError
+
+
 
   END TRY
 
