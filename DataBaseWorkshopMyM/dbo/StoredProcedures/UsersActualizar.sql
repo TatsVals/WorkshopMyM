@@ -6,7 +6,8 @@
 		@Segundo_Apellido VARCHAR(250), 
 		@Nombre_Usuario VARCHAR(30), 
 		@Clave VARCHAR(30),
-		@IdRol INT
+		@IdRol INT,
+		@UsuarioLogin VARCHAR(50)
 AS
 
 BEGIN
@@ -28,9 +29,24 @@ BEGIN
 			,IdRol = @IdRol
 		WHERE
 			IdUsuario = @IdUsuario	
+		INSERT INTO	dbo.Bitacora_Movimientos
+		(
+			 Nombre_Usuario
+			,Fecha, Movimiento
+		    ,Detalle
+		)
+		VALUES
+		(
+			 @UsuarioLogin
+			,GETDATE()
+			, 'UPDATE', 'Cedula: ' + @Cedula + ' Nombre: ' + @Nombre +' Apellidos: ' + @Primer_Apellido + ' ' + @Segundo_Apellido + ' Usuario: ' + @Nombre_Usuario
+		)
+
 		
 		COMMIT TRANSACTION TRASA
 		SELECT 0 AS CodeError, '' as MsgError
+
+
 	END TRY
 
 	BEGIN CATCH

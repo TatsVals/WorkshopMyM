@@ -1,5 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[UsersEliminar]
 	@IdUsuario INT
+   ,@Cedula VARCHAR(50)
+   ,@UsuarioLogin VARCHAR(50)
 
 AS
 BEGIN
@@ -12,8 +14,23 @@ BEGIN
 
 		DELETE FROM dbo.Users WHERE IdUsuario=@IdUsuario
 
-		COMMIT TRANSACTION TRASA
+		
+		
 		SELECT 0 AS CodeError, '' as MsgError
+		INSERT INTO	dbo.Bitacora_Movimientos
+		(
+			 Nombre_Usuario
+			,Fecha
+			,Movimiento
+		    ,Detalle
+		)
+		VALUES
+		(
+			 @UsuarioLogin
+			,GETDATE()
+			, 'DELETE', 'Usuario Cedula: ' + @Cedula  
+		)
+		COMMIT TRANSACTION TRASA
 	END TRY
 
 	BEGIN CATCH

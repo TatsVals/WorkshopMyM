@@ -7,8 +7,16 @@
 
     <div class="card">
         <div class="card-header">
-            <h5 class="card-title">Bitacora de movimientos</h5>
+            <h5 class="card-title">Bitacora Movimientos</h5>
         </div>
+        <div class="card-body">
+
+            <a class="btn btn-primary" asp-page="Edit">
+                <i class='bx bx-add-to-queue'></i>
+            </a>
+
+
+            <div class="row">
                 <div class="col-12 table-responsive">
                     <table id="GridView" class="table-striped table table-hover table table-bordered">
                         <thead>
@@ -17,19 +25,23 @@
                                 <th>Nombre de Usuario</th>
                                 <th>Fecha</th>
                                 <th>Movimiento</th>
-                                <th>Detalle</th>                                
+                                <th>Detalle</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model.GridList)
                             {
-                                <tr>                                    
+                                <tr>
                                     <td>@item.IdMovimiento</td>
                                     <td>@item.Nombre_Usuario</td>
                                     <td>@item.Fecha</td>
                                     <td>@item.Movimiento</td>
                                     <td>@item.Detalle</td>
                                 </tr>
+
+
+                                
 
                             }
                         </tbody>
@@ -42,7 +54,3 @@
     </div>
 </div>
 
-<script>
-        var MensajeApp = "@Html.Raw(Model.Mensaje)";
-</script>
-@*<script defer src="~/App/Products/Grid.js"></script>*@

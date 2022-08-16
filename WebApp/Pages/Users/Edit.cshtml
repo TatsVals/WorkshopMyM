@@ -10,7 +10,9 @@
         </div>
         <div class="card-body">
             <form id="FormEdit" method="post">
+
                 <input type="hidden" asp-for="Entity.IdUsuario" v-model="Entity.IdUsuario" />
+
 
                 <div class="form-group mb-3">
                     <label for="Entity.Cedula" class="form-label">Cedula</label>
@@ -52,6 +54,9 @@
                     </select>
                 </div>
 
+                
+                    <input type="hidden" asp-for="Entity.UsuarioLogin"  v-model="Entity.UsuarioLogin" />
+          
 
 
                 <div class="row">

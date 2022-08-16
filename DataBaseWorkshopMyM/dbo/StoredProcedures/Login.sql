@@ -29,6 +29,8 @@ ELSE BEGIN
 	FROM Users 
 		WHERE Nombre_Usuario=@Nombre_Usuario and Clave=@ContrasenaSHA1 
 
+	
+
 END
 
 

@@ -100,6 +100,7 @@ namespace WBL
                     ,entity.Nombre_Usuario
                     ,entity.Clave
                     ,entity.IdRol
+                    ,entity.UsuarioLogin
 
                 }
                     );
@@ -129,7 +130,8 @@ namespace WBL
                     ,entity.Nombre_Usuario
                     ,entity.Clave
                     ,entity.IdRol
-                    
+                    ,entity.UsuarioLogin
+
                 }
                     );
 
@@ -150,10 +152,11 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.UsersEliminar", new
                 {
-                    entity.IdUsuario
-
+                    entity.IdUsuario                  
+                   ,entity.Cedula
+                   ,entity.UsuarioLogin
                 }
-                    );
+                 );
 
                 return await result;
             }

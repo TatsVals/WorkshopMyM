@@ -45,7 +45,7 @@
                                         <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdUsuario">
                                             <i class='bx bx-edit-alt'></i>
                                         </a>
-                                        <button type="button" class="btn btn-danger" onclick="UserGrid.OnclickEliminar(@item.IdUsuario)">
+                                        <button type="button" class="btn btn-danger" onclick="UserGrid.OnclickEliminar(@item.IdUsuario, @item.Cedula)">
                                             <i class='bx bxs-trash'></i>
                                         </button>
                                     </td>

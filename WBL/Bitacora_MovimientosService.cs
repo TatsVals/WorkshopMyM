@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using BD;
 using Entity;
-using Entity.dbo;
 
 namespace WBL
 {

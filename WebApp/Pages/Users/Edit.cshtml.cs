@@ -24,13 +24,15 @@ namespace WebApp.Pages.Users
         [BindProperty(SupportsGet = true)]
         public int? id { get; set; }
 
+        
         [BindProperty]
         [FromBody]
         public UsersEntity Entity { get; set; } = new UsersEntity();
+
         public IEnumerable<RolesEntity> RolesLista { get; set; } = new List<RolesEntity>();
         public async Task<IActionResult> OnGet()
         {
-
+            
             try
             {
                 if (id.HasValue)
@@ -56,18 +58,19 @@ namespace WebApp.Pages.Users
         //metodo update insert
         public async Task<IActionResult> OnPost()
         {
+            Entity.UsuarioLogin = User.Identity.Name;
             try
             {
                 var result = new DBEntity();
                 //update
-                if (Entity.IdUsuario.HasValue) //si el idContacto tiene un valor (true) el metodo actuliza
+                if (Entity.IdUsuario.HasValue) 
                 {
                     result = await users.Update(Entity);
 
-
+                    
 
                 }
-                else //Si el idContacto no tiene valor (false) el metodo inserta
+                else 
                 {
                     result = await users.Create(Entity);
 
