@@ -1,7 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[PermisosCreate]
  
 		@IdRol INT,
-		@Mantenimiento VARCHAR(50)
+		@Taller VARCHAR(50) = '',		
+		@AccesoTaller BIT
 		
 		
 AS
@@ -12,17 +13,21 @@ BEGIN
 	BEGIN TRANSACTION TRASA
 
 	BEGIN TRY
+
+	IF (@AccesoTaller = 1) BEGIN SET @Taller = 'Acceso Taller' END
+	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
+
 		INSERT INTO	dbo.Permisos
 		(
 			 IdRol 
-			,Mantenimiento 
+			,Taller 
 			 
 			
 		)
 		VALUES
 		(
 			 @IdRol 
-			,@Mantenimiento 
+			,@Taller 
 			 
 			
 		)

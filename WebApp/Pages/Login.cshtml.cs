@@ -41,7 +41,7 @@ namespace WebApp.Pages
                 {
                     new Claim(ClaimTypes.Name, result.Nombre),
                     new Claim("Nombre_Usuario", result.Nombre_Usuario),
-                    new Claim(ClaimTypes.Role, result.IdRol) //agrega solo un rol o acceso
+                    new Claim(ClaimTypes.Role, result.Permisos.Taller) //agrega solo un rol o acceso
                 };
                     /*foreach (string rol in result.Permisos.) //para trabajar con varios permisos a un mismo user
                     {

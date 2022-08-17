@@ -83,7 +83,7 @@
     <Build Include="dbo\StoredProcedures\PermisosDelete.sql" />
     <Build Include="dbo\StoredProcedures\PermisosUpdate.sql" />
     <Build Include="dbo\StoredProcedures\PermisosList.sql" />
-    <Build Include="dbo\Tables\Bitacora_Ingresos.sql" />
+    <Build Include="dbo\Tables\BitacoraIngresos.sql" />
     <Build Include="dbo\Tables\Bitacora_Movimientos.sql" />
     <Build Include="dbo\StoredProcedures\Bitacora_MovimientosObtener.sql" />
     <Build Include="dbo\StoredProcedures\Login.sql" />
@@ -91,6 +91,7 @@
     <Build Include="dbo\StoredProcedures\OrdenCreate.sql" />
     <Build Include="dbo\StoredProcedures\OrdenUpdate.sql" />
     <Build Include="dbo\StoredProcedures\OrdenDelete.sql" />
+    <Build Include="dbo\StoredProcedures\BitacoraIngresosRead.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataBaseWorkshopMyM.publish.xml" />

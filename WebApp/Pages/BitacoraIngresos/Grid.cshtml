@@ -1,0 +1,52 @@
+﻿@page
+@model WebApp.Pages.BitacoraIngresos.GridModel
+@{
+}
+<div class="container-fluid">
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Bitacora</h5>
+        </div>
+        <div class="card-body">
+
+           
+
+            <div class="row">
+                <div class="col-12 table-responsive">
+                    <table id="GridView" class="table-striped table table-hover table table-bordered">
+                        <thead>
+                            <tr>
+                          
+
+                                <th>NombreUsuario</th>
+                                <th>FechaIngreso</th>
+                                <th>FechaSalida</th>
+                               
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.GridList)
+                            {
+                                <tr>
+                                    
+
+                                    <td>@item.NombreUsuario</td>
+                                    <td>@item.FechaIngreso</td>
+                                    <td>@item.FechaSalida</td>
+                                    
+
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

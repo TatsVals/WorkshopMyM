@@ -29,7 +29,19 @@ ELSE BEGIN
 	FROM Users 
 		WHERE Nombre_Usuario=@Nombre_Usuario and Clave=@ContrasenaSHA1 
 
-	
+		INSERT INTO	dbo.BitacoraIngresos
+		(
+			 NombreUsuario
+			,FechaIngreso
+			
+		    
+		)
+		VALUES
+		(
+			 @Nombre_Usuario
+			,GETDATE()
+			
+		)
 
 END
 

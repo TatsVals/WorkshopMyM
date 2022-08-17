@@ -71,9 +71,9 @@ namespace WBL
                 {
                     entity.IdRol
                     ,
-                    entity.Mantenimiento
-                    
-                    
+                    entity.AccesoTaller
+
+
 
 
                 }
@@ -100,8 +100,8 @@ namespace WBL
                     ,
                     entity.IdRol
                     ,
-                    entity.Mantenimiento
-                    
+                    entity.AccesoTaller
+
 
 
                 }
