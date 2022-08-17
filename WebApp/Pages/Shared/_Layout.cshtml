@@ -53,7 +53,7 @@
                                 <a class="nav-link text-dark">Personal</a>
                                 <ul>
                                     <li><a class="nav-link text-dark" asp-area="" asp-page="/Users/Grid">Usuarios</a>
-                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Roles/Grid">Roles</a>                                   
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Roles/Grid">Roles</a>
                                 </ul>
                             </li>
                         }
@@ -76,7 +76,14 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="">Ayuda</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Login.cshtml.cs" asp-action="Salir">Salir</a>
+                            <div class="row">
+                                <div class="col-4">
+                                    <button type="button" class="btn btn-danger" onclick="LogOut.OnclickSalir()">
+                                        <i class='bx bxs-trash'></i>
+                                    </button>
+
+                                </div>
+                            </div>
 
 
                         </li>
@@ -90,7 +97,12 @@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+
     </div>
+
+
+
+
 
     <footer class="border-top footer text-muted">
         <div class="container">
@@ -102,8 +114,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 
-    <script defer src="~/App/Logout.js"></script>
-
+    <script defer src="~/App/LogOut.js"></script>
 
 
 
@@ -111,4 +122,5 @@
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>
+
 </html>

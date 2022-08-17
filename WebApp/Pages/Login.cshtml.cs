@@ -32,6 +32,7 @@ namespace WebApp.Pages
         public RolesEntity role { get; set; } = new RolesEntity();
 
         // public IEnumerable<String> permisosLista { get; set; } = new List<String>();
+        
         public List<String> permisosLista = new List<String>();
 
         public async Task<IActionResult> OnPost()
@@ -93,14 +94,11 @@ namespace WebApp.Pages
 
 
         }
-        public  IActionResult OnGetLogout()
+        public  async Task<IActionResult> OnGetSalir()
         {
             HttpContext.Session.Clear();
-            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-            
-
-            return Redirect("Login");
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return Redirect("/Login");
         }
 
     }
