@@ -10,5 +10,7 @@ namespace Entity
     {
         public int? IdRol { get; set; }
         public string Rol { get; set; }
+        public Boolean AccesoTaller { get; set; }
+        public string Taller { get; set; }
     }
 }

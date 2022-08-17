@@ -37,7 +37,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Inicio</a>
                         </li>
 
-                        @if (User.IsInRole("4"))
+                        @if (User.IsInRole("Acceso Taller"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark">Taller</a>
@@ -47,7 +47,7 @@
                                 </ul>
                             </li>
                         }
-                        @if (User.IsInRole("4"))
+                        @if (User.IsInRole("Acceso Taller"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark">Empleados</a>
@@ -59,7 +59,7 @@
                             </li>
                         }
 
-                        @if (User.IsInRole("4"))
+                        @if (User.IsInRole("Acceso Taller"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark">Bitacoras</a>

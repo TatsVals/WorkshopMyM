@@ -15,6 +15,7 @@ namespace WBL
         Task<IEnumerable<RolesEntity>> GET();
         Task<RolesEntity> GETBYID(RolesEntity entity);
         Task<IEnumerable<RolesEntity>> GETLISTA();
+        Task<IEnumerable<string>> GETPERMISOS(int IdRol);
         Task<DBEntity> UPDATE(RolesEntity entity);
     }
 
@@ -70,7 +71,8 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.RolesCreate", new
                 {
-                    entity.Rol
+                    entity.Rol,
+                    entity.AccesoTaller
 
                 });
 
@@ -94,7 +96,8 @@ namespace WBL
                 var result = sql.ExecuteAsync("dbo.RolesUpdate", new
                 {
                     entity.IdRol,
-                    entity.Rol
+                    entity.Rol,
+                    entity.AccesoTaller
 
                 });
 
@@ -146,7 +149,21 @@ namespace WBL
 
 
         }
-        #endregion
 
+        public async Task<IEnumerable<String>> GETPERMISOS(int IdRol)
+        {
+            try
+            {
+                var result = sql.QueryAsync<String>("dbo.PermisosList", new { IdRol });
+                return await result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            #endregion
+
+        }
     }
 }

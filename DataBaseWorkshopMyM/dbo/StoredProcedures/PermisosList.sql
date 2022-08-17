@@ -1,15 +1,18 @@
 ﻿CREATE PROCEDURE [dbo].[PermisosList]
+	@Rol INT 
+
 	AS
 BEGIN 
 	SET NOCOUNT ON
 
 	SELECT 
-	       IdPermiso
-		 , IdRol
-		 , Taller
+	     
+		 Taller
 		 
 		 
 	FROM
 	    dbo.Permisos
+		WHERE
+	    ( IdRol = @Rol)
 
 END

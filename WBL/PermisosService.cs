@@ -14,6 +14,7 @@ namespace WBL
         Task<DBEntity> Delete(PermisosEntity entity);
         Task<IEnumerable<PermisosEntity>> Get();
         Task<PermisosEntity> GetById(PermisosEntity entity);
+        Task<IEnumerable<string>> GETLISTA(int IdRol);
         Task<DBEntity> Update(PermisosEntity entity);
     }
 
@@ -136,6 +137,22 @@ namespace WBL
 
                 throw;
             }
+        }
+
+        public async Task<IEnumerable<String>> GETLISTA(int IdRol)
+        {
+            try
+            {
+                var result = sql.QueryAsync<String>("dbo.PermisosList", IdRol);
+                return await result;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
         }
 
         #endregion

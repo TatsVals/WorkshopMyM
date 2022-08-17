@@ -43,7 +43,7 @@ namespace WebApp.Pages.Permisos
                     });
                 }
 
-                RolesLista = await roles.GETLISTA();
+                //RolesLista = await roles.GETLISTA();
                 return Page();
             }
             catch (Exception ex)

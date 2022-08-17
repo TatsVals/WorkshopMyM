@@ -9,11 +9,16 @@
         </div>
         <div class="card-body">
             <form id="FormEdit" method="post">
-                <input type="hidden" asp-for="Entity.IdRol" v-model="Entity.IdContacto"/>
+                <input type="hidden" asp-for="Entity.IdRol" v-model="Entity.IdContacto" />
 
                 <div class="form-group mb-3">
                     <label for="Entity.Codigo" class="form-label">Rol</label>
                     <input type="text" class="form-control" asp-for="Entity.Rol" v-model="Entity.Rol" maxlength="250" required>
+                </div>
+
+                <div class="form-group  mb-3">
+                    <label for="Entity.AccesoTaller" class="form-label">Acceso Taller</label>
+                    <input type="checkbox" v-model="Entity.AccesoTaller" maxlength="250" required>
                 </div>
 
                 <div class="row">
