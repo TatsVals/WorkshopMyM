@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[RolesUpdate]
 	@IdRol INT,
-	@Rol VARCHAR(10)
+	@Rol VARCHAR(10),
+	@Taller VARCHAR(50)= '',
+	@AccesoTaller BIT
 
 AS
  BEGIN
@@ -9,9 +11,12 @@ AS
   BEGIN TRANSACTION TRASA
 
   BEGIN TRY
+  IF (@AccesoTaller = 1) BEGIN SET @Taller = 'Acceso Taller' END
+	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
 
   UPDATE dbo.Roles SET
-      Rol = @Rol
+      Rol = @Rol,
+	  Taller = @Taller
 	
   WHERE
      IdRol = @IdRol

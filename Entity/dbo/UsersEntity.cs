@@ -30,9 +30,10 @@ namespace Entity
         public string Nombre_Usuario { get; set; }
 
         public string Clave { get; set; }
-        public string IdRol { get; set; }
+        public int IdRol { get; set; }
         public virtual RolesEntity Roles { get; set; }
-        public virtual PermisosEntity Permisos { get; set; }
+        public string IdPermisos { get; set; }
+        public virtual PermisosEntity Permisos { get; set; }      
         public string UsuarioLogin { get; set; }
     }
 }

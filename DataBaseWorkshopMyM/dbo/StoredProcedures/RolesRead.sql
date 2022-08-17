@@ -7,6 +7,7 @@ BEGIN
 	SELECT 
 	  IdRol
 	 ,Rol
+	 ,Taller
 	  
 	FROM
 	    dbo.Roles
