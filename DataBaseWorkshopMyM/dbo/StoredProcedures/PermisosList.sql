@@ -8,6 +8,8 @@ BEGIN
 	SELECT 
 	     
 		 Taller
+		 ,Personal
+		 ,Bitacoras
 		 
 		 
 	FROM
