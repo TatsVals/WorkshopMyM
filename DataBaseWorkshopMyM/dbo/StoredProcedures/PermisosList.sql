@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[PermisosList]
-	@Rol INT 
+	@IdRol INT 
 
 	AS
 BEGIN 
@@ -11,8 +11,8 @@ BEGIN
 		 
 		 
 	FROM
-	    dbo.Permisos
+	    dbo.Roles
 		WHERE
-	    ( IdRol = @Rol)
+	    ( IdRol = @IdRol)
 
 END
