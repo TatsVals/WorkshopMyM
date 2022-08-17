@@ -37,7 +37,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Inicio</a>
                         </li>
 
-                        @if (User.IsInRole("Acceso Taller"))
+                        @if (User.IsInRole("Acceso a Taller"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark">Taller</a>
@@ -47,19 +47,18 @@
                                 </ul>
                             </li>
                         }
-                        @if (User.IsInRole("Acceso Taller"))
+                        @if (User.IsInRole("Acceso a Personal"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark">Empleados</a>
+                                <a class="nav-link text-dark">Personal</a>
                                 <ul>
                                     <li><a class="nav-link text-dark" asp-area="" asp-page="/Users/Grid">Usuarios</a>
-                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Roles/Grid">Roles</a>
-                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Permisos/Grid">Permisos</a>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Roles/Grid">Roles</a>                                   
                                 </ul>
                             </li>
                         }
 
-                        @if (User.IsInRole("Acceso Taller"))
+                        @if (User.IsInRole("Acceso a Bitacoras"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark">Bitacoras</a>

@@ -8,7 +8,7 @@ AS
   BEGIN TRANSACTION TRASA
 
   BEGIN TRY
-  IF ( @IdRol != 'Administrador') BEGIN
+  IF ( @IdRol != 1) BEGIN
    DELETE FROM dbo.Roles
    WHERE IdRol = @IdRol
 

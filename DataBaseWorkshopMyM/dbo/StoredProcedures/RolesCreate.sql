@@ -19,9 +19,9 @@ AS
 	IF (@AccesoTaller = 1) BEGIN SET @Taller = 'Acceso a Taller' END
 	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
 	IF (@AccesoPersonal = 1) BEGIN SET @Personal = 'Acceso a Personal' END
-	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
+	ELSE BEGIN  SET @Personal = 'Sin Acceso a Taller' END
 	IF (@AccesoBitacoras = 1) BEGIN SET @Bitacoras = 'Acceso a Bitacoras' END
-	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
+	ELSE BEGIN  SET @Bitacoras = 'Sin Acceso a Taller' END
 
   INSERT INTO dbo.Roles
   (

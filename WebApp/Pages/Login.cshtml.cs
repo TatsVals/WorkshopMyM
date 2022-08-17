@@ -9,18 +9,19 @@ using WBL;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using System.Reflection;
 
 namespace WebApp.Pages
 {
     public class LoginModel : PageModel
     {
         private readonly IUsersService usuarioService;
-        private readonly IRolesService RolesService;
-        public LoginModel(IUsersService usuarioService, IRolesService RolesService)
+        private readonly IRolesService rolesService;
+        public LoginModel(IUsersService usuarioService, IRolesService rolesService)
         {
 
             this.usuarioService = usuarioService;
-            this.RolesService = RolesService;
+            this.rolesService = rolesService;
         }
        
 
@@ -28,18 +29,30 @@ namespace WebApp.Pages
         [BindProperty]
         public UsersEntity Entity { get; set; } = new UsersEntity();
 
-        public IEnumerable<String> permisosLista { get; set; } = new List<String>();
-        
+        public RolesEntity role { get; set; } = new RolesEntity();
+
+        // public IEnumerable<String> permisosLista { get; set; } = new List<String>();
+        public List<String> permisosLista = new List<String>();
+
         public async Task<IActionResult> OnPost()
         {
 
             try
             {
-               
+                var result = await usuarioService.Login(Entity); 
+                var role = await rolesService.GETPERMISOS(result.IdRol); //inicializa la entidad
+                PropertyInfo[] lst = typeof(RolesEntity).GetProperties(); //lista las propiedades de la entidad
+                foreach (PropertyInfo property in lst)  //para cada propiedad de la lista
+                {
+                    string NombreAtributo = property.Name; //guarde el nombre de la propiedad () 
+                    if (NombreAtributo == "Taller" || NombreAtributo == "Personal" || NombreAtributo == "Bitacoras") //filtro para solo las que queremos
+                    {
+                        string Valor = property.GetValue(role).ToString();// obtener el valor de las propiedades que queremos ya filtradas
+                        permisosLista.Add(Valor);//agrega el valor a la lista
+                    }
+                    
+                }
 
-                var result = await usuarioService.Login(Entity);
-
-                permisosLista = await RolesService.GETPERMISOS(result.IdRol); //HACE UNA LISTA CON LOS PERMISOS DEL ROL 
 
                 if (result.CodeError == 0)
                 {
