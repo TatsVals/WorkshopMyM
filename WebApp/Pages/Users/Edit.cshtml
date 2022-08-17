@@ -10,11 +10,13 @@
         </div>
         <div class="card-body">
             <form id="FormEdit" method="post">
+
                 <input type="hidden" asp-for="Entity.IdUsuario" v-model="Entity.IdUsuario" />
+
 
                 <div class="form-group mb-3">
                     <label for="Entity.Cedula" class="form-label">Cedula</label>
-                    <input type="text" class="form-control" asp-for="Entity.Cedula" v-model="Entity.Cedula" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.Cedula" v-model="Entity.Cedula" maxlength="9" minlength="9" pattern="[0-9]{9}" placeholder="101110111" required>
                 </div>
 
                 <div class="form-group  mb-3">
@@ -53,6 +55,9 @@
                 </div>
 
 
+               
+
+
 
                 <div class="row">
                     <div class="col-4">
@@ -74,4 +79,3 @@
     <script defer src="~/App/User/Edit.js"></script>
 
 }
-

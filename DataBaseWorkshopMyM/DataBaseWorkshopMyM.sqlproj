@@ -59,7 +59,6 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\StoredProcedures" />
     <Folder Include="dbo\Tables" />
-    <Folder Include="dbo\Triggers" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Productos.sql" />
@@ -84,16 +83,15 @@
     <Build Include="dbo\StoredProcedures\PermisosDelete.sql" />
     <Build Include="dbo\StoredProcedures\PermisosUpdate.sql" />
     <Build Include="dbo\StoredProcedures\PermisosList.sql" />
-    <Build Include="dbo\Tables\Bitacora_Ingresos.sql" />
-    <Build Include="dbo\Triggers\Registro_Ingresos.sql" />
+    <Build Include="dbo\Tables\BitacoraIngresos.sql" />
     <Build Include="dbo\Tables\Bitacora_Movimientos.sql" />
-    <Build Include="dbo\Triggers\Registro_Movimientos.sql" />
     <Build Include="dbo\StoredProcedures\Bitacora_MovimientosObtener.sql" />
     <Build Include="dbo\StoredProcedures\Login.sql" />
     <Build Include="dbo\Tables\Ordenes.sql" />
     <Build Include="dbo\StoredProcedures\OrdenCreate.sql" />
     <Build Include="dbo\StoredProcedures\OrdenUpdate.sql" />
     <Build Include="dbo\StoredProcedures\OrdenDelete.sql" />
+    <Build Include="dbo\StoredProcedures\BitacoraIngresosRead.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataBaseWorkshopMyM.publish.xml" />

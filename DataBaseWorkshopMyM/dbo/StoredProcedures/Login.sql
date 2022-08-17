@@ -13,11 +13,12 @@ IF NOT EXISTS(SELECT * FROM Users WHERE Nombre_Usuario=@Nombre_Usuario) BEGIN
 
 END
 
-ELSE IF  NOT EXISTS( SELECT * FROM Users WHERE Nombre_Usuario=@Nombre_Usuario and Clave=@Clave ) BEGIN
+ELSE IF  NOT EXISTS( SELECT * FROM Users WHERE Nombre_Usuario=@Nombre_Usuario and Clave=@ContrasenaSHA1 ) BEGIN
  
  SELECT -1 AS CodeError, 'La contraseña es incorrecta por favor volver a intentar!' AS MsgError
 END
 ELSE BEGIN
+
 
 	SELECT 
 	0 AS CodeError,
@@ -26,7 +27,21 @@ ELSE BEGIN
 	Nombre,
 	IdRol
 	FROM Users 
-		WHERE Nombre_Usuario=@Nombre_Usuario and Clave=@Clave 
+		WHERE Nombre_Usuario=@Nombre_Usuario and Clave=@ContrasenaSHA1 
+
+		INSERT INTO	dbo.BitacoraIngresos
+		(
+			 NombreUsuario
+			,FechaIngreso
+			
+		    
+		)
+		VALUES
+		(
+			 @Nombre_Usuario
+			,GETDATE()
+			
+		)
 
 END
 

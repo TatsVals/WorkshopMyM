@@ -15,8 +15,10 @@ namespace Entity
 
         public int? IdPermiso { get; set; }
         public string IdRol { get; set; }
-        public Boolean[] Mantenimiento { get; set; }
-        
         public virtual RolesEntity Roles { get; set; }
+        public Boolean AccesoTaller { get; set; }
+        public string Taller { get; set; }
+        public string UsuarioLogin { get; set; }
+        
     }
 }

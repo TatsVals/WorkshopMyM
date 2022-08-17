@@ -7,7 +7,7 @@ BEGIN
 	SELECT
 		 P.IdPermiso
 		,R.IdRol
-		,P.Mantenimiento 
+		,P.Taller 
 		
 		,R.IdRol
 		,R.Rol

@@ -6,7 +6,7 @@ BEGIN
 	SELECT 
 	       IdPermiso
 		 , IdRol
-		 , Mantenimiento
+		 , Taller
 		 
 		 
 	FROM

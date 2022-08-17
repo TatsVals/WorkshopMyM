@@ -7,27 +7,29 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WBL;
 
-namespace WebApp.Pages.Bitacora_Movimientos
+namespace WebApp.Pages.BitacoraIngresos
 {
     public class GridModel : PageModel
     {
-        private readonly IBitacora_MovimientosService bitacora_MovimientosService;
+        private readonly IBitacoraIngresosService BIngresos;
 
-        public GridModel(IBitacora_MovimientosService bitacora_MovimientosService)
+        public GridModel(IBitacoraIngresosService BIngresos)
         {
-            this.bitacora_MovimientosService = bitacora_MovimientosService;
+            this.BIngresos = BIngresos;
         }
 
+        public IEnumerable<BitacoraIngresosEntity> GridList { get; set; } = new List<BitacoraIngresosEntity>();
 
-        public IEnumerable<Bitacora_MovimientosEntity> GridList { get; set; } = new List<Bitacora_MovimientosEntity>();
 
         public string Mensaje { get; set; } = "";
 
+
         public async Task<IActionResult> OnGet()
         {
+
             try
             {
-                GridList = await bitacora_MovimientosService.Get();
+                GridList = await BIngresos.Get();
 
                 if (TempData.ContainsKey("Msg"))
                 {
@@ -43,7 +45,9 @@ namespace WebApp.Pages.Bitacora_Movimientos
 
                 return Content(ex.Message);
             }
+
         }
 
+        
     }
 }

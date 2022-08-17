@@ -20,7 +20,9 @@
 
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-               
+                <div class="text">
+                    <label>Bienvenido @UsuarioSession?.Nombre</label>
+                </div>
                 <div class="logo">
                     <img src="~/Images/LogoMyM.jpg" alt="Logo de Empresa">
                 </div>
@@ -62,8 +64,8 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark">Bitacoras</a>
                                 <ul>
-                                    <li><a class="nav-link text-dark" asp-area="" asp-page="">Ingresos y Salidas al Sistema</a>
-                                    <li><a class="nav-link text-dark" asp-area="" asp-page="">Movimientos de Usuarios</a>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/BitacoraIngresos/Grid">Ingresos y Salidas al Sistema</a>
+                                    <li><a class="nav-link text-dark" asp-area="" asp-page="/Bitacora_Movimientos/Grid">Movimientos de Usuarios</a>
                                 </ul>
                             </li>
                         }
@@ -76,7 +78,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Login.cshtml.cs" asp-action="Salir">Salir</a>
-                            
+
 
                         </li>
 

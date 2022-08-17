@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[PermisosUpdate]
 		@IdPermiso INT,
 		@IdRol INT,
-		@Mantenimiento VARCHAR(50)
-		
+		@Taller VARCHAR(50)= '',	
+		@AccesoTaller BIT
 		
 AS
 
@@ -13,9 +13,12 @@ BEGIN
 	BEGIN TRANSACTION TRASA
 
 	BEGIN TRY
+	IF (@AccesoTaller = 1) BEGIN SET @Taller = 'Acceso Taller' END
+	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
+
 		UPDATE dbo.Permisos SET
 			 IdRol	= @IdRol
-			,Mantenimiento = @Mantenimiento
+			,Taller = @Taller
 			
 			
 		WHERE

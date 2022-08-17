@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Entity;
 using WBL;
 
 namespace WebApp.Pages.Permisos
@@ -12,20 +12,22 @@ namespace WebApp.Pages.Permisos
     public class EditModel : PageModel
     {
 
-        private readonly IPermisosService permisos;
+        private readonly IPermisosService permiso;
         private readonly IRolesService roles;
-        public EditModel(IPermisosService permisos, IRolesService roles)
+        public EditModel(IPermisosService users, IRolesService roles)
         {
-            this.permisos = permisos;
+            this.permiso = users;
             this.roles = roles;
         }
 
         [BindProperty(SupportsGet = true)]
         public int? id { get; set; }
 
+
         [BindProperty]
         [FromBody]
         public PermisosEntity Entity { get; set; } = new PermisosEntity();
+
         public IEnumerable<RolesEntity> RolesLista { get; set; } = new List<RolesEntity>();
         public async Task<IActionResult> OnGet()
         {
@@ -35,7 +37,7 @@ namespace WebApp.Pages.Permisos
                 if (id.HasValue)
                 {
 
-                    Entity = await permisos.GetById(new()
+                    Entity = await permiso.GetById(new()
                     {
                         IdPermiso = id
                     });
@@ -55,20 +57,25 @@ namespace WebApp.Pages.Permisos
         //metodo update insert
         public async Task<IActionResult> OnPost()
         {
+            Entity.UsuarioLogin = User.Identity.Name;
             try
             {
+
+
+
+
                 var result = new DBEntity();
                 //update
-                if (Entity.IdPermiso.HasValue) //si el idContacto tiene un valor (true) el metodo actuliza
+                if (Entity.IdPermiso.HasValue)
                 {
-                    result = await permisos.Update(Entity);
+                    result = await permiso.Update(Entity);
 
 
 
                 }
-                else //Si el idContacto no tiene valor (false) el metodo inserta
+                else
                 {
-                    result = await permisos.Create(Entity);
+                    result = await permiso.Create(Entity);
 
 
                 }
