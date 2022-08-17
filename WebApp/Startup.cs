@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
 
 namespace WebApp
 {
@@ -37,6 +38,21 @@ namespace WebApp
             {
                 options.Conventions
                        .ConfigureFilter(new IgnoreAntiforgeryTokenAttribute());
+                options.Conventions.AuthorizeFolder("/Bitacora_Movimientos", "Acceso a Bitacoras");
+                options.Conventions.AuthorizeFolder("/BitacoraIngresos", "Acceso a Bitacoras");
+                options.Conventions.AuthorizeFolder("/Ordenes", "Acceso a Taller");
+                options.Conventions.AuthorizeFolder("/Permisos", "Acceso");
+                options.Conventions.AuthorizeFolder("/Products", "Acceso a Taller");
+                options.Conventions.AuthorizeFolder("/Roles", "Acceso a Personal");
+                options.Conventions.AuthorizeFolder("/Users", "Acceso a Personal");
+                
+            });
+            services.AddAuthorization(config =>
+            {
+                config.AddPolicy("Acceso a Personal", policyBuilder => policyBuilder.RequireClaim(ClaimTypes.Role, "Acceso a Personal"));
+                config.AddPolicy("Acceso a Taller", policyBuilder => policyBuilder.RequireClaim(ClaimTypes.Role, "Acceso a Taller"));
+                config.AddPolicy("Acceso a Bitacoras", policyBuilder => policyBuilder.RequireClaim(ClaimTypes.Role, "Acceso a Bitacoras"));
+
             });
             services.AddSession(options =>
             {
@@ -51,6 +67,7 @@ namespace WebApp
                option.AccessDeniedPath = "/Home/Privacy";
                 
            });
+
 
         }
 
