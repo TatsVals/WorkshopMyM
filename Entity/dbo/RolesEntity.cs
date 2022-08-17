@@ -12,5 +12,9 @@ namespace Entity
         public string Rol { get; set; }
         public Boolean AccesoTaller { get; set; }
         public string Taller { get; set; }
+        public Boolean AccesoPersonal { get; set; }
+        public string Personal { get; set; }
+        public Boolean AccesoBitacoras { get; set; }
+        public string Bitacoras { get; set; }
     }
 }

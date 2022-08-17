@@ -8,13 +8,21 @@ AS
   BEGIN TRANSACTION TRASA
 
   BEGIN TRY
-
+  IF ( @IdRol != 'Administrador') BEGIN
    DELETE FROM dbo.Roles
    WHERE IdRol = @IdRol
 
-  COMMIT TRANSACTION TRASA
+  
   SELECT 0 AS CodeError, '' AS MsgError
 
+  END 
+  ELSE BEGIN 
+  SELECT -1 AS CodeError, 'Este Rol no se puede borrar' AS MsgError
+
+
+		
+  END
+    COMMIT TRANSACTION TRASA
   END TRY
 
 	  BEGIN CATCH

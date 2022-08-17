@@ -8,6 +8,8 @@ BEGIN
 	  IdRol
 	 ,Rol
 	 ,Taller
+	 ,Personal
+	 ,Bitacoras
 	  
 	FROM
 	    dbo.Roles

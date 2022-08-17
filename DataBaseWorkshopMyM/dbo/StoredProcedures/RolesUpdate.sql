@@ -2,7 +2,11 @@
 	@IdRol INT,
 	@Rol VARCHAR(10),
 	@Taller VARCHAR(50)= '',
-	@AccesoTaller BIT
+	@AccesoTaller BIT,
+	@Personal VARCHAR(50) = '',		
+	@AccesoPersonal BIT,
+	@Bitacoras VARCHAR(50) = '',		
+	@AccesoBitacoras BIT
 
 AS
  BEGIN
@@ -13,11 +17,16 @@ AS
   BEGIN TRY
   IF (@AccesoTaller = 1) BEGIN SET @Taller = 'Acceso Taller' END
 	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
-
+  IF (@AccesoPersonal = 1) BEGIN SET @Personal = 'Acceso a Personal' END
+	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
+  IF (@AccesoBitacoras = 1) BEGIN SET @Bitacoras = 'Acceso a Bitacoras' END
+	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
   UPDATE dbo.Roles SET
       Rol = @Rol,
-	  Taller = @Taller
-	
+	  Taller = @Taller,
+	  Personal = @Personal,
+	  Bitacoras = @Bitacoras
+
   WHERE
      IdRol = @IdRol
 
