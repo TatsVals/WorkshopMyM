@@ -21,7 +21,5 @@ var RolesGrid;
         });
     }
     RolesGrid.OnclickEliminar = OnclickEliminar;
-    /*Datable*/
-    $("#GridView").DataTable();
 })(RolesGrid || (RolesGrid = {}));
 //# sourceMappingURL=Grid.js.map

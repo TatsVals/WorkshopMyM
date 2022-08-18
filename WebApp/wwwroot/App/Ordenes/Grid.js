@@ -21,7 +21,5 @@ var ProductsEdit;
         });
     }
     ProductsEdit.OnclickEliminar = OnclickEliminar;
-    /*Datable*/
-    $("#GridView").DataTable();
 })(ProductsEdit || (ProductsEdit = {}));
 //# sourceMappingURL=Grid.js.map

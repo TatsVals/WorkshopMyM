@@ -1,2 +1,1 @@
-﻿/*Datable*/
-$("#GridView").DataTable();
+﻿
