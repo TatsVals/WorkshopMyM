@@ -20,7 +20,9 @@ var UserGrid;
         });
     }
     UserGrid.OnclickEliminar = OnclickEliminar;
-    /*Datable*/
-    $("#GridView").DataTable();
+
+
 })(UserGrid || (UserGrid = {}));
 //# sourceMappingURL=Grid.js.map
+
+

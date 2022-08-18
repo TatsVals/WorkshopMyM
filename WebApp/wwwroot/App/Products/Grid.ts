@@ -29,8 +29,7 @@
 
     }
 
-    /*Datable*/
-    $("#GridView").DataTable();
+  
 
 
 

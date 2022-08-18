@@ -29,11 +29,4 @@
 
     }
 
-    /*Datable*/
-    $("#GridView").DataTable();
-
-
-
-
-
 }
