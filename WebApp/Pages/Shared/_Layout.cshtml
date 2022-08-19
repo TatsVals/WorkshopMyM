@@ -23,7 +23,7 @@
                 <div class="text">
                     <label>Bienvenido @UsuarioSession?.Nombre</label>
                 </div>
-                <div class="logo">
+                <div class="logo" marg>
                     <img src="~/Images/LogoMyM.jpg" alt="Logo de Empresa">
                 </div>
 
@@ -120,6 +120,11 @@
 
     @await Html.PartialAsync("_ScriptsPartial")
     @await RenderSectionAsync("Scripts", required: false)
+
+
+
+
+
 
 </body>
 

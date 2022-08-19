@@ -20,9 +20,5 @@ var UserGrid;
         });
     }
     UserGrid.OnclickEliminar = OnclickEliminar;
-
-
 })(UserGrid || (UserGrid = {}));
 //# sourceMappingURL=Grid.js.map
-
-
