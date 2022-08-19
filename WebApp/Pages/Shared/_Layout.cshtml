@@ -18,15 +18,15 @@
 <body>
     <header>
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <div class="text">
-                    <label>Bienvenido @UsuarioSession?.Nombre</label>
-                </div>
-                <div class="logo" marg>
-                    <img src="~/Images/LogoMyM.jpg" alt="Logo de Empresa">
-                </div>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" >
+            <div class="text" style='float: left; margin: 10px; padding: 5px; text-align: left;'>
+                <h5>Bienvenido @UsuarioSession?.Nombre</h5>
+            </div>
 
+            <div class="logo">
+                <img src="~/Images/LogoMyM.jpg" alt="Logo de Empresa" style='float: left; margin: 10px; padding: 5px; text-align: left;'>
+            </div>
+            <div class="container" style='float: left; margin: 10px; padding: 5px; text-align: left;'>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,6 +36,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Inicio</a>
                         </li>
+                        
 
                         @if (User.IsInRole("Acceso a Taller"))
                         {
@@ -75,19 +76,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="">Ayuda</a>
                         </li>
+
+
                         <li class="nav-item">
-                            <div class="row">
-                                <div class="col-4">
-                                    <button type="button" class="btn btn-danger" onclick="LogOut.OnclickSalir()">
-                                        <i class='bx bxs-trash'></i>
-                                    </button>
-
-                                </div>
-                            </div>
-
-
+                            <a class="nav-link text-dark" onclick="LogOut.OnclickSalir()">Salir</a>
                         </li>
-
                     </ul>
                 </div>
             </div>

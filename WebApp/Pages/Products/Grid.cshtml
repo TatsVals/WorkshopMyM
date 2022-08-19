@@ -16,57 +16,76 @@
 
 
             <div class="row">
-                <div class="col-12 table-responsive">
-                    <table id="GridView" class="table-striped table table-hover table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Acción</th>
-                                
-                                <th>Codigo</th>
-                                <th>Descripcion</th>
-                                <th>Unidad</th>
-                                <th>Cantidad Disponible</th>
-                                <th>Precio Compra</th>
-                                <th>Precio Venta</th>
-                                <th>Costo Total</th>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.GridList)
-                            {
-                            <tr>
-                                <td>
-                                    <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdProducto">
-                                        <i class='bx bx-edit-alt'></i>
-                                    </a>
-                                    <button type="button" class="btn btn-danger" onclick="ProductsGrid.OnclickEliminar(@item.IdProducto)">
-                                        <i class='bx bxs-trash'></i>
-                                    </button>
-                                </td>
-                                
-                                <td>@item.Codigo</td>
-                                <td>@item.Descripcion</td>
-                                <td>@item.Unidad</td>
-                                <td>@item.CantidadDisponible</td>
-                                <td>@item.PrecioCompra</td>
-                                <td>@item.PrecioVenta</td>
-                                <td>@item.CostoTotal</td>
-                                
-                            </tr>
+                <div class="col-12">
+                    <div class="table-responsive text-nowrap">
+                        <table id="GridView" class="table-striped table table-hover table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Acción</th>
+                                    <th>Codigo</th>
+                                    <th>Descripcion</th>
+                                    <th>Unidad</th>
+                                    <th>Cantidad Disponible</th>
+                                    <th>Precio Compra</th>
+                                    <th>Precio Venta</th>
+                                    <th>Costo Total</th>
 
-                            }
-                        </tbody>
-                    </table>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.GridList)
+                                {
+                                    <tr>
+                                        <td>
+                                            <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdProducto">
+                                                <i class='bx bx-edit-alt'></i>
+                                            </a>
+                                            <button type="button" class="btn btn-danger" onclick="ProductsGrid.OnclickEliminar(@item.IdProducto)">
+                                                <i class='bx bxs-trash'></i>
+                                            </button>
+                                        </td>
+
+                                        <td>@item.Codigo</td>
+                                        <td>@item.Descripcion</td>
+                                        <td>@item.Unidad</td>
+                                        <td>@item.CantidadDisponible</td>
+                                        <td>@item.PrecioCompra</td>
+                                        <td>@item.PrecioVenta</td>
+                                        <td>@item.CostoTotal</td>
+
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
 
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@section Scripts{
 
-<script>
+    <script src="https://cdn.datatables.net/fixedheader/3.2.2/js/dataTables.fixedHeader.min.js"></script>
+    @*SCRIPTS DE BOTONES*@
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    @*excel*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    @*pdf*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    @*imprimir*@
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+
+    <script src="~/App/Products/Report.js"></script>
+    <script>
         var MensajeApp = "@Html.Raw(Model.Mensaje)";
-</script>
-<script defer src="~/App/Products/Grid.js"></script>
+    </script>
+    <script defer src="~/App/Products/Grid.js"></script>
+}
+
+

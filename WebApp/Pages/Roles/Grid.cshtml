@@ -16,47 +16,49 @@
 
 
             <div class="row">
-                <div class="col-12 table-responsive">
-                    <table id="GridView" class="table-striped table table-hover table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Acciones</th>
+                <div class="col-12">
+                    <div class="table-responsive text-nowrap">
+                        <table id="GridView" class="table-striped table table-hover table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Acciones</th>
 
-                                <th>Rol</th>
-                                <th>Permiso Taller</th>
-                                <th>Permiso Personal</th>
-                                <th>Permiso Bitacoras</th>
-
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.GridList)
-                            {
-                            <tr>
-                                <td>
-                                    <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdRol">
-                                        <i class='bx bx-edit-alt'></i>
-                                    </a>
-                                    <button type="button" class="btn btn-danger" onclick="RolesGrid.OnclickEliminar(@item.IdRol)">
-                                        <i class='bx bxs-trash'></i>
-                                    </button>
-                                </td>
-
-                                <td>@item.Rol</td>
-                                <td>@item.Taller</td>
-                                <td>@item.Personal</td>
-                                <td>@item.Bitacoras</td>
+                                    <th>Rol</th>
+                                    <th>Permiso Taller</th>
+                                    <th>Permiso Personal</th>
+                                    <th>Permiso Bitacoras</th>
 
 
-                            </tr>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.GridList)
+                                {
+                                    <tr>
+                                        <td>
+                                            <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdRol">
+                                                <i class='bx bx-edit-alt'></i>
+                                            </a>
+                                            <button type="button" class="btn btn-danger" onclick="RolesGrid.OnclickEliminar(@item.IdRol)">
+                                                <i class='bx bxs-trash'></i>
+                                            </button>
+                                        </td>
+
+                                        <td>@item.Rol</td>
+                                        <td>@item.Taller</td>
+                                        <td>@item.Personal</td>
+                                        <td>@item.Bitacoras</td>
 
 
-                            }
-                        </tbody>
-                    </table>
+                                    </tr>
 
 
+                                }
+                            </tbody>
+                        </table>
+
+
+                    </div>
                 </div>
             </div>
         </div>
