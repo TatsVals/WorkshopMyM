@@ -130,8 +130,6 @@
 
   <ItemGroup>
 
-    <TypeScriptCompile Include="wwwroot\App\Bitacora_Movimientos\Grid.ts" />
-
     <TypeScriptCompile Include="wwwroot\App\LogOut.ts" />
     <TypeScriptCompile Include="wwwroot\App\Ordenes\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Ordenes\Grid.ts" />
