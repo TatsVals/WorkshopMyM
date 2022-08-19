@@ -43,7 +43,7 @@ namespace WBL
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;

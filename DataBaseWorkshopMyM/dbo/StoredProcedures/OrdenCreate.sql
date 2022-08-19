@@ -6,7 +6,8 @@
 	@AnoVehiculo VARCHAR(50),
 	@ManodeObra VARCHAR(50),
 	@Productos VARCHAR(50),
-	@Estado BIT
+	@Estado BIT,
+	@UsuarioLogin VARCHAR(50)
 	
 
 AS
@@ -41,6 +42,21 @@ AS
 	, @Estado
 	
   )
+
+  INSERT INTO	dbo.Bitacora_Movimientos
+		(
+			 Nombre_Usuario
+			,Fecha
+			,Movimiento
+		    ,Detalle
+		)
+		VALUES
+		(
+			 @UsuarioLogin
+			,GETDATE()
+			, 'INSERT'
+			, '=>Nombre Cliente: ' + @NombreCliente + '   =>Placa Vehículo: ' + @PlacaVehiculo +'   =>Marca Vehiculo: ' + @MarcaVehiculo + '   =>Modelo Vehículo: ' + @ModeloVehiculo + '   =>Año Vehículo: ' +  @AnoVehiculo  + '   =>Mano de Obra: ' + @ManodeObra+ '   =>Productos: ' + @Productos+ '   =>Estado: ' + Convert(Varchar, @Estado)
+		)
 
   COMMIT TRANSACTION TRASA
   SELECT 0 AS CodeError, '' AS MsgError

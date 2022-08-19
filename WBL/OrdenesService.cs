@@ -76,8 +76,8 @@ namespace WBL
                     entity.AnoVehiculo,
                     entity.ManodeObra,
                     entity.Productos,
-                    entity.Estado
-
+                    entity.Estado,
+                    entity.UsuarioLogin
                 });
 
 
@@ -127,8 +127,8 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.OrdenDelete", new
                 {
-                    entity.IdOrden
-
+                    entity.IdOrden,
+                    entity.UsuarioLogin
                 });
 
 

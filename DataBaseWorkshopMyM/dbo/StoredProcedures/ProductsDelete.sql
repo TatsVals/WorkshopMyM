@@ -1,5 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[ProductsDelete]
-  @IdProducto INT
+   @IdProducto INT
+  ,@Codigo varchar(10)
+  ,@UsuarioLogin VARCHAR(50)
 
 AS
  BEGIN
@@ -12,6 +14,19 @@ AS
    DELETE FROM dbo.Productos
    WHERE IdProducto = @IdProducto
 
+   INSERT INTO	dbo.Bitacora_Movimientos
+		(
+			 Nombre_Usuario
+			,Fecha
+			,Movimiento
+		    ,Detalle
+		)
+		VALUES
+		(
+			 @UsuarioLogin
+			,GETDATE()
+			, 'DELETE', 'Producto código ' + @Codigo  + ' eliminado'
+		)
   COMMIT TRANSACTION TRASA
   SELECT 0 AS CodeError, '' AS MsgError
 

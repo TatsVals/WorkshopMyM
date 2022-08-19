@@ -16,5 +16,6 @@ namespace Entity
         public float PrecioCompra { get; set; }
         public float PrecioVenta { get; set; }
         public float CostoTotal { get; set; }
+        public string UsuarioLogin { get; set; }
     }
 }

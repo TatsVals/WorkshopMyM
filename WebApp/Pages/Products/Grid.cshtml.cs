@@ -20,7 +20,8 @@ namespace WebApp.Pages.Products
         }
 
         public IEnumerable<ProductsEntity> GridList { get; set; } = new List<ProductsEntity>();
-
+        public UsersEntity Entity { get; set; } = new UsersEntity();
+        public ProductsEntity productsEntity { get; set; } = new ProductsEntity();
 
         public string Mensaje { get; set; } = "";
 
@@ -52,10 +53,19 @@ namespace WebApp.Pages.Products
         public async Task<JsonResult> OnDeleteEliminar(int id)
         {
 
+            productsEntity = await products.GETBYID(new()
+            {
+                IdProducto = id
+            });
             try
             {
                 var result = await products.DELETE(new()
-                { IdProducto = id });
+                {
+                    IdProducto = id,
+                    Codigo = productsEntity.Codigo,
+                    UsuarioLogin = User.Identity.Name
+
+                });
 
 
                 return new JsonResult(result);

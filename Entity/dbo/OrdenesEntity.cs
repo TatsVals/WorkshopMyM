@@ -17,6 +17,7 @@ namespace Entity
         public string ManodeObra { get; set; }
         public string Productos { get; set; }
         public Boolean Estado { get; set; }
+        public string UsuarioLogin { get; set; }
 
     }
 }

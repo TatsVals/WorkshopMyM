@@ -20,7 +20,8 @@ namespace WebApp.Pages.Ordenes
 
         public IEnumerable<OrdenesEntity> GridList { get; set; } = new List<OrdenesEntity>();
 
-
+        public UsersEntity Entity { get; set; } = new UsersEntity();
+        public OrdenesEntity ordenesEntity { get; set; } = new OrdenesEntity();
         public string Mensaje { get; set; } = "";
 
 
@@ -51,10 +52,18 @@ namespace WebApp.Pages.Ordenes
         public async Task<JsonResult> OnDeleteEliminar(int id)
         {
 
+            ordenesEntity = await ordenes.GETBYID(new()
+            {
+                IdOrden = id
+            });
             try
             {
                 var result = await ordenes.DELETE(new()
-                { IdOrden = id });
+                {
+                    IdOrden = id,
+                    UsuarioLogin = User.Identity.Name
+
+                });
 
 
                 return new JsonResult(result);

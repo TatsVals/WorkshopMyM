@@ -6,4 +6,4 @@ var LogOut;
     }
     LogOut.OnclickSalir = OnclickSalir;
 })(LogOut || (LogOut = {}));
-//# sourceMappingURL=LogOut.js.map
+//# sourceMappingURL=Logout.js.map

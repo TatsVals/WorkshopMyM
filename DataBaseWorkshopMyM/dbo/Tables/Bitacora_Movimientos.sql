@@ -4,5 +4,5 @@
 	Nombre_Usuario VARCHAR(50) NOT NULL,
 	Fecha DateTime NOT NULL,
 	Movimiento VARCHAR(50) NOT NULL,
-	Detalle VARCHAR(100) NOT NULL
+	Detalle VARCHAR(500) NOT NULL
 )
