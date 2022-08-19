@@ -92,6 +92,7 @@
     <Build Include="dbo\StoredProcedures\OrdenUpdate.sql" />
     <Build Include="dbo\StoredProcedures\OrdenDelete.sql" />
     <Build Include="dbo\StoredProcedures\BitacoraIngresosRead.sql" />
+    <Build Include="dbo\StoredProcedures\OrdenRead_1.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataBaseWorkshopMyM.publish.xml" />
