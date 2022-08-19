@@ -96,6 +96,7 @@ namespace WebApp.Pages
         }
         public  async Task<IActionResult> OnGetSalir()
         {
+            await usuarioService.Logout();
             HttpContext.Session.Clear();
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return Redirect("/Login");

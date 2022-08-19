@@ -33,6 +33,7 @@ ELSE BEGIN
 		(
 			 NombreUsuario
 			,FechaIngreso
+			,FechaSalida
 			
 		    
 		)
@@ -40,6 +41,7 @@ ELSE BEGIN
 		(
 			 @Nombre_Usuario
 			,GETDATE()
+			,'11/11/11'
 			
 		)
 
