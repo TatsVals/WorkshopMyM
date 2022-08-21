@@ -41,22 +41,23 @@ namespace WebApp.Pages
             try
             {
                 var result = await usuarioService.Login(Entity); 
-                var role = await rolesService.GETPERMISOS(result.IdRol); //inicializa la entidad
-                PropertyInfo[] lst = typeof(RolesEntity).GetProperties(); //lista las propiedades de la entidad
-                foreach (PropertyInfo property in lst)  //para cada propiedad de la lista
-                {
-                    string NombreAtributo = property.Name; //guarde el nombre de la propiedad () 
-                    if (NombreAtributo == "Taller" || NombreAtributo == "Personal" || NombreAtributo == "Bitacoras") //filtro para solo las que queremos
-                    {
-                        string Valor = property.GetValue(role).ToString();// obtener el valor de las propiedades que queremos ya filtradas
-                        permisosLista.Add(Valor);//agrega el valor a la lista
-                    }
-                    
-                }
+                
 
 
                 if (result.CodeError == 0)
                 {
+                    var role = await rolesService.GETPERMISOS(result.IdRol); //inicializa la entidad
+                    PropertyInfo[] lst = typeof(RolesEntity).GetProperties(); //lista las propiedades de la entidad
+                    foreach (PropertyInfo property in lst)  //para cada propiedad de la lista
+                    {
+                        string NombreAtributo = property.Name; //guarde el nombre de la propiedad () 
+                        if (NombreAtributo == "Taller" || NombreAtributo == "Personal" || NombreAtributo == "Bitacoras") //filtro para solo las que queremos
+                        {
+                            string Valor = property.GetValue(role).ToString();// obtener el valor de las propiedades que queremos ya filtradas
+                            permisosLista.Add(Valor);//agrega el valor a la lista
+                        }
+
+                    }
                     #region AUTENTICACTION
                     var claims = new List<Claim>
                 {
@@ -96,6 +97,7 @@ namespace WebApp.Pages
         }
         public  async Task<IActionResult> OnGetSalir()
         {
+            await usuarioService.Logout();
             HttpContext.Session.Clear();
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return Redirect("/Login");

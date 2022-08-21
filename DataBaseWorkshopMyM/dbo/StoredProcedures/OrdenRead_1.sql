@@ -13,7 +13,8 @@ BEGIN
 	, ModeloVehiculo
 	, AnoVehiculo
 	, ManodeObra
-	, Productos  
+	, Productos 
+	, PrecioProductos
 	, Estado
 	FROM
 	    dbo.Ordenes

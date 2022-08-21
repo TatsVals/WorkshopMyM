@@ -12,48 +12,54 @@
                 <input type="hidden" asp-for="Entity.IdOrden" v-model="Entity.IdOrden" />
 
                 <div class="form-group mb-3">
-                    <label for="Entity.Codigo" class="form-label">Codigo</label>
+                    <label for="Entity.NombreCliente" class="form-label">Nombre de Cliente</label>
                     <input type="text" class="form-control" asp-for="Entity.NombreCliente" v-model="Entity.NombreCliente" maxlength="250" required>
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="Entity.Descripcion" class="form-label">Descripcion</label>
+                    <label for="Entity.PlacaVehiculo" class="form-label">Placa Vehiculo</label>
                     <input type="text" class="form-control" asp-for="Entity.PlacaVehiculo" v-model="Entity.PlacaVehiculo" maxlength="250" required>
                 </div>
 
                 <div class="form-group  mb-3">
-                    <label for="Entity.Unidad" class="form-label">Unidad</label>
+                    <label for="Entity.MarcaVehiculo" class="form-label">Marca de Vehiculo</label>
                     <input type="text" class="form-control" asp-for="Entity.MarcaVehiculo" v-model="Entity.MarcaVehiculo" maxlength="250" required>
                 </div>
 
                 <div class="form-group  mb-3">
-                    <label for="Entity.CantidadDisponible" class="form-label">Cantidad Disponible</label>
+                    <label for="Entity.ModeloVehiculo" class="form-label">Modelo de Vehiculo</label>
                     <input type="text" class="form-control" asp-for="Entity.ModeloVehiculo" v-model="Entity.ModeloVehiculo" maxlength="250" required>
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="Entity.PrecioCompra" class="form-label">Precio Compra</label>
-                    <input type="text" class="form-control" asp-for="Entity.AnoVehiculo" v-model="Entity.AnoVehiculo" required>
+                    <label for="Entity.AnoVehiculo" class="form-label">Año de Vehiculo</label>
+                    <input type="number" class="form-control" asp-for="Entity.AnoVehiculo" v-model="Entity.AnoVehiculo" required>
                 </div>
 
 
 
                 <div class="form-group mb-3">
-                    <label for="Entity.PrecioVenta" class="form-label">Precio Venta</label>
-                    <input type="text" class="form-control" asp-for="Entity.ManodeObra" v-model="Entity.ManodeObra" required>
+                    <label for="Entity.ManodeObra" class="form-label">Precio Mano Obra</label>
+                    <input type="number" class="form-control" asp-for="Entity.ManodeObra" v-model="Entity.ManodeObra" required>
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="Entity.PrecioVenta" class="form-label">Precio Venta</label>
-                    <input type="text" class="form-control" asp-for="Entity.Productos" v-model="Entity.Productos" required>
+                    <label for="Entity.Productos" class="form-label">Productos</label>
+                    <textarea class="form-control" asp-for="Entity.Productos" v-model="Entity.Productos" required></textarea>
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="Entity.PrecioVenta" class="form-label">Precio Venta</label>
-                    <input type="checkbox" class="form-control" asp-for="Entity.Estado" v-model="Entity.Estado" required>
+                    <label for="Entity.PrecioProductos" class="form-label">Precio Productos</label>
+                    <input type="number" class="form-control" asp-for="Entity.PrecioProductos" v-model="Entity.PrecioProductos" required>
                 </div>
 
-
+                <div class="form-group mb-3">
+                    <label for="Entity.Estado" class="form-label">Estado</label>
+                    <select asp-for="Entity.Estado" class="form-select" v-model="Entity.Estado"  required>
+                        <option value="Orden Abierta">Orden Abierta</option>
+                        <option value="Orden Cerrada">Orden Cerrada</option>
+                    </select>
+                </div>
 
 
 

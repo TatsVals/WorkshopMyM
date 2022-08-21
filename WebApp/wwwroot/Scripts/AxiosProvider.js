@@ -35,11 +35,11 @@ var App;
             var data = _a.data;
             return data;
         }); };
-        AxiosProvider.SaveOrdenes = function (entity) { return axios.post("Permisos/Edit", entity).then(function (_a) {
+        AxiosProvider.SaveOrdenes = function (entity) { return axios.post("Ordenes/Edit", entity).then(function (_a) {
             var data = _a.data;
             return data;
         }); };
-        AxiosProvider.DeleteOrdenes = function (id) { return axios.delete("Permisos/Grid?handler=Eliminar&id=" + id).then(function (_a) {
+        AxiosProvider.DeleteOrdenes = function (id) { return axios.delete("Ordenes/Grid?handler=Eliminar&id=" + id).then(function (_a) {
             var data = _a.data;
             return data;
         }); };

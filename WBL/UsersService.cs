@@ -15,6 +15,7 @@ namespace WBL
         Task<IEnumerable<UsersEntity>> Get();
         Task<UsersEntity> GetById(UsersEntity entity);
         Task<UsersEntity> Login(UsersEntity entity);
+        Task<DBEntity> Logout();
         Task<DBEntity> Update(UsersEntity entity);
     }
 
@@ -42,6 +43,22 @@ namespace WBL
                 return result;
 
 
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+        }
+
+        public async Task<DBEntity> Logout()
+        {
+            try
+            {
+                var result = await sql.QueryFirstAsync<UsersEntity>("Logout");
+                return result;
             }
             catch (Exception ex)
             {

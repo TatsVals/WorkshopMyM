@@ -76,6 +76,7 @@ namespace WBL
                     entity.AnoVehiculo,
                     entity.ManodeObra,
                     entity.Productos,
+                    entity.PrecioProductos,
                     entity.Estado
 
                 });
@@ -99,6 +100,7 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.OrdenUpdate", new
                 {
+                    entity.IdOrden,
                     entity.NombreCliente,
                     entity.PlacaVehiculo,
                     entity.MarcaVehiculo,
@@ -106,6 +108,7 @@ namespace WBL
                     entity.AnoVehiculo,
                     entity.ManodeObra,
                     entity.Productos,
+                    entity.PrecioProductos,
                     entity.Estado
                 });
 

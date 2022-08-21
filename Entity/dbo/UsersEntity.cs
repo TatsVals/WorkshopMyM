@@ -14,9 +14,6 @@ namespace Entity
             Permisos = Permisos ?? new PermisosEntity();
         }
 
-
-
-        
         public int? IdUsuario { get; set; }
 
         public string Cedula { get; set; }
