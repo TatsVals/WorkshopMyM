@@ -5,9 +5,10 @@
 	@MarcaVehiculo VARCHAR(50),
 	@ModeloVehiculo VARCHAR(50),
 	@AnoVehiculo VARCHAR(50),
-	@ManodeObra VARCHAR(50),
+	@ManodeObra float(50),
 	@Productos VARCHAR(50),
-	@Estado BIT
+	@PrecioProductos float(50),
+	@Estado VARCHAR(50)
 
 AS
  BEGIN
@@ -25,6 +26,7 @@ AS
 	, AnoVehiculo = @AnoVehiculo
 	, ManodeObra = @ManodeObra 
 	, Productos = @Productos 
+	, PrecioProductos = @PrecioProductos
 	, Estado = @Estado
   WHERE
      IdOrden = @IdOrden

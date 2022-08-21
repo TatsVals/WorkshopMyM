@@ -6,7 +6,8 @@
 	[MarcaVehiculo] [varchar](50) NOT NULL,
 	[ModeloVehiculo] [varchar](50) NOT NULL,
 	[AnoVehiculo] [varchar](50) NOT NULL,
-	[ManodeObra] [varchar](50) NOT NULL,
+	[ManodeObra] [float](50) NOT NULL,
 	[Productos] [varchar](50) NOT NULL, 
-	[Estado] [Bit] NOT NULL,
+	[PrecioProductos] [float](50) NOT NULL,
+	[Estado] [varchar](50) NOT NULL,
 )

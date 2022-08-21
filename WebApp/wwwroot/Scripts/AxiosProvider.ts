@@ -13,8 +13,8 @@ namespace App.AxiosProvider   {
     export const SavePermisos = (entity) => axios.post<DBEntity>("Permisos/Edit", entity).then(({ data }) => data);
     export const DeletePermisos = (id) => axios.delete<DBEntity>("Permisos/Grid?handler=Eliminar&id=" + id).then(({ data }) => data);
 
-    export const SaveOrdenes = (entity) => axios.post<DBEntity>("Permisos/Edit", entity).then(({ data }) => data);
-    export const DeleteOrdenes = (id) => axios.delete<DBEntity>("Permisos/Grid?handler=Eliminar&id=" + id).then(({ data }) => data);
+    export const SaveOrdenes = (entity) => axios.post<DBEntity>("Ordenes/Edit", entity).then(({ data }) => data);
+    export const DeleteOrdenes = (id) => axios.delete<DBEntity>("Ordenes/Grid?handler=Eliminar&id=" + id).then(({ data }) => data);
 
     export const Login = (entity) => axios.post<DBEntity>("Login", entity).then(({ data }) => data);
     
