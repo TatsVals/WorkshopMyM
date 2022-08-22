@@ -13,24 +13,25 @@ BEGIN
 	BEGIN TRY
 
 		DELETE FROM dbo.Users WHERE IdUsuario=@IdUsuario
-
-		
-		
-		SELECT 0 AS CodeError, '' as MsgError
 		INSERT INTO	dbo.Bitacora_Movimientos
 		(
 			 Nombre_Usuario
 			,Fecha
 			,Movimiento
+			,Tabla
 		    ,Detalle
 		)
 		VALUES
 		(
 			 @UsuarioLogin
 			,GETDATE()
-			, 'DELETE', 'Usuario Cedula: ' + @Cedula  
+			, 'DELETE'
+			, 'Usuarios'
+			,'=>Usuario Cedula: ' + @Cedula  
 		)
+		
 		COMMIT TRANSACTION TRASA
+		SELECT 0 AS CodeError, '' as MsgError
 	END TRY
 
 	BEGIN CATCH

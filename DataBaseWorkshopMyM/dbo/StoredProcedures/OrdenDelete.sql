@@ -1,5 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[OrdenDelete]
 @IdOrden INT
+,@PlacaVehiculo VARCHAR(50)
+,@UsuarioLogin VARCHAR(50)
 
 AS
  BEGIN
@@ -11,7 +13,22 @@ AS
 
    DELETE FROM dbo.Ordenes
    WHERE IdOrden = @IdOrden
-
+   INSERT INTO	dbo.Bitacora_Movimientos
+		(
+			 Nombre_Usuario
+			,Fecha
+			,Movimiento
+			,Tabla
+		    ,Detalle
+		)
+		VALUES
+		(
+			 @UsuarioLogin
+			,GETDATE()
+			, 'DELETE'
+			, 'Ordenes'
+			, '=>Orden placa Vehiculo: ' + @PlacaVehiculo  
+		)
   COMMIT TRANSACTION TRASA
   SELECT 0 AS CodeError, '' AS MsgError
 

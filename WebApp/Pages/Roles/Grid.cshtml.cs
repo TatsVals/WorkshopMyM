@@ -20,7 +20,7 @@ namespace WebApp.Pages.Roles
 
         public IEnumerable<RolesEntity> GridList { get; set; } = new List<RolesEntity>();
 
-
+        public RolesEntity Entity { get; set; } = new RolesEntity();
         public string Mensaje { get; set; } = "";
 
 
@@ -50,11 +50,18 @@ namespace WebApp.Pages.Roles
 
         public async Task<JsonResult> OnDeleteEliminar(int id)
         {
+            Entity = await roles.GETBYID(new()
+            {
+                IdRol = id
+            });
 
             try
             {
                 var result = await roles.DELETE(new()
-                { IdRol = id });
+                { IdRol = id,
+                  Rol = Entity.Rol,
+                  UsuarioLogin = User.Identity.Name
+                });
 
 
                 return new JsonResult(result);

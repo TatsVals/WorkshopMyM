@@ -53,6 +53,7 @@ namespace WebApp.Pages.Ordenes
         //metodo update insert
         public async Task<IActionResult> OnPost()
         {
+            Entity.UsuarioLogin = User.Identity.Name;
             try
             {
                 var result = new DBEntity();

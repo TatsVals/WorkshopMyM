@@ -33,13 +33,16 @@ BEGIN
 		(
 			 Nombre_Usuario
 			,Fecha, Movimiento
+			,Tabla
 		    ,Detalle
 		)
 		VALUES
 		(
 			 @UsuarioLogin
 			,GETDATE()
-			, 'UPDATE', 'Cedula: ' + @Cedula + ' Nombre: ' + @Nombre +' Apellidos: ' + @Primer_Apellido + ' ' + @Segundo_Apellido + ' Usuario: ' + @Nombre_Usuario
+			, 'UPDATE'
+			,'Usuarios'
+			, '=>Cedula: ' + @Cedula + ' =>Nombre: ' + @Nombre +' =>Apellidos: ' + @Primer_Apellido + ' ' + @Segundo_Apellido + ' =>Usuario: ' + @Nombre_Usuario
 		)
 
 		

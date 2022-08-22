@@ -1,4 +1,4 @@
-﻿namespace ProductsEdit {
+﻿namespace OrdenesGrid {
 
     /*Mostrar el modal de confirmación*/
     export function OnclickEliminar(id) {
@@ -8,7 +8,7 @@
                     Loading.fire("Borrando");
 
 
-                    App.AxiosProvider.DeletePermisos(id).then(data => {
+                    App.AxiosProvider.DeleteOrdenes(id).then(data => {
                         Loading.close();
 
                         if (data.CodeError == 0) {

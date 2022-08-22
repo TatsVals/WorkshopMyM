@@ -46,19 +46,23 @@ BEGIN
 			,@ContrasenaSHA1
 			,@IdRol
 		)
-		SELECT 0 AS CodeError, '' as MsgError
+		
 
 		INSERT INTO	dbo.Bitacora_Movimientos
 		(
 			 Nombre_Usuario
-			,Fecha, Movimiento
+			,Fecha
+			, Movimiento
+			,Tabla
 		    ,Detalle
 		)
 		VALUES
 		(
 			 @UsuarioLogin
 			,GETDATE()
-			, 'INSERT', 'Cedula: ' + @Cedula + ' Nombre: ' + @Nombre +' Apellidos: ' + @Primer_Apellido + ' ' + @Segundo_Apellido + ' Usuario: ' + @Nombre_Usuario
+			, 'INSERT'
+			,'Usuarios'
+			, '=>Cedula: ' + @Cedula + ' =>Nombre: ' + @Nombre +' =>Apellidos: ' + @Primer_Apellido + ' ' + @Segundo_Apellido + ' =>Usuario: ' + @Nombre_Usuario
 		)
 
 		END
@@ -66,7 +70,7 @@ BEGIN
 		
 		
 		COMMIT TRANSACTION TRASA
-		
+		SELECT 0 AS CodeError, '' as MsgError
 	END TRY
 
 	BEGIN CATCH

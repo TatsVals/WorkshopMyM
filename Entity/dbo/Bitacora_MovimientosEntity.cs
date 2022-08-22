@@ -12,6 +12,7 @@ namespace Entity
         public string Nombre_Usuario { get; set; }
         public DateTime Fecha { get; set; }
         public string Movimiento { get; set; }
+        public string Tabla { get; set; }
         public string Detalle { get; set; }
     }
 }

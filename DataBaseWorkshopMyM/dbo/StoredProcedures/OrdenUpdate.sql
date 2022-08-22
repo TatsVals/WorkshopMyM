@@ -8,8 +8,8 @@
 	@ManodeObra float(50),
 	@Productos VARCHAR(50),
 	@PrecioProductos float(50),
-	@Estado VARCHAR(50)
-
+	@Estado VARCHAR(50),
+	@UsuarioLogin VARCHAR(50)
 AS
  BEGIN
   SET NOCOUNT ON
@@ -30,7 +30,22 @@ AS
 	, Estado = @Estado
   WHERE
      IdOrden = @IdOrden
-
+	 INSERT INTO	dbo.Bitacora_Movimientos
+		(
+			 Nombre_Usuario
+			,Fecha
+			,Movimiento
+			,Tabla
+		    ,Detalle
+		)
+		VALUES
+		(
+			 @UsuarioLogin
+			,GETDATE()
+			, 'UPDATE'
+			, 'Ordenes'
+			, '=>NombreCliente: ' + @NombreCliente + ' =>PlacaVehiculo: ' + @PlacaVehiculo +' =>MarcaVehiculo: ' + @MarcaVehiculo + ' =>ModeloVehiculo: ' + @ModeloVehiculo + ' =>AnoVehiculo: ' + @AnoVehiculo + ' =>ManodeObra: ' + Convert(Varchar, @ManodeObra) + ' =>Productos: ' + @Productos + ' =>PrecioProductos: ' + Convert(Varchar, @PrecioProductos) + ' =>Estado: ' + @Estado
+		)
   COMMIT TRANSACTION TRASA
   SELECT 0 AS CodeError, '' AS MsgError
 

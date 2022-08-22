@@ -75,7 +75,8 @@ Task<RolesEntity> GETPERMISOS(int IdRol);
                     entity.Rol,
                     entity.AccesoTaller,
                     entity.AccesoPersonal,
-                    entity.AccesoBitacoras
+                    entity.AccesoBitacoras,
+                    entity.UsuarioLogin
 
                 });
 
@@ -102,7 +103,8 @@ Task<RolesEntity> GETPERMISOS(int IdRol);
                     entity.Rol,
                     entity.AccesoTaller,
                     entity.AccesoPersonal,
-                    entity.AccesoBitacoras
+                    entity.AccesoBitacoras,
+                    entity.UsuarioLogin
                 });
 
 
@@ -123,7 +125,9 @@ Task<RolesEntity> GETPERMISOS(int IdRol);
             {
                 var result = sql.ExecuteAsync("dbo.RolesDelete", new
                 {
-                    entity.IdRol
+                    entity.IdRol,
+                    entity.UsuarioLogin,
+                    entity.Rol
 
                 });
 

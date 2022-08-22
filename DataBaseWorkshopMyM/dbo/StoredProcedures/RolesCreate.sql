@@ -5,7 +5,8 @@
 	@Personal VARCHAR(50) = '',		
 	@AccesoPersonal BIT,
 	@Bitacoras VARCHAR(50) = '',		
-	@AccesoBitacoras BIT
+	@AccesoBitacoras BIT,
+	@UsuarioLogin VARCHAR(50)
 
 AS
  BEGIN
@@ -40,8 +41,25 @@ AS
 	
   )
 
-    SELECT 0 AS CodeError, '' AS MsgError
-	END
+   
+
+	INSERT INTO	dbo.Bitacora_Movimientos
+		(
+			 Nombre_Usuario
+			,Fecha, Movimiento
+			,Tabla
+		    ,Detalle
+		)
+		VALUES
+		(
+			 @UsuarioLogin
+			,GETDATE()
+			, 'INSERT'
+			, 'Roles'
+			, '=>Rol: ' + @Rol +'=>Taller: ' + @Taller + ' =>Personal: ' + @Personal +' =>Bitacoras: ' + @Bitacoras 
+		)
+
+		END
   ELSE BEGIN 
 		
 			SELECT -1 AS CodeError, 'Este Rol se encuentra en uso por favor ingresar otro Rol!' AS MsgError
@@ -50,7 +68,7 @@ AS
 		END
 
   COMMIT TRANSACTION TRASA
-
+   SELECT 0 AS CodeError, '' AS MsgError
 
 
   END TRY

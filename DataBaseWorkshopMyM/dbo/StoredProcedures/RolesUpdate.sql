@@ -6,7 +6,8 @@
 	@Personal VARCHAR(50) = '',		
 	@AccesoPersonal BIT,
 	@Bitacoras VARCHAR(50) = '',		
-	@AccesoBitacoras BIT
+	@AccesoBitacoras BIT,
+	@UsuarioLogin VARCHAR(50)
 
 AS
  BEGIN
@@ -31,9 +32,26 @@ AS
   WHERE
      IdRol = @IdRol
 
-  COMMIT TRANSACTION TRASA
-  SELECT 0 AS CodeError, '' AS MsgError
+ 
+  INSERT INTO	dbo.Bitacora_Movimientos
+		(
+			 Nombre_Usuario
+			,Fecha
+			,Movimiento
+			,Tabla
+		    ,Detalle
+		)
+		VALUES
+		(
+			 @UsuarioLogin
+			,GETDATE()
+			, 'UPDATE'
+			, 'Roles'
+			, '=>Rol: ' + @Rol +'=>Taller: ' + @Taller + ' =>Personal: ' + @Personal +' =>Bitacoras: ' + @Bitacoras 
+		)
 
+		 COMMIT TRANSACTION TRASA
+  SELECT 0 AS CodeError, '' AS MsgError
   END TRY
 
 	  BEGIN CATCH

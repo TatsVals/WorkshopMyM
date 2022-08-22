@@ -8,6 +8,7 @@ BEGIN
  		,Nombre_Usuario 
 		,Fecha
 		,Movimiento
+		,Tabla
 		,Detalle
 
 		FROM 

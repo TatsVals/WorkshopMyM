@@ -55,6 +55,7 @@ namespace WebApp.Pages.Products
         {
             try
             {
+                Entity.UsuarioLogin = User.Identity.Name;
                 var result = new DBEntity();
                 //update
                 if (Entity.IdProducto.HasValue) //si el idContacto tiene un valor (true) el metodo actuliza

@@ -74,8 +74,9 @@ namespace WBL
                     entity.Unidad,
                     entity.CantidadDisponible,
                     entity.PrecioCompra,
-                    entity.PrecioVenta
-                    
+                    entity.PrecioVenta,
+                    entity.UsuarioLogin
+
                 });
 
 
@@ -103,7 +104,8 @@ namespace WBL
                     entity.Unidad,
                     entity.CantidadDisponible,
                     entity.PrecioCompra,
-                    entity.PrecioVenta
+                    entity.PrecioVenta,
+                    entity.UsuarioLogin
                 });
 
 
@@ -124,7 +126,9 @@ namespace WBL
             {
                 var result = sql.ExecuteAsync("dbo.ProductsDelete", new
                 {
-                    entity.IdProducto
+                    entity.IdProducto,
+                    entity.UsuarioLogin,
+                    entity.Codigo
 
                 });
 
