@@ -114,6 +114,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.14" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+    <Content Remove="wwwroot\App\ClaveTemporal.ts" />
     <Content Remove="wwwroot\App\LogOut.ts" />
     <Content Remove="wwwroot\App\User\Edit.ts" />
     <Content Remove="wwwroot\App\User\Grid.ts" />
@@ -129,6 +130,8 @@
   </ItemGroup>
 
   <ItemGroup>
+
+    <TypeScriptCompile Include="wwwroot\App\ClaveTemporal.ts" />
 
     <TypeScriptCompile Include="wwwroot\App\LogOut.ts" />
     <TypeScriptCompile Include="wwwroot\App\Ordenes\Edit.ts" />

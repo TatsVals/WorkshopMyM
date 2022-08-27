@@ -1,0 +1,45 @@
+﻿@page
+@model WebApp.Pages.RecuperarClaveModel
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html dir="ltr">
+
+<head>
+
+    
+    @await Html.PartialAsync("_HeaderPartial")
+
+</head>
+
+<body>
+    <div class="container-fluid">
+
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Recuperar Clave</h5>
+            </div>
+            <div class="card-body">
+
+                
+                        <h2>Envio de email con Net Core</h2>
+                        <form method="post" class="form">
+                            <label>Proveedor de email</label>
+                            <label>Dirección Correo Electronico</label>
+                            <input type="email" name="direccionEnvio" class="form-control" required />
+                            <label>Nombre de Usuario</label>
+                            <input type="text" name="asunto" class="form-control" required />
+
+                            <button class="btn btn-outline-success" type="submit">Enviar</button>
+                            <button @@click="Login" class="btn btn-info d-block w-100 waves-effect waves-light" type="button">Login</button>
+                        </form>
+                   
+            </div>
+        </div>
+    </div>
+   
+</body>
+
+</html>

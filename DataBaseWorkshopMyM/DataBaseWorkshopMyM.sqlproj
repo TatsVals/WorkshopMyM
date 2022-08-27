@@ -59,6 +59,7 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\StoredProcedures" />
     <Folder Include="dbo\Tables" />
+    <Folder Include="dbo\ConfiguracionEnvioEmail" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Productos.sql" />
@@ -72,17 +73,11 @@
     <Build Include="dbo\StoredProcedures\UsersActualizar.sql" />
     <Build Include="dbo\StoredProcedures\UsersEliminar.sql" />
     <Build Include="dbo\Tables\Roles.sql" />
-    <Build Include="dbo\Tables\Permisos.sql" />
     <Build Include="dbo\StoredProcedures\RolesCreate.sql" />
     <Build Include="dbo\StoredProcedures\RolesUpdate.sql" />
     <Build Include="dbo\StoredProcedures\RolesDelete.sql" />
     <Build Include="dbo\StoredProcedures\RolesRead.sql" />
     <Build Include="dbo\StoredProcedures\RolesList.sql" />
-    <Build Include="dbo\StoredProcedures\PermisosCreate.sql" />
-    <Build Include="dbo\StoredProcedures\PermisosRead.sql" />
-    <Build Include="dbo\StoredProcedures\PermisosDelete.sql" />
-    <Build Include="dbo\StoredProcedures\PermisosUpdate.sql" />
-    <Build Include="dbo\StoredProcedures\PermisosList.sql" />
     <Build Include="dbo\Tables\BitacoraIngresos.sql" />
     <Build Include="dbo\Tables\Bitacora_Movimientos.sql" />
     <Build Include="dbo\StoredProcedures\Bitacora_MovimientosObtener.sql" />
@@ -94,8 +89,10 @@
     <Build Include="dbo\StoredProcedures\BitacoraIngresosRead.sql" />
     <Build Include="dbo\StoredProcedures\OrdenRead_1.sql" />
     <Build Include="dbo\StoredProcedures\Logout.sql" />
+    <Build Include="dbo\StoredProcedures\EnvioClaveTemporal.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataBaseWorkshopMyM.publish.xml" />
+    <None Include="dbo\ConfiguracionEnvioEmail\ConfiguracionEnvioEmail.sql" />
   </ItemGroup>
 </Project>
