@@ -136,9 +136,6 @@
     <TypeScriptCompile Include="wwwroot\App\LogOut.ts" />
     <TypeScriptCompile Include="wwwroot\App\Ordenes\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Ordenes\Grid.ts" />
-
-    <TypeScriptCompile Include="wwwroot\App\Permisos\Edit.ts" />
-    <TypeScriptCompile Include="wwwroot\App\Permisos\Grid.ts" />
     <TypeScriptCompile Include="wwwroot\App\Products\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Roles\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Roles\Grid.ts" />
