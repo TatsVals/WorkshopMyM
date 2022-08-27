@@ -17,6 +17,8 @@ namespace App.AxiosProvider   {
     export const DeleteOrdenes = (id) => axios.delete<DBEntity>("Ordenes/Grid?handler=Eliminar&id=" + id).then(({ data }) => data);
 
     export const Login = (entity) => axios.post<DBEntity>("Login", entity).then(({ data }) => data);
+    export const Recuperar = (entity) => axios.post<DBEntity>("RecuperarClave", entity).then(({ data }) => data);
+
     
 }
 

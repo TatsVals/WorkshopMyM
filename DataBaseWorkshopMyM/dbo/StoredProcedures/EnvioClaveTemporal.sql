@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[EnvioClaveTemporal]	
 	@Nombre_Usuario VARCHAR(30),
-	@Email VARCHAR(30)
+	@Correo VARCHAR(100)
 AS
 
 BEGIN
@@ -29,11 +29,11 @@ BEGIN
 
   	 Exec msdb.dbo.sp_send_dbmail
 		@profile_name='EmailClave',
-		@recipients='workshopmymrecuperacion@gmail.com',
+		@recipients=@Correo,
 		--@copy_recipients='correo1@hotmail.com; correo2@outlook.com',
 		@body=@BODY,
 		@body_format='HTML',
-		@subject='Correo Clave Nueva'
+		@subject='Clave Temporal'
 
 
 	UPDATE dbo.Users SET

@@ -21,6 +21,7 @@ namespace WebApp
             services.AddScoped<IBitacora_MovimientosService, Bitacora_MovimientosService>();
             services.AddScoped<IOrdenesService, OrdenesService>();
             services.AddScoped<IBitacoraIngresosService, BitacoraIngresosService>();
+            services.AddScoped<IRecuperarClaveService, RecuperarClaveService>();
 
 
 
