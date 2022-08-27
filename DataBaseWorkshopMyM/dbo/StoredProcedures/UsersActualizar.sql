@@ -15,10 +15,10 @@ BEGIN
 	SET NOCOUNT ON
 
 	BEGIN TRANSACTION TRASA
-
-	DECLARE @ContrasenaSHA1 VARBINARY(MAX)=(SELECT HASHBYTES('SHA1',@Clave));
-
 	BEGIN TRY
+	DECLARE @ContrasenaSHA1 VARBINARY(MAX)=(SELECT HASHBYTES('SHA1',@Clave));
+	
+	
 		UPDATE dbo.Users SET
 			 Cedula	= @Cedula
 			,Nombre = @Nombre
@@ -45,6 +45,7 @@ BEGIN
 			, '=>Cedula: ' + @Cedula + ' =>Nombre: ' + @Nombre +' =>Apellidos: ' + @Primer_Apellido + ' ' + @Segundo_Apellido + ' =>Usuario: ' + @Nombre_Usuario
 		)
 
+		
 		
 		COMMIT TRANSACTION TRASA
 		SELECT 0 AS CodeError, '' as MsgError

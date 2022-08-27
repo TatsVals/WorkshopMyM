@@ -15,8 +15,7 @@ AS
   BEGIN TRANSACTION TRASA
 
   BEGIN TRY
-
-  	IF NOT EXISTS( SELECT * FROM dbo.Roles WHERE @Rol=Rol) BEGIN
+  	IF NOT EXISTS( SELECT * FROM dbo.Roles WHERE Rol=@Rol) BEGIN
 	IF (@AccesoTaller = 1) BEGIN SET @Taller = 'Acceso a Taller' END
 	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
 	IF (@AccesoPersonal = 1) BEGIN SET @Personal = 'Acceso a Personal' END

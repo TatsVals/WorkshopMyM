@@ -87,9 +87,9 @@
     <Build Include="dbo\StoredProcedures\OrdenUpdate.sql" />
     <Build Include="dbo\StoredProcedures\OrdenDelete.sql" />
     <Build Include="dbo\StoredProcedures\BitacoraIngresosRead.sql" />
-    <Build Include="dbo\StoredProcedures\OrdenRead_1.sql" />
     <Build Include="dbo\StoredProcedures\Logout.sql" />
     <Build Include="dbo\StoredProcedures\EnvioClaveTemporal.sql" />
+    <Build Include="dbo\StoredProcedures\OrdenRead.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataBaseWorkshopMyM.publish.xml" />

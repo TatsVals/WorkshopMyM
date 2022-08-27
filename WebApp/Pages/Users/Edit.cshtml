@@ -16,34 +16,34 @@
 
                 <div class="form-group mb-3">
                     <label for="Entity.Cedula" class="form-label">Cedula</label>
-                    <input type="text" class="form-control" asp-for="Entity.Cedula" v-model="Entity.Cedula" maxlength="9" minlength="9" pattern="[0-9]{9}" placeholder="101110111" required>
+                    <input type="text" class="form-control" asp-for="Entity.Cedula" v-model="Entity.Cedula"  maxlength="9" pattern="[0-9]{9}" placeholder="Cedula con ceros tipo 101110111" required>
                 </div>
 
                 <div class="form-group  mb-3">
                     <label for="Entity.Nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" asp-for="Entity.Nombre" v-model="Entity.Nombre" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.Nombre" v-model="Entity.Nombre" maxlength="250" pattern="[a-zA-Z]+" required>
                 </div>
 
                 <div class="form-group  mb-3">
-                    <label for="Entity.Primer_Apellido" class="form-label">Primer Apelledido</label>
-                    <input type="text" class="form-control" asp-for="Entity.Primer_Apellido" v-model="Entity.Primer_Apellido" maxlength="250" required>
+                    <label for="Entity.Primer_Apellido" class="form-label">Primer Apellido</label>
+                    <input type="text" class="form-control" asp-for="Entity.Primer_Apellido" v-model="Entity.Primer_Apellido" maxlength="250" pattern="[a-z]" required>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="Entity.Segundo_Apellido" class="form-label">Segundo Apellido</label>
-                    <input type="text" class="form-control" asp-for="Entity.Segundo_Apellido" v-model="Entity.Segundo_Apellido" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.Segundo_Apellido" v-model="Entity.Segundo_Apellido" maxlength="250" pattern="[A-Za-z]" required>
                 </div>
 
 
 
                 <div class="form-group mb-3">
                     <label for="Entity.Nombre_Usuario" class="form-label">Nombre Usuario</label>
-                    <input type="text" class="form-control" asp-for="Entity.Nombre_Usuario" v-model="Entity.Nombre_Usuario" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.Nombre_Usuario" v-model="Entity.Nombre_Usuario" maxlength="50" pattern="[A-Za-z]" required>
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="Entity.Clave" class="form-label">Clave</label>
-                    <input type="password" class="form-control" asp-for="Entity.Clave" v-model="Entity.Clave" maxlength="250" required>
+                    <label for="Entity.Clave" class="form-label">Clave debe tener al menos 8 dígitos, una mayúscula y un número</label>
+                    <input type="password" class="form-control" asp-for="Entity.Clave" v-model="Entity.Clave"  Minlenght="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="La clave debe tener minimo 8 digitos "  required>
                 </div>
 
                 <div class="form-group mb-3">

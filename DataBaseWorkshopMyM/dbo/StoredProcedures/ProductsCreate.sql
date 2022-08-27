@@ -16,7 +16,10 @@ AS
 
   BEGIN TRY
 
-
+  IF EXISTS( SELECT * FROM dbo.Productos WHERE @Codigo=Codigo) BEGIN
+		SELECT -1 AS CodeError, 'Este codigo de producto se encuentra registrado!' AS MsgError
+	END
+	ELSE BEGIN
   INSERT INTO dbo.Productos
   (
      Codigo
@@ -53,6 +56,8 @@ AS
 			, 'Productos'
 			, '=>Codigo: ' + Convert(Varchar, @Codigo) + '   =>Descripcion: ' + @Descripcion +'   =>Unidad: ' + @Unidad + '   =>Cantidad Disponible: ' + Convert(Varchar, @CantidadDisponible) + '   =>Precio de Compra: ' + Convert(Varchar, @PrecioCompra)  + '   =>Precio de Venta: ' + Convert(Varchar, @PrecioVenta)+ '   =>Costo Total: ' + Convert(Varchar, @CantidadDisponible * @PrecioCompra)
 		)
+		END
+		
   COMMIT TRANSACTION TRASA
   SELECT 0 AS CodeError, '' AS MsgError
 

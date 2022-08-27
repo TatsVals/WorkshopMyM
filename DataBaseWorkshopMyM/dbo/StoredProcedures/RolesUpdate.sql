@@ -16,6 +16,7 @@ AS
   BEGIN TRANSACTION TRASA
 
   BEGIN TRY
+ 
   IF (@AccesoTaller = 1) BEGIN SET @Taller = 'Acceso a Taller' END
 	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
   IF (@AccesoPersonal = 1) BEGIN SET @Personal = 'Acceso a Personal' END
