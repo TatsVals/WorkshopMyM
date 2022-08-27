@@ -17,6 +17,7 @@ BEGIN
 	BEGIN TRANSACTION TRASA
 	BEGIN TRY
 	DECLARE @ContrasenaSHA1 VARBINARY(MAX)=(SELECT HASHBYTES('SHA1',@Clave));
+	 
 	
 	
 		UPDATE dbo.Users SET
@@ -45,7 +46,7 @@ BEGIN
 			, '=>Cedula: ' + @Cedula + ' =>Nombre: ' + @Nombre +' =>Apellidos: ' + @Primer_Apellido + ' ' + @Segundo_Apellido + ' =>Usuario: ' + @Nombre_Usuario
 		)
 
-		
+	
 		
 		COMMIT TRANSACTION TRASA
 		SELECT 0 AS CodeError, '' as MsgError
