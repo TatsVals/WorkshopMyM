@@ -17,7 +17,7 @@ AS
   BEGIN TRANSACTION TRASA
 
   BEGIN TRY
-
+  
   UPDATE dbo.Ordenes SET
       NombreCliente = @NombreCliente
 	, PlacaVehiculo = @PlacaVehiculo

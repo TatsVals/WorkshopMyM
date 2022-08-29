@@ -17,7 +17,14 @@ BEGIN
 	BEGIN TRANSACTION TRASA
 	BEGIN TRY
 	DECLARE @ContrasenaSHA1 VARBINARY(MAX)=(SELECT HASHBYTES('SHA1',@Clave));
-	 
+	
+	IF EXISTS( SELECT Cedula FROM dbo.Users WHERE @Cedula=Cedula) AND (@Cedula != (SELECT Cedula FROM dbo.Users WHERE @IdUsuario=IdUsuario)) BEGIN
+		SELECT -1 AS CodeError, 'Esta Cedula se encuentra registrada por favor ingresar otra cedula!' AS MsgError
+	END
+	ELSE IF EXISTS( SELECT @Nombre_Usuario FROM dbo.Users WHERE @Nombre_Usuario=Nombre_Usuario) AND (@Nombre_Usuario != (SELECT Nombre_Usuario FROM dbo.Users WHERE @IdUsuario=IdUsuario)) BEGIN
+		SELECT -1 AS CodeError, 'Este Usuario se encuentra en uso por favor ingresar otro usuario!' AS MsgError
+	END
+	 ELSE BEGIN
 	
 	
 		UPDATE dbo.Users SET
@@ -45,7 +52,7 @@ BEGIN
 			,'Usuarios'
 			, '=>Cedula: ' + @Cedula + ' =>Nombre: ' + @Nombre +' =>Apellidos: ' + @Primer_Apellido + ' ' + @Segundo_Apellido + ' =>Usuario: ' + @Nombre_Usuario
 		)
-
+		END
 	
 		
 		COMMIT TRANSACTION TRASA

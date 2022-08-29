@@ -16,7 +16,9 @@ AS
   BEGIN TRANSACTION TRASA
 
   BEGIN TRY
-
+  IF EXISTS( SELECT Codigo FROM dbo.Productos WHERE @Codigo=Codigo) AND (@Codigo != (SELECT Codigo FROM dbo.Productos WHERE @IdProducto=IdProducto)) BEGIN
+		SELECT -1 AS CodeError, 'Este rol se encuentra registrado por favor ingresar otra cedula!' AS MsgError
+	END
   UPDATE dbo.Productos SET
       Codigo = @Codigo
 	, Descripcion = @Descripcion

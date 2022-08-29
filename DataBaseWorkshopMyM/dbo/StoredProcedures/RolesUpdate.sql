@@ -16,7 +16,12 @@ AS
   BEGIN TRANSACTION TRASA
 
   BEGIN TRY
- 
+  IF ( @IdRol = 1) BEGIN
+  SELECT -1 AS CodeError, 'Este Rol no se puede Editar' AS MsgError
+  END
+ IF EXISTS( SELECT Rol FROM dbo.Roles WHERE @Rol=Rol) AND (@Rol != (SELECT Rol FROM dbo.Roles WHERE @IdRol=IdRol)) BEGIN
+		SELECT -1 AS CodeError, 'Este rol se encuentra registrado por favor ingresar otra cedula!' AS MsgError
+	END
   IF (@AccesoTaller = 1) BEGIN SET @Taller = 'Acceso a Taller' END
 	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
   IF (@AccesoPersonal = 1) BEGIN SET @Personal = 'Acceso a Personal' END
