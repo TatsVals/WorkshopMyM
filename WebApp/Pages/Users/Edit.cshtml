@@ -16,7 +16,7 @@
 
                 <div class="form-group mb-3">
                     <label for="Entity.Cedula" class="form-label">Cedula</label>
-                    <input type="text" class="form-control" asp-for="Entity.Cedula" v-model="Entity.Cedula"  maxlength="9" pattern="[0-9]{9}" placeholder="Cedula con ceros tipo 101110111" required>
+                    <input type="text" class="form-control" asp-for="Entity.Cedula" v-model="Entity.Cedula" maxlength="9" pattern="[0-9]{9}" placeholder="Cedula con ceros tipo 101110111" required>
                 </div>
 
                 <div class="form-group  mb-3">
@@ -41,10 +41,7 @@
                     <input type="text" class="form-control" asp-for="Entity.Nombre_Usuario" v-model="Entity.Nombre_Usuario" maxlength="50" pattern="[A-Za-z]" required>
                 </div>
 
-                <div class="form-group mb-3">
-                    <label for="Entity.Clave" class="form-label">Clave debe tener al menos 8 dígitos, una mayúscula y un número</label>
-                    <input type="password" class="form-control" asp-for="Entity.Clave" v-model="Entity.Clave"  Minlenght="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="La clave debe tener minimo 8 digitos "  required>
-                </div>
+
 
                 <div class="form-group mb-3">
                     <label for="Entity.IdRol" class="form-label">Rol</label>
@@ -55,7 +52,7 @@
                 </div>
 
 
-               
+
 
 
 
@@ -64,8 +61,10 @@
                         <button type="button" @@click="Save" class="btn btn-primary">
                             @(Model.id.HasValue?"Actualizar":"Agregar") <!-- validacion por si es agregar o actualizar -->
                         </button>
+                       
                     </div>
                 </div>
+               
 
 
 

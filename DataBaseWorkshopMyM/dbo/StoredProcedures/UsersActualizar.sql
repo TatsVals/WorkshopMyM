@@ -4,8 +4,7 @@
 		@Nombre VARCHAR(250),
 		@Primer_Apellido VARCHAR(250),
 		@Segundo_Apellido VARCHAR(250), 
-		@Nombre_Usuario VARCHAR(30), 
-		@Clave VARCHAR(30),
+		@Nombre_Usuario VARCHAR(30), 		
 		@IdRol INT,
 		@UsuarioLogin VARCHAR(50)
 AS
@@ -16,7 +15,7 @@ BEGIN
 
 	BEGIN TRANSACTION TRASA
 	BEGIN TRY
-	DECLARE @ContrasenaSHA1 VARBINARY(MAX)=(SELECT HASHBYTES('SHA1',@Clave));
+	
   IF ( @IdUsuario = 1) BEGIN
   SELECT -1 AS CodeError, 'Este Usuario no se puede Editar' AS MsgError
   END
@@ -34,8 +33,7 @@ BEGIN
 			,Nombre = @Nombre
 			,Primer_Apellido = @Primer_Apellido 
 			,Segundo_Apellido = @Segundo_Apellido 
-			,Nombre_Usuario = @Nombre_Usuario
-			,Clave	= @ContrasenaSHA1
+			,Nombre_Usuario = @Nombre_Usuario			
 			,IdRol = @IdRol
 		WHERE
 			IdUsuario = @IdUsuario	

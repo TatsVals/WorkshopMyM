@@ -17,7 +17,7 @@ namespace WebApp
             services.AddScoped<IProductsService, ProductsService>();
             services.AddScoped<IUsersService, UsersService>();
             services.AddScoped<IRolesService, RolesService>();
-           
+            services.AddScoped<ICambioClaveService, CambioClaveService>();
             services.AddScoped<IBitacora_MovimientosService, Bitacora_MovimientosService>();
             services.AddScoped<IOrdenesService, OrdenesService>();
             services.AddScoped<IBitacoraIngresosService, BitacoraIngresosService>();

@@ -27,6 +27,10 @@ var App;
             var data = _a.data;
             return data;
         }); };
+        AxiosProvider.CambioClave = function (entity) { return axios.post("Users/CambioClave", entity).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
         AxiosProvider.SavePermisos = function (entity) { return axios.post("Permisos/Edit", entity).then(function (_a) {
             var data = _a.data;
             return data;

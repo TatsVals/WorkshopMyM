@@ -147,7 +147,6 @@ namespace WBL
                     ,entity.Primer_Apellido
                     ,entity.Segundo_Apellido
                     ,entity.Nombre_Usuario
-                    ,entity.Clave
                     ,entity.IdRol
                     ,entity.UsuarioLogin
 

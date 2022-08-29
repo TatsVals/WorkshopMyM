@@ -14,8 +14,7 @@ BEGIN
 		,U.Nombre 
 		,U.Primer_Apellido 
 		,U.Segundo_Apellido 
-		,U.Nombre_Usuario 
-		,SUBSTRING((HashBytes('SHA1', U.Clave)), 3, 32)
+		,U.Nombre_Usuario 	
 		,R.IdRol
 		,R.Rol
 

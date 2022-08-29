@@ -116,6 +116,7 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
     <Content Remove="wwwroot\App\ClaveTemporal.ts" />
     <Content Remove="wwwroot\App\LogOut.ts" />
+    <Content Remove="wwwroot\App\User\CambioClave.ts" />
     <Content Remove="wwwroot\App\User\Edit.ts" />
     <Content Remove="wwwroot\App\User\Grid.ts" />
   </ItemGroup>
@@ -139,6 +140,7 @@
     <TypeScriptCompile Include="wwwroot\App\Products\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Roles\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\Roles\Grid.ts" />
+    <TypeScriptCompile Include="wwwroot\App\User\CambioClave.ts" />
     <TypeScriptCompile Include="wwwroot\App\User\Edit.ts" />
     <TypeScriptCompile Include="wwwroot\App\User\Grid.ts" />
   </ItemGroup>
