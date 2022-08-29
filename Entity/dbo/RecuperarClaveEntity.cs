@@ -11,5 +11,7 @@ namespace Entity
         public string Nombre_Usuario { get; set; }
 
         public string Correo { get; set; }
+        public int ClaveTemporal { get; set; }
+
     }
 }

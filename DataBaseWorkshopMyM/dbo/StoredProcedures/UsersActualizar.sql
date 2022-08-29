@@ -17,11 +17,10 @@ BEGIN
 	BEGIN TRANSACTION TRASA
 	BEGIN TRY
 	DECLARE @ContrasenaSHA1 VARBINARY(MAX)=(SELECT HASHBYTES('SHA1',@Clave));
-	BEGIN TRY
   IF ( @IdUsuario = 1) BEGIN
   SELECT -1 AS CodeError, 'Este Usuario no se puede Editar' AS MsgError
   END
-	IF EXISTS( SELECT Cedula FROM dbo.Users WHERE @Cedula=Cedula) AND (@Cedula != (SELECT Cedula FROM dbo.Users WHERE @IdUsuario=IdUsuario)) BEGIN
+	ELSE IF EXISTS( SELECT Cedula FROM dbo.Users WHERE @Cedula=Cedula) AND (@Cedula != (SELECT Cedula FROM dbo.Users WHERE @IdUsuario=IdUsuario)) BEGIN
 		SELECT -1 AS CodeError, 'Esta Cedula se encuentra registrada por favor ingresar otra cedula!' AS MsgError
 	END
 	ELSE IF EXISTS( SELECT @Nombre_Usuario FROM dbo.Users WHERE @Nombre_Usuario=Nombre_Usuario) AND (@Nombre_Usuario != (SELECT Nombre_Usuario FROM dbo.Users WHERE @IdUsuario=IdUsuario)) BEGIN

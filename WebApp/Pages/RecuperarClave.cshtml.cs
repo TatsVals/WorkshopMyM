@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WBL;
 
+
 namespace WebApp.Pages
 {
     public class RecuperarClaveModel : PageModel
@@ -44,5 +45,6 @@ namespace WebApp.Pages
             }
             
         }
+     
     }
 }

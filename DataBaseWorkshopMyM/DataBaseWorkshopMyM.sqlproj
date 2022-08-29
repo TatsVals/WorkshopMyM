@@ -90,6 +90,7 @@
     <Build Include="dbo\StoredProcedures\Logout.sql" />
     <Build Include="dbo\StoredProcedures\EnvioClaveTemporal.sql" />
     <Build Include="dbo\StoredProcedures\OrdenRead.sql" />
+    <Build Include="dbo\StoredProcedures\ClaveTemporal.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataBaseWorkshopMyM.publish.xml" />
