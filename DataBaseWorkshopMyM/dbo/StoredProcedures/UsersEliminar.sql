@@ -10,8 +10,9 @@ BEGIN
 
 	BEGIN TRANSACTION TRASA
 
+	
 	BEGIN TRY
-
+  IF ( @IdUsuario != 1) BEGIN
 		DELETE FROM dbo.Users WHERE IdUsuario=@IdUsuario
 		INSERT INTO	dbo.Bitacora_Movimientos
 		(
@@ -30,6 +31,12 @@ BEGIN
 			,'=>Usuario Cedula: ' + @Cedula  
 		)
 		
+		END 
+  ELSE BEGIN 
+  SELECT -1 AS CodeError, 'Este Usuario no se puede borrar' AS MsgError
+
+  
+  END
 		COMMIT TRANSACTION TRASA
 		SELECT 0 AS CodeError, '' as MsgError
 	END TRY
