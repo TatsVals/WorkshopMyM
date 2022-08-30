@@ -64,7 +64,7 @@ namespace WebApp
            {
                option.LoginPath = "/Index";
                option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
-               option.AccessDeniedPath = "/Home/Privacy";
+               option.AccessDeniedPath = "/Login";
                 
            });
 
