@@ -10,27 +10,35 @@ BEGIN
 
 	BEGIN TRANSACTION TRASA
 
+	
 	BEGIN TRY
-
+  IF ( @IdUsuario != 1) BEGIN
 		DELETE FROM dbo.Users WHERE IdUsuario=@IdUsuario
-
-		
-		
-		SELECT 0 AS CodeError, '' as MsgError
 		INSERT INTO	dbo.Bitacora_Movimientos
 		(
 			 Nombre_Usuario
 			,Fecha
 			,Movimiento
+			,Tabla
 		    ,Detalle
 		)
 		VALUES
 		(
 			 @UsuarioLogin
 			,GETDATE()
-			, 'DELETE', 'Usuario Cedula: ' + @Cedula  
+			, 'DELETE'
+			, 'Usuarios'
+			,'=>Usuario Cedula: ' + @Cedula  
 		)
+		
+		END 
+  ELSE BEGIN 
+  SELECT -1 AS CodeError, 'Este Usuario no se puede borrar' AS MsgError
+
+  
+  END
 		COMMIT TRANSACTION TRASA
+		SELECT 0 AS CodeError, '' as MsgError
 	END TRY
 
 	BEGIN CATCH

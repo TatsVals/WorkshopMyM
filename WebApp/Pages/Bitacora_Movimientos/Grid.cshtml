@@ -4,7 +4,7 @@
 }
 <div class="container-fluid">
 
-    <div class="card">
+    <div class="card" >
         <div class="card-header">
             <h5 class="card-title">Bitacora Movimientos</h5>
         </div>
@@ -20,6 +20,7 @@
                                     <th>Nombre de Usuario</th>
                                     <th>Fecha</th>
                                     <th>Movimiento</th>
+                                    <th>Tabla</th>
                                     <th>Detalle</th>
 
                                 </tr>
@@ -27,13 +28,14 @@
                             <tbody>
                                 @foreach (var item in Model.GridList)
                                 {
-                                    <tr>
-                                        <td>@item.IdMovimiento</td>
-                                        <td>@item.Nombre_Usuario</td>
-                                        <td>@item.Fecha</td>
-                                        <td>@item.Movimiento</td>
-                                        <td>@item.Detalle</td>
-                                    </tr>
+                                <tr>
+                                    <td>@item.IdMovimiento</td>
+                                    <td>@item.Nombre_Usuario</td>
+                                    <td>@item.Fecha</td>
+                                    <td>@item.Movimiento</td>
+                                    <td>@item.Tabla</td>
+                                    <td>@item.Detalle</td>
+                                </tr>
 
 
 

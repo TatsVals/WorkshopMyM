@@ -4,16 +4,15 @@
 }
 <div class="container-fluid">
 
-    <div class="card">
+    <div class="card" style=" width: fit-content; margin-left:-200px">
         <div class="card-header">
-            <h5 class="card-title">Ordenes de Trabajo</h5>
+            <h5 class="card-title">Órdenes de Trabajo</h5>
         </div>
         <div class="card-body">
 
             <a class="btn btn-primary" asp-page="Edit">
                 <i class='bx bx-add-to-queue'></i>
             </a>
-
 
             <div class="row">
                 <div class="col-12">
@@ -38,27 +37,27 @@
                             <tbody>
                                 @foreach (var item in Model.GridList)
                                 {
-                                <tr>
-                                    <td>
-                                        <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdOrden">
-                                            <i class='bx bx-edit-alt'></i>
-                                        </a>
-                                        <button type="button" class="btn btn-danger" onclick="OrdenesGrid.OnclickEliminar(@item.IdOrden)">
-                                            <i class='bx bxs-trash'></i>
-                                        </button>
-                                    </td>
+                                    <tr>
+                                        <td>
+                                            <a class="btn btn-primary" asp-page="Edit" asp-route-id="@item.IdOrden">
+                                                <i class='bx bx-edit-alt'></i>
+                                            </a>
+                                            <button type="button" class="btn btn-danger" onclick="OrdenesGrid.OnclickEliminar(@item.IdOrden)">
+                                                <i class='bx bxs-trash'></i>
+                                            </button>
+                                        </td>
 
-                                    <td>@item.NombreCliente</td>
-                                    <td>@item.PlacaVehiculo</td>
-                                    <td>@item.MarcaVehiculo</td>
-                                    <td>@item.ModeloVehiculo</td>
-                                    <td>@item.AnoVehiculo</td>
-                                    <td>@item.ManodeObra</td>
-                                    <td>@item.Productos</td>
-                                    <td>@item.PrecioProductos</td>
-                                    <td>@item.Estado</td>
+                                        <td>@item.NombreCliente</td>
+                                        <td>@item.PlacaVehiculo</td>
+                                        <td>@item.MarcaVehiculo</td>
+                                        <td>@item.ModeloVehiculo</td>
+                                        <td>@item.AnoVehiculo</td>
+                                        <td>@item.ManodeObra</td>
+                                        <td>@item.Productos</td>
+                                        <td>@item.PrecioProductos</td>
+                                        <td>@item.Estado</td>
 
-                                </tr>
+                                    </tr>
 
                                 }
                             </tbody>
@@ -72,8 +71,25 @@
     </div>
 </div>
 
+@section Scripts{
 
-<script>
+    <script src="https://cdn.datatables.net/fixedheader/3.2.2/js/dataTables.fixedHeader.min.js"></script>
+    @*SCRIPTS DE BOTONES*@
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    @*excel*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    @*pdf*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    @*imprimir*@
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+
+    <script src="~/App/Ordenes/Report.js"></script>
+    <script>
         var MensajeApp = "@Html.Raw(Model.Mensaje)";
-</script>
-<script defer src="~/App/Ordenes/Grid.js"></script>
+    </script>
+    <script defer src="~/App/Ordenes/Grid.js"></script>
+}
+

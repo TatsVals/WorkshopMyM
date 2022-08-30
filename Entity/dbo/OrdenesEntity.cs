@@ -18,6 +18,7 @@ namespace Entity
         public string Productos { get; set; }
         public float PrecioProductos { get; set; }
         public string Estado { get; set; }
+        public string UsuarioLogin { get; set; }
 
     }
 }

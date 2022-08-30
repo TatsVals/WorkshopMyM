@@ -1,13 +1,13 @@
 "use strict";
-var ProductsEdit;
-(function (ProductsEdit) {
+var OrdenesGrid;
+(function (OrdenesGrid) {
     /*Mostrar el modal de confirmación*/
     function OnclickEliminar(id) {
         ComfirmAlert("¿Desea eliminar el registro?", "Eliminar", "warning", '#3085d6', '#d33')
             .then(function (result) {
             if (result.isConfirmed) {
                 Loading.fire("Borrando");
-                App.AxiosProvider.DeletePermisos(id).then(function (data) {
+                App.AxiosProvider.DeleteOrdenes(id).then(function (data) {
                     Loading.close();
                     if (data.CodeError == 0) {
                         Toast.fire({ title: "El registro se elimino correctamente", icon: "success" }).
@@ -20,6 +20,6 @@ var ProductsEdit;
             }
         });
     }
-    ProductsEdit.OnclickEliminar = OnclickEliminar;
-})(ProductsEdit || (ProductsEdit = {}));
+    OrdenesGrid.OnclickEliminar = OnclickEliminar;
+})(OrdenesGrid || (OrdenesGrid = {}));
 //# sourceMappingURL=Grid.js.map

@@ -13,7 +13,7 @@ $(document).ready(function () {
                 filename: 'Reporte Empleados',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4]
+                    columns: [0, 1, 2, 3, 4, 5]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -24,7 +24,7 @@ $(document).ready(function () {
                 filename: 'Reporte Empleados',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4]
+                    columns: [0, 1, 2, 3, 4, 5]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -33,7 +33,7 @@ $(document).ready(function () {
                 extend: 'print',
                 title: '',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4]
+                    columns: [0, 1, 2, 3, 4, 5]
                 },
                 className: 'btn-exportar-print'
 

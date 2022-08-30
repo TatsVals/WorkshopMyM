@@ -1,10 +1,14 @@
 ﻿body {
-    background-color: aliceblue; 
+    background-image: url('../Images/FondoLogin.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position-y:center;
+    background-color: rgba(0, 22, 40, .6);
     font-family: "Lexend Exa", sans-serif;
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100vh;
-    
 }
 
 header {
@@ -15,12 +19,8 @@ header {
 }
 
 
-div {
-    
-}
 
 .logo {
-   
 }
 .logo img{
     height: 80px;
@@ -63,6 +63,7 @@ ul {
             text-decoration: none;
             text-transform: uppercase;
             transition: color 0.2s;
+
             
         }
 
@@ -94,11 +95,10 @@ ul {
                 }
 
         ul li:hover {
-            background: #85c5de;
+            background: #ed521f;
             border: 2px solid black;
             border-right: 2px solid black;
             border-bottom: 2px solid black;
-            
         }
 
             ul li:hover a {
@@ -168,3 +168,4 @@ thead input {
 .btn-exportar-print {
     background-color: #00a7c9 !important;
     color: white !important;
+}

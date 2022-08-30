@@ -5,7 +5,8 @@
 	@Personal VARCHAR(50) = '',		
 	@AccesoPersonal BIT,
 	@Bitacoras VARCHAR(50) = '',		
-	@AccesoBitacoras BIT
+	@AccesoBitacoras BIT,
+	@UsuarioLogin VARCHAR(50)
 
 AS
  BEGIN
@@ -14,8 +15,7 @@ AS
   BEGIN TRANSACTION TRASA
 
   BEGIN TRY
-
-  	IF NOT EXISTS( SELECT * FROM dbo.Roles WHERE @Rol=Rol) BEGIN
+  	IF NOT EXISTS( SELECT * FROM dbo.Roles WHERE Rol=@Rol) BEGIN
 	IF (@AccesoTaller = 1) BEGIN SET @Taller = 'Acceso a Taller' END
 	ELSE BEGIN  SET @Taller = 'Sin Acceso a Taller' END
 	IF (@AccesoPersonal = 1) BEGIN SET @Personal = 'Acceso a Personal' END
@@ -40,8 +40,25 @@ AS
 	
   )
 
-    SELECT 0 AS CodeError, '' AS MsgError
-	END
+   
+
+	INSERT INTO	dbo.Bitacora_Movimientos
+		(
+			 Nombre_Usuario
+			,Fecha, Movimiento
+			,Tabla
+		    ,Detalle
+		)
+		VALUES
+		(
+			 @UsuarioLogin
+			,GETDATE()
+			, 'INSERT'
+			, 'Roles'
+			, '=>Rol: ' + @Rol +'=>Taller: ' + @Taller + ' =>Personal: ' + @Personal +' =>Bitacoras: ' + @Bitacoras 
+		)
+
+		END
   ELSE BEGIN 
 		
 			SELECT -1 AS CodeError, 'Este Rol se encuentra en uso por favor ingresar otro Rol!' AS MsgError
@@ -50,7 +67,7 @@ AS
 		END
 
   COMMIT TRANSACTION TRASA
-
+   SELECT 0 AS CodeError, '' AS MsgError
 
 
   END TRY

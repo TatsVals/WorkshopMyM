@@ -1,0 +1,46 @@
+﻿@page
+@model WebApp.Pages.Users.CambioClaveModel
+@{
+}
+<div id="AppCambioClave" class="container" data-entity="@JsonSerializer.Serialize(Model.Entity)" v-cloak>
+    <div class="card">
+        <div class="card-header">
+            @(Model.id.HasValue?"Actualizar":"Nuevo")
+        </div>
+        <div class="card-body">
+            <form id="FormCambioClave" method="post">
+
+                <div class="form-group mb-3">
+                    <label for="Entity.Nombre_Usuario" class="form-label">Nombre Usuario</label>
+                    <input type="text" class="form-control" asp-for="Entity.Nombre_Usuario" v-model="Entity.Nombre_Usuario" maxlength="50" pattern="[A-Za-z]" required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.ClaveActual" class="form-label">Clave Actual</label>
+                    <input type="password" class="form-control" asp-for="Entity.ClaveActual" v-model="Entity.ClaveActual"   required>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Entity.ClaveNueva" class="form-label">Clave debe tener al menos 8 dígitos, una mayúscula y un número</label>
+                    <input type="password" class="form-control" asp-for="Entity.ClaveNueva" v-model="Entity.ClaveNueva" Minlenght="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="La clave debe tener minimo 8 digitos " required>
+                </div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <button type="button" @@click="Save" class="btn btn-primary">
+                            @(Model.id.HasValue?"Actualizar":"Agregar") <!-- validacion por si es agregar o actualizar -->
+                        </button>
+                    </div>
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script defer src="~/App/User/CambioClave.js"></script>
+}

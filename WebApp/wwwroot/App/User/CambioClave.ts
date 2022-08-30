@@ -1,13 +1,13 @@
-﻿namespace PermisosEdit {
+﻿namespace CambioClave {
 
 
-    var Entity = $("#AppEdit").data("entity")
+    var Entity = $("#AppCambioClave").data("entity")
 
     var Formulario = new Vue(
         {
             data:
             {
-                Formulario: "#FormEdit",  // nombre del id que se le dio al form en el Edit
+                Formulario: "#FormCambioClave",  // nombre del id que se le dio al form en el Edit
                 Entity: Entity
             },
 
@@ -17,13 +17,13 @@
                     if (BValidateData(this.Formulario)) {
                         Loading.fire("Guardando..");
 
-                        App.AxiosProvider.SavePermisos(this.Entity).then(data => {
+                        App.AxiosProvider.CambioClave(this.Entity).then(data => {
                             Loading.close();
 
                             if (data.CodeError == 0) {
 
                                 Toast.fire({ title: "El registro se guardó correctamente", icon: "success" }).then
-                                    (() => window.location.href = "Permisos/Grid")
+                                    (() => window.location.href = "Users/Grid")
                             } else {
                                 Toast.fire({ title: data.MsgError, icon: "error" })
 
@@ -48,7 +48,7 @@
 
         });
 
-    Formulario.$mount("#AppEdit");
+    Formulario.$mount("#AppCambioClave");
 
 
 

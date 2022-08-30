@@ -27,6 +27,10 @@ var App;
             var data = _a.data;
             return data;
         }); };
+        AxiosProvider.CambioClave = function (entity) { return axios.post("Users/CambioClave", entity).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
         AxiosProvider.SavePermisos = function (entity) { return axios.post("Permisos/Edit", entity).then(function (_a) {
             var data = _a.data;
             return data;
@@ -44,6 +48,10 @@ var App;
             return data;
         }); };
         AxiosProvider.Login = function (entity) { return axios.post("Login", entity).then(function (_a) {
+            var data = _a.data;
+            return data;
+        }); };
+        AxiosProvider.Recuperar = function (entity) { return axios.post("RecuperarClave", entity).then(function (_a) {
             var data = _a.data;
             return data;
         }); };

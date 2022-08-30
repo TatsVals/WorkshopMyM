@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[ProductsCreate]
+	@UsuarioLogin VARCHAR(10),
 	@Codigo VARCHAR(10),
 	@Descripcion VARCHAR(300),
 	@Unidad VARCHAR(20),
@@ -15,7 +16,10 @@ AS
 
   BEGIN TRY
 
-
+  IF EXISTS( SELECT * FROM dbo.Productos WHERE @Codigo=Codigo) BEGIN
+		SELECT -1 AS CodeError, 'Este codigo de producto se encuentra registrado!' AS MsgError
+	END
+	ELSE BEGIN
   INSERT INTO dbo.Productos
   (
      Codigo
@@ -36,7 +40,24 @@ AS
 	, @PrecioVenta
 	, @CantidadDisponible * @PrecioCompra
   )
-
+  INSERT INTO	dbo.Bitacora_Movimientos
+		(
+			 Nombre_Usuario
+			,Fecha
+			,Movimiento
+			,Tabla
+		    ,Detalle
+		)
+		VALUES
+		(
+			 @UsuarioLogin
+			,GETDATE()
+			, 'INSERT'
+			, 'Productos'
+			, '=>Codigo: ' + Convert(Varchar, @Codigo) + '   =>Descripcion: ' + @Descripcion +'   =>Unidad: ' + @Unidad + '   =>Cantidad Disponible: ' + Convert(Varchar, @CantidadDisponible) + '   =>Precio de Compra: ' + Convert(Varchar, @PrecioCompra)  + '   =>Precio de Venta: ' + Convert(Varchar, @PrecioVenta)+ '   =>Costo Total: ' + Convert(Varchar, @CantidadDisponible * @PrecioCompra)
+		)
+		END
+		
   COMMIT TRANSACTION TRASA
   SELECT 0 AS CodeError, '' AS MsgError
 

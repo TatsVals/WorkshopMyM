@@ -18,39 +18,39 @@
 
                 <div class="form-group mb-3">
                     <label for="Entity.PlacaVehiculo" class="form-label">Placa Vehiculo</label>
-                    <input type="text" class="form-control" asp-for="Entity.PlacaVehiculo" v-model="Entity.PlacaVehiculo" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.PlacaVehiculo" v-model="Entity.PlacaVehiculo" maxlength="50" required>
                 </div>
 
                 <div class="form-group  mb-3">
                     <label for="Entity.MarcaVehiculo" class="form-label">Marca de Vehiculo</label>
-                    <input type="text" class="form-control" asp-for="Entity.MarcaVehiculo" v-model="Entity.MarcaVehiculo" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.MarcaVehiculo" v-model="Entity.MarcaVehiculo" maxlength="50" required>
                 </div>
 
                 <div class="form-group  mb-3">
                     <label for="Entity.ModeloVehiculo" class="form-label">Modelo de Vehiculo</label>
-                    <input type="text" class="form-control" asp-for="Entity.ModeloVehiculo" v-model="Entity.ModeloVehiculo" maxlength="250" required>
+                    <input type="text" class="form-control" asp-for="Entity.ModeloVehiculo" v-model="Entity.ModeloVehiculo" maxlength="50" required>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="Entity.AnoVehiculo" class="form-label">Año de Vehiculo</label>
-                    <input type="number" class="form-control" asp-for="Entity.AnoVehiculo" v-model="Entity.AnoVehiculo" required>
+                    <input type="number" class="form-control" asp-for="Entity.AnoVehiculo" v-model="Entity.AnoVehiculo" maxlength="50" required>
                 </div>
 
 
 
                 <div class="form-group mb-3">
                     <label for="Entity.ManodeObra" class="form-label">Precio Mano Obra</label>
-                    <input type="number" class="form-control" asp-for="Entity.ManodeObra" v-model="Entity.ManodeObra" required>
+                    <input type="number" class="form-control" asp-for="Entity.ManodeObra" v-model="Entity.ManodeObra" min="1" step="any" maxlength="50" required>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="Entity.Productos" class="form-label">Productos</label>
-                    <textarea class="form-control" asp-for="Entity.Productos" v-model="Entity.Productos" required></textarea>
+                    <textarea class="form-control" asp-for="Entity.Productos" v-model="Entity.Productos" maxlength="150" required></textarea>
                 </div>
 
                 <div class="form-group mb-3">
                     <label for="Entity.PrecioProductos" class="form-label">Precio Productos</label>
-                    <input type="number" class="form-control" asp-for="Entity.PrecioProductos" v-model="Entity.PrecioProductos" required>
+                    <input type="number" class="form-control" asp-for="Entity.PrecioProductos" v-model="Entity.PrecioProductos" maxlength="50" min="1" step="any" required>
                 </div>
 
                 <div class="form-group mb-3">

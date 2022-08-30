@@ -1,20 +1,20 @@
 "use strict";
-var PermisosEdit;
-(function (PermisosEdit) {
-    var Entity = $("#AppEdit").data("entity");
+var CambioClave;
+(function (CambioClave) {
+    var Entity = $("#AppCambioClave").data("entity");
     var Formulario = new Vue({
         data: {
-            Formulario: "#FormEdit",
+            Formulario: "#FormCambioClave",
             Entity: Entity
         },
         methods: {
             Save: function () {
                 if (BValidateData(this.Formulario)) {
                     Loading.fire("Guardando..");
-                    App.AxiosProvider.SavePermisos(this.Entity).then(function (data) {
+                    App.AxiosProvider.CambioClave(this.Entity).then(function (data) {
                         Loading.close();
                         if (data.CodeError == 0) {
-                            Toast.fire({ title: "El registro se guardó correctamente", icon: "success" }).then(function () { return window.location.href = "Permisos/Grid"; });
+                            Toast.fire({ title: "El registro se guardó correctamente", icon: "success" }).then(function () { return window.location.href = "Users/Grid"; });
                         }
                         else {
                             Toast.fire({ title: data.MsgError, icon: "error" });
@@ -30,6 +30,6 @@ var PermisosEdit;
             CreateValidator(this.Formulario);
         }
     });
-    Formulario.$mount("#AppEdit");
-})(PermisosEdit || (PermisosEdit = {}));
-//# sourceMappingURL=Edit.js.map
+    Formulario.$mount("#AppCambioClave");
+})(CambioClave || (CambioClave = {}));
+//# sourceMappingURL=CambioClave.js.map

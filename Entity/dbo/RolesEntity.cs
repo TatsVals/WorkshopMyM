@@ -16,5 +16,6 @@ namespace Entity
         public string Personal { get; set; }
         public Boolean AccesoBitacoras { get; set; }
         public string Bitacoras { get; set; }
+        public string UsuarioLogin { get; set; }
     }
 }

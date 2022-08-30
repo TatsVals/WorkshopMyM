@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[OrdenCreate]
-	@NombreCliente VARCHAR(250),
+	@UsuarioLogin VARCHAR(250),
+	@NombreCliente VARCHAR(50),
 	@PlacaVehiculo VARCHAR(50),
 	@MarcaVehiculo VARCHAR(50),
 	@ModeloVehiculo VARCHAR(50),
@@ -44,6 +45,23 @@ AS
 	, @Estado
 	
   )
+
+  INSERT INTO	dbo.Bitacora_Movimientos
+		(
+			 Nombre_Usuario
+			,Fecha
+			,Movimiento
+			,Tabla
+		    ,Detalle
+		)
+		VALUES
+		(
+			 @UsuarioLogin
+			,GETDATE()
+			, 'INSERT'
+			, 'Ordenes'
+			, '=>Nombre Cliente: ' + @NombreCliente + '   =>Placa Vehículo: ' + @PlacaVehiculo +'   =>Marca Vehiculo: ' + @MarcaVehiculo + '   =>Modelo Vehículo: ' + @ModeloVehiculo + '   =>Año Vehículo: ' +  @AnoVehiculo  + '   =>Mano de Obra: ' + Convert(Varchar,@ManodeObra )+ '   =>Productos: ' + @Productos+ + '   =>Precio de Productos: ' + Convert(Varchar,@PrecioProductos )+'   =>Estado: ' + @Estado
+		)
 
   COMMIT TRANSACTION TRASA
   SELECT 0 AS CodeError, '' AS MsgError
