@@ -17,25 +17,25 @@
 
                 <div class="form-group mb-3">
                     <label for="Entity.ClaveActual" class="form-label">Clave Actual</label>
-                    <input type="password" class="form-control" asp-for="Entity.ClaveActual" v-model="Entity.ClaveActual"   required>
+                    <input type="password" class="form-control" asp-for="Entity.ClaveActual" v-model="Entity.ClaveActual" required>
                 </div>
-
-                <div class="form-group mb-3">
-                    <label for="Entity.ClaveNueva" class="form-label">Clave debe tener al menos 8 dígitos, una mayúscula y un número</label>
-                    <input type="password" class="form-control" asp-for="Entity.ClaveNueva" v-model="Entity.ClaveNueva" Minlenght="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="La clave debe tener minimo 8 digitos " required>
-                </div>
-
-                <div class="row">
-                    <div class="col-4">
-                        <button type="button" @@click="Save" class="btn btn-primary">
-                            @(Model.id.HasValue?"Actualizar":"Agregar") <!-- validacion por si es agregar o actualizar -->
-                        </button>
+                
+                    <div class="form-group mb-3">
+                        <label for="Entity.ClaveNueva" class="form-label">Clave debe tener al menos 8 dígitos, una mayúscula y un número</label>
+                        <input type="password" class="form-control" asp-for="Entity.ClaveNueva" v-model="Entity.ClaveNueva" Minlenght="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="La clave debe tener minimo 8 digitos " required>
                     </div>
-                </div>
+                
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="button" @@click="Save" class="btn btn-primary">
+                                @(Model.id.HasValue?"Actualizar":"Agregar") <!-- validacion por si es agregar o actualizar -->
+                            </button>
+                        </div>
+                    </div>
 
 
 
-            </form>
+                </form>
         </div>
     </div>
 </div>
