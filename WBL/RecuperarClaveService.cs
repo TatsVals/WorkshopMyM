@@ -64,8 +64,8 @@ namespace WBL
 
                 if (result.CodeError == 0)
                 {
-                    string EmailOrigen = "workshopmymrecuperacion@gmail.com";
-                    String ClaveOrigen = "lbfdnveqyqbiljwc";
+                    string EmailOrigen = "tallermymsystem@gmail.com";
+                    String ClaveOrigen = "";
                     String ClaveTemporal = entity.ClaveTemporal.ToString();
                     string EmailDestino = entity.Correo;
 
@@ -76,7 +76,7 @@ namespace WBL
                     SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
                     oSmtpClient.EnableSsl = true;
                     oSmtpClient.UseDefaultCredentials = false;
-                    oSmtpClient.Host = "smtp.gmail.com";
+                    //oSmtpClient.Host = "smtp.gmail.com";
                     oSmtpClient.Port = 587;
                     oSmtpClient.Credentials = new System.Net.NetworkCredential(EmailOrigen, ClaveOrigen);
                     oSmtpClient.Send(oMailMessage);

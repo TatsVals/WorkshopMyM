@@ -40,35 +40,40 @@
                     <label for="Entity.Nombre_Usuario" class="form-label">Nombre Usuario</label>
                     <input type="text" class="form-control" asp-for="Entity.Nombre_Usuario" v-model="Entity.Nombre_Usuario" maxlength="50" pattern="[A-Za-z]" required>
                 </div>
-
-
-
-                <div class="form-group mb-3">
-                    <label for="Entity.IdRol" class="form-label">Rol</label>
-
-                    <select asp-for="Entity.IdRol" class="form-select" v-model="Entity.IdRol"
-                            asp-items="@(new SelectList(Model.RolesLista,"IdRol","Rol"))" required>
-                    </select>
-                </div>
-
-
-
-
-
-
-                <div class="row">
-                    <div class="col-4">
-                        <button type="button" @@click="Save" class="btn btn-primary">
-                            @(Model.id.HasValue?"Actualizar":"Agregar") <!-- validacion por si es agregar o actualizar -->
-                        </button>
-                       
+                @if (Model.id.HasValue == false)
+                {
+                    <div class="form-group mb-3">
+                        <label for="Entity.Clave" class="form-label">Clave debe tener al menos 8 dígitos, una mayúscula y un número</label>
+                        <input type="password" class="form-control" asp-for="Entity.Clave" v-model="Entity.Clave" Minlenght="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="La clave debe tener minimo 8 digitos " required>
                     </div>
-                </div>
-               
+                }
+
+                    <div class="form-group mb-3">
+                        <label for="Entity.IdRol" class="form-label">Rol</label>
+
+                        <select asp-for="Entity.IdRol" class="form-select" v-model="Entity.IdRol"
+                                asp-items="@(new SelectList(Model.RolesLista,"IdRol","Rol"))" required>
+                        </select>
+                    </div>
 
 
 
-            </form>
+
+
+
+                    <div class="row">
+                        <div class="col-4">
+                            <button type="button" @@click="Save" class="btn btn-primary">
+                                @(Model.id.HasValue?"Actualizar":"Agregar") <!-- validacion por si es agregar o actualizar -->
+                            </button>
+
+                        </div>
+                    </div>
+
+
+
+
+                </form>
         </div>
     </div>
 </div>

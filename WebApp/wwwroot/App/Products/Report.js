@@ -10,7 +10,7 @@
             {
                 extend: 'excelHtml5',
                 text: 'Exportar Excel',
-                filename: 'Reporte Empleados',
+                filename: 'Reporte Productos',
                 title: '',
                 exportOptions: {
                     columns: [ 1, 2, 3, 4, 5, 6]
@@ -21,7 +21,7 @@
             {
                 extend: 'pdfHtml5',
                 text: 'Exportar PDF',
-                filename: 'Reporte Empleados',
+                filename: 'Reporte Productos',
                 title: '',
                 exportOptions: {
                     columns: [ 1, 2, 3, 4, 5, 6]

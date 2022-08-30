@@ -10,10 +10,10 @@
             {
                 extend: 'excelHtml5',
                 text: 'Exportar Excel',
-                filename: 'Reporte Empleados',
+                filename: 'Reporte Ordenes',
                 title: '',
                 exportOptions: {
-                    columns: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                    columns: [ 1, 2, 3, 4, 5, 6, 7, 8, 9]
                 },
                 className: 'btn-exportar-excel',
             },
@@ -21,10 +21,10 @@
             {
                 extend: 'pdfHtml5',
                 text: 'Exportar PDF',
-                filename: 'Reporte Empleados',
+                filename: 'Reporte Ordenes',
                 title: '',
                 exportOptions: {
-                    columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                    columns: [1, 2, 3, 4, 5, 6, 7, 8, 9]
                 },
                 className: 'btn-exportar-pdf',
             },
@@ -33,7 +33,7 @@
                 extend: 'print',
                 title: '',
                 exportOptions: {
-                    columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+                    columns: [1, 2, 3, 4, 5, 6, 7, 8, 9]
                 },
                 className: 'btn-exportar-print'
 

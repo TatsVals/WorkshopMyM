@@ -10,7 +10,7 @@ $(document).ready(function () {
             {
                 extend: 'excelHtml5',
                 text: 'Exportar Excel',
-                filename: 'Reporte Empleados',
+                filename: 'Reporte Movimientos',
                 title: '',
                 exportOptions: {
                     columns: [0, 1, 2, 3, 4, 5]
@@ -21,7 +21,7 @@ $(document).ready(function () {
             {
                 extend: 'pdfHtml5',
                 text: 'Exportar PDF',
-                filename: 'Reporte Empleados',
+                filename: 'Reporte Movimientos',
                 title: '',
                 exportOptions: {
                     columns: [0, 1, 2, 3, 4, 5]
