@@ -65,7 +65,7 @@ namespace WBL
                 if (result.CodeError == 0)
                 {
                     string EmailOrigen = "tallermymsystem@gmail.com";
-                    String ClaveOrigen = "ytoppphcuclnjjna";
+                    String ClaveOrigen = "";
                     String ClaveTemporal = entity.ClaveTemporal.ToString();
                     string EmailDestino = entity.Correo;
 
