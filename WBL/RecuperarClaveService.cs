@@ -58,14 +58,13 @@ namespace WBL
 
                     entity.Nombre_Usuario,
                     entity.Correo,
-                    entity.ClaveTemporal
-
+                    entity.ClaveTemporal,
                 });
 
                 if (result.CodeError == 0)
                 {
-                    string EmailOrigen = "tallermymsystem@gmail.com";
-                    String ClaveOrigen = "";
+                    string EmailOrigen = result.CorreoEnvio;
+                    String ClaveOrigen = result.Pase;
                     String ClaveTemporal = entity.ClaveTemporal.ToString();
                     string EmailDestino = entity.Correo;
 

@@ -12,6 +12,8 @@ namespace Entity
 
         public string Correo { get; set; }
         public int ClaveTemporal { get; set; }
+        public string CorreoEnvio { get; set; }
+        public string Pase { get; set; }
 
     }
 }

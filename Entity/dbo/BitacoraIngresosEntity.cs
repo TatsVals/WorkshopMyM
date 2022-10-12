@@ -11,6 +11,6 @@ namespace Entity
         public int IdIngreso { get; set; }
         public string NombreUsuario { get; set; }
         public DateTime FechaIngreso { get; set; }
-        public DateTime FechaSalida { get; set; }
+        public string FechaSalida { get; set; }
     }
 }

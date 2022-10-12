@@ -92,6 +92,7 @@
     <Build Include="dbo\StoredProcedures\OrdenRead.sql" />
     <Build Include="dbo\StoredProcedures\ClaveTemporal.sql" />
     <Build Include="dbo\StoredProcedures\CambioClave.sql" />
+    <Build Include="dbo\Tables\Correos.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataBaseWorkshopMyM.publish.xml" />

@@ -2,6 +2,7 @@
 	@Nombre_Usuario VARCHAR(30),
 	@Correo VARCHAR(100),
 	@ClaveTemporal VARCHAR(30)
+	
 AS
 
 BEGIN
@@ -23,13 +24,9 @@ BEGIN
 			
 		WHERE
 			Nombre_Usuario = @Nombre_Usuario
-
 	
-
-  
-		
   COMMIT TRANSACTION TRASA
-  SELECT 0 AS CodeError, '' AS MsgError
+  SELECT 0 AS CodeError, '' AS MsgError, CorreoEnvio, Pase From Correos Where IdCorreo=1
 	END
   END TRY
 

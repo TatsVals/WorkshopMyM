@@ -12,9 +12,9 @@ BEGIN
 		
 		UPDATE	dbo.BitacoraIngresos
 		SET
-			 FechaSalida = GETDATE()
+			 FechaSalida = CAST(GETDATE()AS VARCHAR)
 
-		WHERE NombreUsuario = (SELECT NombreUsuario FROM BitacoraIngresos WHERE FechaSalida = '11/11/11') and FechaSalida = '11/11/11' 
+		WHERE FechaSalida = 'Usuario En Sesión'
 		SELECT 0 AS CodeError, '' as MsgError
 
 
